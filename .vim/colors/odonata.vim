@@ -1,10 +1,5 @@
 " Vim color file
-"
 " Author: Mamoru Kaminaga
-"
-" Note: Based on the molokai thieme for vim
-" by Tomas Restrepo <tomas@winterdom.com>
-"
 
 let g:colors_name=expand('<sfile>:t:r')
 set background=dark
@@ -15,7 +10,7 @@ if exists("syntax_on")
 endif
 
 "
-" Support for 256-color terminal
+" 256-color terminal
 "
 hi Normal           ctermfg=252     ctermbg=233
 hi CursorLine       ctermbg=196                     cterm=none
