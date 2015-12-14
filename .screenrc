@@ -1,0 +1,4 @@
+startup_message off
+defscrollback 1000
+silencewait 15
+termcapinfo xterm* ti@:te@

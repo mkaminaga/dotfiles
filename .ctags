@@ -1,0 +1,5 @@
+--append=yes
+--recurse=yes
+--c-kinds=+l
+--c++-kinds=+l
+--tag-relative=yes
