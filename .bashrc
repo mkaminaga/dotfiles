@@ -1,13 +1,18 @@
 #.bash.rc
 
+#PCごとのフォルダ階層を適用
+USER_NAME="rsc95133"
+SVN_REPOSITORY_NAME="yui"
+
 #カラースキームの設定
 [ -z "$LS_COLORS" ] && eval "`dircolors -b /etc/DIR_COLORS`"
 #eval "$(dircolors -b /etc/DIR_COLORS)"
 #source /etc/colorSchime/mintty-colors-solarized/sol.dark
 
+#Githubリポジトリを活用してドットファイルを管理
 ~/dotfiles/dotfileLink.sh
 
-#--------------------------------------------------------------------------
+#----
 #alias
 #
 
@@ -15,6 +20,7 @@
 
 alias la='ls -la'
 
+#nkfコマンドの簡易設定
 alias u2w='nkf -w -Lw'
 alias u2wo='nkf -w -Lw --overwrite'
 alias w2u='nkf -u -Lu'
@@ -38,20 +44,14 @@ alias new='c /cygdrive/c/WinLinks/terminal.lnk'
 #ウィンドウズアプリを含むプロセスの簡易表示
 alias ps='ps -s -W'
 
-#クリップボードから貼り付け
-#alias pbcopy='cat >/dev/clipboard'
-
-#クリップボードにコピー
-#alias pbpaste='cat /dev/clipboard'
-
 #Doxygenでプロジェクト名のオーバーライド
 function DoxygenProjectNameOverRide () {
-    (cat ~/Doxyfile ; echo "PROJECT_NAME=$1") | doxygen -;
+    (cat ~/dotfiles/Doxyfile ; echo "PROJECT_NAME=$1") | doxygen -;
 }
 alias Doxygen='DoxygenProjectNameOverRide'
 
-#------------------------------------------------------------------------
-#Windowsとの対応
+#----
+#WindowsとCygwinの対応
 
 #コマンドプロンプトの起動オプション
 alias cmd='cmd /k "C:\WinLinks\Cmd_ini.bat"'
@@ -62,49 +62,80 @@ alias c=cygstart
 #stop エクスプローラを停止
 alias balse='taskkill /im explorer.exe /f'
 
-#cygwinからclコンパイラを起動
-#http://stackoverflow.com/questions/366928/invoking-cl-exe-msvc-compiler-in-cygwin-shell
-
-#------------------------------------------------------------------------
-#ジャンプ設定
+#----
+#シンボリックリンクの設定
 
 #起動時
 cd ~/
 
 #ドキュメント
-alias doc='cd /cygdrive/c/Users/rsc95133/Documents'
+LINK_NAME="Documents"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents ~/${LINK_NAME};
+fi
 
 #デスクトップ
-alias des='cd /cygdrive/c/Users/rsc95133/Desktop'
+LINK_NAME="Desktop"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Desktop ~/${LINK_NAME}
+fi
 
 #ダウンロード
-alias dow='cd /cygdrive/c/Users/rsc95133/Downloads'
+LINK_NAME="Downloads"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Downloads ~/${LINK_NAME}
+fi
 
 #ピクチャ
-alias pict='cd /cygdrive/c/Users/rsc95133/Pictures/'
+LINK_NAME="Pictures"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Pictures/ ~/${LINK_NAME}
+fi
 
 #SVNローカルリポジトリの電源PICの作業フォルダ
-alias powp='cd /cygdrive/c/Users/rsc95133/Documents/yui/ITF-2/code_share/"PIC(Pow)"'
+LINK_NAME="Powpic"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/code_share/"PIC(Pow)" ~/${LINK_NAME}
+fi
 
 #SVNローカルリポジトリの電通信PICの作業フォルダ
-alias comp='cd /cygdrive/c/Users/rsc95133/Documents/yui/ITF-2/code_share/"PIC(Com)"'
+LINK_NAME="Compic"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/code_share/"PIC(Com)" ~/${LINK_NAME}
+fi
 
 #SVNローカルリポジトリのユニバサル基板の作業フォルダ
-alias uni='cd /cygdrive/c/Users/rsc95133/Documents/yui/ITF-2/"C&Dh"/EagleUniversalBoardProjects'
+LINK_NAME="Uni"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/"C&Dh"/EagleUniversalBoardProjects ~/${LINK_NAME}
+fi
 
 #SVNローカルリポジトリのEM基板の作業フォルダ
-alias em='cd /cygdrive/c/Users/rsc95133/Documents/yui/ITF-2/PCB/CDH/EM'
+LINK_NAME="Em"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/PCB/CDH/EM ~/${LINK_NAME}
+fi
 
 #SVNローカルリポジトリのPFM基板の作業フォルダ
-alias fm='cd /cygdrive/c/Users/rsc95133/Documents/yui/ITF-2/PCB/CDH/PFM'
+LINK_NAME="Fm"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/PCB/CDH/PFM ~/${LINK_NAME}
+fi
 
 #SVNローカルリポジトリのCDH系の作業フォルダ
-alias cdh='cd /cygdrive/c/Users/rsc95133/Documents/yui/ITF-2/"C&DH"'
+LINK_NAME="Cdh"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/"C&DH" ~/${LINK_NAME}
+fi
 
 #SVNローカルリポジトリの通信/コマンド
-alias cmnd='cd /cygdrive/c/Users/rsc95133/Documents/yui/ITF-2/"C&Dh"/コマンド処理'
+LINK_NAME="Cmnd"
+if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
+    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/"C&Dh"/コマンド処理 ${LINK_NAME}
+fi
 
-#------------------------------------------------------------------------
+#----
 #オマケ
-/cygdrive/c/Users/rsc95133/Documents/pro/ShellScripts/hello.sh
-
+echo "hello!"
+DATE_TEMP=`date|awk '{print $1 $2 $3 $5}'`
+echo "It is ${DATE_TEMP}"

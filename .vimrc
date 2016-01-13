@@ -134,7 +134,7 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 "---------------------------------------------------------------------------
 
 "カラースキーマ
-"source ~/dotfiles/.vim/colors/odonata.vim
+source ~/dotfiles/.vim/colors/odonata.vim
 
 "タイトルを表示する
 set title
@@ -216,17 +216,17 @@ set noswapfile
 "保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 
-" "binalyファイルはHEXスタイルで開く
-" augroup Binary
-"    au!
-"    au BufReadPre  *.bin let &bin=1
-"    au BufReadPost *.bin if &bin | %!xxd
-"    au BufReadPost *.bin set ft=xxd | endif
-"    au BufWritePre *.bin if &bin | %!xxd -r
-"    au BufWritePre *.bin endif
-"    au BufWritePost *.bin if &bin | %!xxd
-"    au BufWritePost *.bin set nomod | endif
-" augroup END
+"binalyファイルはHEXスタイルで編集
+augroup Binaly
+    au!
+    au BufReadPre   *.bin let &bin=1
+    au BufReadPost  *.bin if  &bin | %!xxd -g 1
+    au BufReadPost  *.bin set ft=xxd | endif
+    au BufWritePre  *.bin if  &bin | %!xxd -r
+    au BufWritePre  *.bin endif
+    au BufWritePost *.bin if  &bin | %!xxd -g 1
+    au BufWritePost *.bin set nomod | end
+augroup END
 
 "---------------------------------------------------------------------------
 "コマンド設定
@@ -273,32 +273,6 @@ nnoremap ! %
 
 "sを無効化
 nnoremap s <Nop>
-
-" "ウィンドウを水平分割する
-" nnoremap ss :<C-u>sp<CR>
-" "ウィンドウを垂直分割する
-" nnoremap sv :<C-u>vs<CR>
-" "左のウィンドウに移動
-" nnoremap sh <C-w>h
-" "下のウィンドウに移動
-" nnoremap sj <C-w>j
-" "上のウィンドウに移動
-" nnoremap sk <C-w>k
-" "右のウィンドウに移動
-" nnoremap sl <C-w>l
-" "次のウィンドウに移動
-" nnoremap sw <C-w>w
-"
-" "ウィンドウを左に移動
-" nnoremap sH <C-w>H
-" "ウィンドウを下に移動
-" nnoremap sJ <C-w>J
-" "ウィンドウを上に移動
-" nnoremap sK <C-w>K
-" "ウィンドウを右に移動
-" nnoremap sL <C-w>L
-" "ウィンドウを回転移動
-" nnoremap sr <C-w>r
 
 "ウィンドウの大きさをそろえる
 nnoremap s= <C-w>=
@@ -360,51 +334,58 @@ nnoremap tr <C-o>
 "IDE的な設定
 "---------------------------------------------------------------------------
 
-"Cygwinツールを用いたmakeコマンド
+"GNUツールを用いたmakeコマンド
 nnoremap <F5> :MakeCompile<CR>
 command! MakeCompile call s:MakeCompile()
 function! s:MakeCompile()
+    :bufdo w
     :!make
 endfunction
 
-"Microsoftのnmakeコマンド
+"Microsoftツールのnmakeコマンド
 nnoremap <F6> :NMakeCompile<CR>
 command! NMakeCompile call s:NMakeCompile()
 function! s:NMakeCompile()
     if has("win32") || has("win64") || has("win32unix")
+        :bufdo w
         :!nmake
     endif
 endfunction
 
-"-----------------------------------------------------------------------------
+"Microsoftツールのclコンパイラ
+nnoremap <F8> :Cl<CR>
+command! Cl call s:Cl()
+function! s:Cl()
+    if has("win32") || has("win64") || has("win32unix")
+        :w
+		:!cl % -o %:r.exe
+    endif
+endfunction
 
-"コンパイル&実行コマンド
+"コンパイル
 nnoremap <F7> :Run<CR>
 command! Run call s:Run()
 function! s:Run()
+    :w
     let e = expand("%:e")
     if e == "c"
         :Gcc
     elseif e == "cpp"
         :Gpp
-    elseif e == "py"
-        :Python
-    elseif e == "pl"
-        :Perl
     elseif e == "f90" || e == "f95"
         :Gfortran
     endif
 endfunction
+
+"----
 
 "c言語
 command! Gcc call s:Gcc()
 function! s:Gcc()
     if has("win32") || has("win64") || has("win32unix")
         :!gcc % -o %:r.exe
-        :!./%:r.exe
     else
         :!gcc % -o %:r.out
-        :!./%:r.out
     endif
 endfunction
 
@@ -413,10 +394,8 @@ command! Gpp call s:Gpp()
 function! s:Gpp()
     if has("win32") || has("win64") || has("win32unix")
         :!g++ % -o %:r.exe
-        :!./%:r.exe
     else
         :!g++ % -o %:r.out
-        :!./%:r.out
     endif
 endfunction
 
@@ -425,31 +404,18 @@ command! Gfortran call s:Gfortran()
 function! s:Gfortran()
     if has("win32") || has("win64") || has("win32unix")
         :!gfortran % -o %:r.exe
-        :!./%:r.exe
     else
         :!gfortran % -o %:r.out
-        :!./%:r.out
     endif
 endfunction
 
-"Python
-command! Python call s:Python()
-function! s:Python()
-    :!python ./%
-endfunction
-
-"Perl
-command! Perl call s:Perl()
-function! s:Perl()
-    :!perl ./%
-endfunction
-
-"-----------------------------------------------------------------------------
+"----
 
 "実行コマンド
-nnoremap <F9> :Run2<CR>
-command! Run2 call s:Run2()
-function! s:Run2()
+nnoremap <F9> :Execute<CR>
+command! Execute call s:Execute()
+function! s:Execute()
+    :w
     let e = expand("%:e")
     if e == "c"
         if has("win32") || has("win64") || has("win32unix")
@@ -471,7 +437,13 @@ function! s:Run2()
         endif
     elseif e == "py"
         :!python ./%
+    elseif e == "pl"
+        :!perl ./%
+    elseif e == "ttl"
+        if has("win32") || has("win64") || has("win32unix")
+			:!cygstart %
         endif
+    endif
 endfunction
 
 "---------------------------------------------------------------------------
@@ -493,7 +465,7 @@ call neobundle#load_cache()
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "カラースキーマ
-NeoBundle 'tomasr/molokai'
+"NeoBundle 'tomasr/molokai'
 
 "統合ユーザーインターフェース
 NeoBundle 'Shougo/unite.vim'
