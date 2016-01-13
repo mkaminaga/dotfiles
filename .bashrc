@@ -53,6 +53,9 @@ alias Doxygen='DoxygenProjectNameOverRide'
 #------------------------------------------------------------------------
 #Windowsとの対応
 
+#コマンドプロンプトの起動オプション
+alias cmd='cmd /k "C:\WinLinks\Cmd_ini.bat"'
+
 #ウィンドウズアプリを起動
 alias c=cygstart
 
