@@ -1,20 +1,27 @@
 #.bash.rc
 
-#PCごとのフォルダ階層を適用
-USER_NAME="rsc95133"
-SVN_REPOSITORY_NAME="yui"
+##################################################################
+# PCによってここを書き換える!!
+##################################################################
+
+MS_HOME="/cygdrive/c/Users/Mamoru"
+SVN_LOCAL_PATH="${MS_HOME}/Documents/yuiProjcet/ITF-2"
+
+##################################################################
+# alias
+##################################################################
 
 #カラースキームの設定
-[ -z "$LS_COLORS" ] && eval "`dircolors -b /etc/DIR_COLORS`"
-#eval "$(dircolors -b /etc/DIR_COLORS)"
+[ -z '$LS_COLORS' ] && eval '`dircolors -b /etc/DIR_COLORS`'
+#eval '$(dircolors -b /etc/DIR_COLORS)'
 #source /etc/colorSchime/mintty-colors-solarized/sol.dark
 
-#Githubリポジトリを活用してドットファイルを管理
-~/dotfiles/dotfileLink.sh
+#起動時
+cd ~/
 
-#----
-#alias
-#
+##################################################################
+# alias
+##################################################################
 
 #ls: 詳細
 
@@ -22,8 +29,8 @@ alias la='ls -la'
 
 #nkfコマンドの簡易設定
 alias u2w='nkf -w -Lw'
-alias u2wo='nkf -w -Lw --overwrite'
 alias w2u='nkf -u -Lu'
+alias u2wo='nkf -w -Lw --overwrite'
 alias w2uo='nkf -u -Lu --overwrite'
 
 #ls: カラー有効
@@ -46,96 +53,109 @@ alias ps='ps -s -W'
 
 #Doxygenでプロジェクト名のオーバーライド
 function DoxygenProjectNameOverRide () {
-    (cat ~/dotfiles/Doxyfile ; echo "PROJECT_NAME=$1") | doxygen -;
+    (cat ~/dotfiles/Doxyfile ; echo 'PROJECT_NAME=$1') | doxygen -;
 }
 alias Doxygen='DoxygenProjectNameOverRide'
 
-#----
-#WindowsとCygwinの対応
+##################################################################
+# WindowsとCygwinの対応
+##################################################################
 
-#コマンドプロンプトの起動オプション
-alias cmd='cmd /k "C:\WinLinks\Cmd_ini.bat"'
+#コマンドプロンプトの起動時オプション
+alias cmd='Cmd /k 'C:\WinLinks\Cmd_ini.bat''
 
 #ウィンドウズアプリを起動
-alias c=cygstart
+alias c='cygstart'
 
 #stop エクスプローラを停止
 alias balse='taskkill /im explorer.exe /f'
 
-#----
-#シンボリックリンクの設定
+##################################################################
+# シンボリックリンクの設定
+##################################################################
 
-#起動時
-cd ~/
-
-#ドキュメント
-LINK_NAME="Documents"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents ~/${LINK_NAME};
+#
+#homeから主要フォルダにアクセス
+#
+#デスクトップ
+if [ ! -e ${HOME}/Desktop ]; then
+    ln -s ${MS_HOME}/Desktop ${HOME}/Desktop;
 fi
 
-#デスクトップ
-LINK_NAME="Desktop"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Desktop ~/${LINK_NAME}
+#ドキュメント
+if [ ! -e ${HOME}/Documents ]; then
+    ln -s ${MS_HOME}/Documents ${HOME}/Documents
 fi
 
 #ダウンロード
-LINK_NAME="Downloads"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Downloads ~/${LINK_NAME}
+if [ ! -e ${HOME}/Downloads ]; then
+    ln -s ${MS_HOME}/Downloads ${HOME}/Downloads
+fi
+
+#ミュージック
+if [ ! -e ${HOME}/Music ]; then
+    ln -s ${MS_HOME}/Music ${HOME}/Music
 fi
 
 #ピクチャ
-LINK_NAME="Pictures"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Pictures/ ~/${LINK_NAME}
+if [ ! -e ${HOME}/Pictures ]; then
+    ln -s ${MS_HOME}/Pictures ${HOME}/Pictures
 fi
 
-#SVNローカルリポジトリの電源PICの作業フォルダ
-LINK_NAME="Powpic"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/code_share/"PIC(Pow)" ~/${LINK_NAME}
+#ビデオ
+if [ ! -e ${HOME}/Videos ]; then
+    ln -s ${MS_HOME}/Videos ${HOME}/Videos
 fi
 
-#SVNローカルリポジトリの電通信PICの作業フォルダ
-LINK_NAME="Compic"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/code_share/"PIC(Com)" ~/${LINK_NAME}
+#
+#よく使うSVNのパスへのショートカット
+#
+#電源PICの作業フォルダ
+LNK_NAME="Powpic"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)" ${HOME}/${LNK_NAME}
 fi
 
-#SVNローカルリポジトリのユニバサル基板の作業フォルダ
-LINK_NAME="Uni"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/"C&Dh"/EagleUniversalBoardProjects ~/${LINK_NAME}
+#電通信PICの作業フォルダ
+LNK_NAME="Compic"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/code_share/"PIC(Com)" ${HOME}/${LNK_NAME}
 fi
 
-#SVNローカルリポジトリのEM基板の作業フォルダ
-LINK_NAME="Em"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/PCB/CDH/EM ~/${LINK_NAME}
+#ユニバサル基板の作業フォルダ
+LNK_NAME="Uni"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/"C&Dh"/EagleUniversalBoardProjects ${HOME}/${LNK_NAME}
 fi
 
-#SVNローカルリポジトリのPFM基板の作業フォルダ
-LINK_NAME="Fm"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/PCB/CDH/PFM ~/${LINK_NAME}
+#EM基板の作業フォルダ
+LNK_NAME="Em"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/PCB/CDH/EM ${HOME}/${LNK_NAME}
 fi
 
-#SVNローカルリポジトリのCDH系の作業フォルダ
-LINK_NAME="Cdh"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/"C&DH" ~/${LINK_NAME}
+#PFM基板の作業フォルダ
+LNK_NAME="Fm"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/PCB/CDH/PFM ${HOME}/${LNK_NAME}
 fi
 
-#SVNローカルリポジトリの通信/コマンド
-LINK_NAME="Cmnd"
-if [ "`find ~/ -maxdepth 1 -name ${LINK_NAME}`" != /home/${USER_NAME}/${LINK_NAME} ]; then
-    ln -s /cygdrive/c/Users/${USER_NAME}/Documents/${SVN_REPOSITORY_NAME}/ITF-2/"C&Dh"/コマンド処理 ${LINK_NAME}
+#CDH系の作業フォルダ
+LNK_NAME="Cdh"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/"C&DH" ${HOME}/${LNK_NAME}
 fi
 
-#----
-#オマケ
-echo "hello!"
+#通信/コマンド
+LNK_NAME="Command"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理 ${HOME}/${LNK_NAME}
+fi
+
+##################################################################
+# オマケ
+##################################################################
+
+echo 'hello!'
 DATE_TEMP=`date|awk '{print $1 $2 $3 $5}'`
 echo "It is ${DATE_TEMP}"
