@@ -58,6 +58,9 @@ set fileformat=dos
 "編集設定
 "---------------------------------------------------------------------------
 
+"最大タブ数
+set tabpagemax=30
+
 "vi互換にしない
 set nocompatible
 
@@ -131,7 +134,7 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 "---------------------------------------------------------------------------
 
 "カラースキーマ
-source ~/dotfiles/.vim/colors/odonata.vim
+"source ~/dotfiles/.vim/colors/odonata.vim
 
 "タイトルを表示する
 set title
@@ -254,20 +257,15 @@ nnoremap Q gq
 
 "保存
 nnoremap <Space>w :w<CR>
-inoremap <Space>w <Esc>:w<CR>i
-inoremap <Space>ｗ <Esc>:w<CR>i
 
 "終了
 nnoremap <Space>q :q<CR>
-inoremap <Space>q <Esc>:w<CR>i
-inoremap <Space>ｑ <Esc>:w<CR>i
 
 "インクリメント(スクリーンコマンドとの衝突回避)
 nnoremap <C-i> <C-a>
 
 "指の位置と使用頻度から考えてマッピングしたいもの
 nnoremap ! %
-nnoremap " $
 
 "
 "ウィンドウ・タブのキーバインド
@@ -495,7 +493,7 @@ call neobundle#load_cache()
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "カラースキーマ
-"NeoBundle 'tomasr/molokai'
+NeoBundle 'tomasr/molokai'
 
 "統合ユーザーインターフェース
 NeoBundle 'Shougo/unite.vim'
@@ -576,7 +574,7 @@ catch
 endtry
 
 "ファイルツリーからファイルを選択
-nnoremap <space><space> :tabe<cr>
+nnoremap <space><space><space> :tabe<cr>
 \:<C-u>Unite -start-insert file_rec/async<cr>
 
 "uniteのリセット

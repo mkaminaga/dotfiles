@@ -2,7 +2,8 @@
 ln -sf ~/dotfiles/.git              ~/.git
 ln -sf ~/dotfiles/.gitattributes    ~/.gitattributes
 ln -sf ~/dotfiles/.gitignore        ~/.gitignore
-# ln -sf ~/dotfiles/.minttyrc         ~/.minttyrc
+#ln -sf ~/dotfiles/.minttyrc         ~/.minttyrc
+ln -sf ~/dotfiles/.bashrc           ~/.bashrc
 ln -sf ~/dotfiles/.screenrc         ~/.screenrc
 ln -sf ~/dotfiles/.vim              ~/.vim
 ln -sf ~/dotfiles/.vimrc            ~/.vimrc
