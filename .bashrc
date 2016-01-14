@@ -53,7 +53,7 @@ alias ps='ps -s -W'
 
 #Doxygenでプロジェクト名のオーバーライド
 function DoxygenProjectNameOverRide () {
-    (cat ~/dotfiles/Doxyfile ; echo 'PROJECT_NAME=$1') | doxygen -;
+    (cat ~/dotfiles/Doxyfile ; echo "PROJECT_NAME=$1") | doxygen -;
 }
 alias Doxygen='DoxygenProjectNameOverRide'
 
