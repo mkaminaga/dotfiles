@@ -4,8 +4,8 @@
 # PCによってここを書き換える!!
 ##################################################################
 
-MS_HOME="/cygdrive/c/Users/Mamoru"
-SVN_LOCAL_PATH="${MS_HOME}/Documents/yuiProjcet/ITF-2"
+MS_HOME="/cygdrive/c/Users/rsc95133"
+SVN_LOCAL_PATH="${MS_HOME}/Documents/yui/ITF-2"
 
 ##################################################################
 # alias
@@ -24,7 +24,7 @@ cd ~/
 ##################################################################
 
 #ls: 詳細
-
+alias ls='ls --color=auto --show-control-chars'
 alias la='ls -la'
 
 #nkfコマンドの簡易設定
@@ -32,9 +32,6 @@ alias u2w='nkf -w -Lw'
 alias w2u='nkf -u -Lu'
 alias u2wo='nkf -w -Lw --overwrite'
 alias w2uo='nkf -u -Lu --overwrite'
-
-#ls: カラー有効
-alias ls='ls --color=auto'
 
 #tree: カラー有効, 階層を指定
 alias tree='tree -C -L'
@@ -120,6 +117,12 @@ fi
 LNK_NAME="Compic"
 if [ ! -e ${HOME}/${LNK_NAME} ]; then
     ln -s ${SVN_LOCAL_PATH}/code_share/"PIC(Com)" ${HOME}/${LNK_NAME}
+fi
+
+#C&DH
+LNK_NAME="Cdh"
+if [ ! -e ${HOME}/${LNK_NAME} ]; then
+    ln -s ${SVN_LOCAL_PATH}/"C&Dh" ${HOME}/${LNK_NAME}
 fi
 
 #ユニバサル基板の作業フォルダ
