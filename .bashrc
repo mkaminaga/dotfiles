@@ -43,7 +43,7 @@ alias rmdir='rm -rf'
 alias cpdir='cp -r'
 
 #新規ターミナルの立ち上げ
-alias new='c /cygdrive/c/WinLinks/terminal.lnk'
+alias new='c /cygdrive/c/WinLinks/mintty.lnk'
 
 #ウィンドウズアプリを含むプロセスの簡易表示
 alias ps='ps -s -W'
@@ -71,94 +71,38 @@ alias balse='taskkill /im explorer.exe /f'
 # シンボリックリンクの設定
 ##################################################################
 
-#
-#homeから主要フォルダにアクセス
-#
-#デスクトップ
-if [ ! -e ${HOME}/Desktop ]; then
-    ln -s ${MS_HOME}/Desktop ${HOME}/Desktop;
-fi
+function make_lnk() {
+    #homeから主要フォルダにアクセス
+    ln -sf ${MS_HOME}/Desktop ${HOME}/Desktop;
+    ln -sf ${MS_HOME}/Documents ${HOME}/Documents;
+    ln -sf ${MS_HOME}/Downloads ${HOME}/Downloads;
+    ln -sf ${MS_HOME}/Music ${HOME}/Music;
+    ln -sf ${MS_HOME}/Pictures ${HOME}/Pictures;
+    ln -sf ${MS_HOME}/Videos ${HOME}/Videos;
 
-#ドキュメント
-if [ ! -e ${HOME}/Documents ]; then
-    ln -s ${MS_HOME}/Documents ${HOME}/Documents
-fi
-
-#ダウンロード
-if [ ! -e ${HOME}/Downloads ]; then
-    ln -s ${MS_HOME}/Downloads ${HOME}/Downloads
-fi
-
-#ミュージック
-if [ ! -e ${HOME}/Music ]; then
-    ln -s ${MS_HOME}/Music ${HOME}/Music
-fi
-
-#ピクチャ
-if [ ! -e ${HOME}/Pictures ]; then
-    ln -s ${MS_HOME}/Pictures ${HOME}/Pictures
-fi
-
-#ビデオ
-if [ ! -e ${HOME}/Videos ]; then
-    ln -s ${MS_HOME}/Videos ${HOME}/Videos
-fi
-
-#
-#よく使うSVNのパスへのショートカット
-#
-#電源PICの作業フォルダ
-LNK_NAME="Powpic"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)" ${HOME}/${LNK_NAME}
-fi
-
-#電通信PICの作業フォルダ
-LNK_NAME="Compic"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/code_share/"PIC(Com)" ${HOME}/${LNK_NAME}
-fi
-
-#C&DH
-LNK_NAME="Cdh"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/"C&Dh" ${HOME}/${LNK_NAME}
-fi
-
-#ユニバサル基板の作業フォルダ
-LNK_NAME="Uni"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/"C&Dh"/EagleUniversalBoardProjects ${HOME}/${LNK_NAME}
-fi
-
-#EM基板の作業フォルダ
-LNK_NAME="Em"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/PCB/CDH/EM ${HOME}/${LNK_NAME}
-fi
-
-#PFM基板の作業フォルダ
-LNK_NAME="Fm"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/PCB/CDH/PFM ${HOME}/${LNK_NAME}
-fi
-
-#CDH系の作業フォルダ
-LNK_NAME="Cdh"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/"C&DH" ${HOME}/${LNK_NAME}
-fi
-
-#通信/コマンド
-LNK_NAME="Command"
-if [ ! -e ${HOME}/${LNK_NAME} ]; then
-    ln -s ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理 ${HOME}/${LNK_NAME}
-fi
+    #よく使うSVNのパスへのショートカット
+    LNK_NAME="Powpic"
+    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)" ${HOME}/${LNK_NAME};
+    LNK_NAME="Compic"
+    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Com)" ${HOME}/${LNK_NAME};
+    LNK_NAME="Cdh"
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh" ${HOME}/${LNK_NAME};
+    LNK_NAME="Uni"
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/EagleUniversalBoardProjects ${HOME}/${LNK_NAME};
+    LNK_NAME="Em"
+    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/EM ${HOME}/${LNK_NAME};
+    LNK_NAME="Fm"
+    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/PFM ${HOME}/${LNK_NAME};
+    LNK_NAME="Cdh"
+    ln -sf ${SVN_LOCAL_PATH}/"C&DH" ${HOME}/${LNK_NAME};
+    LNK_NAME="Command"
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理 ${HOME}/${LNK_NAME};
+}
+alias Mklnk='make_lnk'
 
 ##################################################################
 # オマケ
 ##################################################################
 
-echo 'hello!'
-DATE_TEMP=`date|awk '{print $1 $2 $3 $5}'`
+DATE_TEMP=`date|awk '{print $1 $2 $3 $5.}'`
 echo "It is ${DATE_TEMP}"
