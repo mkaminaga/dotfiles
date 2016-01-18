@@ -1,8 +1,10 @@
 defencoding UTF-8
 defkanji UTF-8
-encoding UTF-8 UTF-8defbce on
+encoding UTF-8 UTF-8
 
+defbce on
 term xterm-256color
+termcapinfo xterm* ti@:te@
 termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 hardstatus on
@@ -12,6 +14,6 @@ shelltitle "$ |zsh"
 startup_message off
 autodetach on
 silencewait 15
-defscrollback 1000
+defscrollback 1024
 vbell off
-altscreen on
+altscreen altscreen on
