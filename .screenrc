@@ -1,4 +1,19 @@
+defencoding UTF-8
+defkanji UTF-8
+encoding UTF-8 UTF-8
+
+defbce on
+term xterm-256color
+termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+hardstatus on
+hardstatus alwayslastline "[%Y/%m/%d %02c:%s] %`%-w%{=b bw}%n %t%{-}%+w"
+
+shelltitle "$ |zsh"
 startup_message off
-defscrollback 1000
+autodetach on
 silencewait 15
-termcapinfo xterm* ti@:te@
+defscrollback 1000
+vbell off
+escape ^Tt
+altscreen on

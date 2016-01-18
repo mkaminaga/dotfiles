@@ -19,6 +19,7 @@
 "                              Since  2015
 "
 "
+
 "---------------------------------------------------------------------------
 "検索設定
 "---------------------------------------------------------------------------
@@ -134,7 +135,11 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 "---------------------------------------------------------------------------
 
 "カラースキーマ
-source ~/dotfiles/.vim/colors/odonata.vim
+set term=xterm
+set t_Co=256
+set t_AB=^[[48;5;%dm
+set t_AF=^[[38;5;%dm
+" source ~/dotfiles/.vim/colors/odonata.vim
 
 "タイトルを表示する
 set title
@@ -465,7 +470,7 @@ call neobundle#load_cache()
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 "カラースキーマ
-"NeoBundle 'tomasr/molokai'
+NeoBundle 'tomasr/molokai'
 
 "統合ユーザーインターフェース
 NeoBundle 'Shougo/unite.vim'
