@@ -1,8 +1,7 @@
 defencoding UTF-8
 defkanji UTF-8
-encoding UTF-8 UTF-8
+encoding UTF-8 UTF-8defbce on
 
-defbce on
 term xterm-256color
 termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
@@ -15,5 +14,4 @@ autodetach on
 silencewait 15
 defscrollback 1000
 vbell off
-escape ^Tt
 altscreen on
