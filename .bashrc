@@ -4,8 +4,8 @@
 # PCによってここを書き換える!!
 ##################################################################
 
-MS_HOME="/cygdrive/c/Users/rsc95133"
-SVN_LOCAL_PATH="${MS_HOME}/Documents/yui/ITF-2"
+MS_HOME="/cygdrive/c/Users/Mamoru"
+SVN_LOCAL_PATH="${MS_HOME}/Documents/yuiProjcet/ITF-2"
 
 ##################################################################
 # alias
@@ -81,22 +81,13 @@ function make_lnk() {
     ln -sf ${MS_HOME}/Videos ${HOME}/Videos;
 
     #よく使うSVNのパスへのショートカット
-    LNK_NAME="Powpic"
-    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)" ${HOME}/${LNK_NAME};
-    LNK_NAME="Compic"
-    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Com)" ${HOME}/${LNK_NAME};
-    LNK_NAME="Cdh"
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh" ${HOME}/${LNK_NAME};
-    LNK_NAME="Uni"
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/EagleUniversalBoardProjects ${HOME}/${LNK_NAME};
-    LNK_NAME="Em"
-    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/EM ${HOME}/${LNK_NAME};
-    LNK_NAME="Fm"
-    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/PFM ${HOME}/${LNK_NAME};
-    LNK_NAME="Cdh"
-    ln -sf ${SVN_LOCAL_PATH}/"C&DH" ${HOME}/${LNK_NAME};
-    LNK_NAME="Command"
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理 ${HOME}/${LNK_NAME};
+    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)" ${HOME}/Powpic;
+    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Com)" ${HOME}/Compic;
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh" ${HOME}/CDH;
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/EagleUniversalBoardProjects ${HOME}/Uni;
+    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/EM ${HOME}/EM;
+    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/PFM ${HOME}/FM;
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理 ${HOME}/Command;
 }
 alias Mklnk='make_lnk'
 
