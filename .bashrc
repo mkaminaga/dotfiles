@@ -4,8 +4,8 @@
 # PCによってここを書き換える!!
 ##################################################################
 
-MS_HOME="/cygdrive/c/Users/Mamoru"
-SVN_LOCAL_PATH="${MS_HOME}/Documents/yuiProjcet/ITF-2"
+MS_HOME="/cygdrive/c/Users/rsc95133"
+SVN_LOCAL_PATH="${MS_HOME}/Documents/yui/ITF-2"
 
 ##################################################################
 # alias
