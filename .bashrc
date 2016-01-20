@@ -13,8 +13,9 @@ SVN_LOCAL_PATH="${MS_HOME}/Documents/yui/ITF-2"
 
 #カラースキームの設定
 [ -z '$LS_COLORS' ] && eval '`dircolors -b /etc/DIR_COLORS`'
-#eval '$(dircolors -b /etc/DIR_COLORS)'
-#source /etc/colorSchime/mintty-colors-solarized/sol.dark
+
+
+
 
 #起動時
 cd ~/
