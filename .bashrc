@@ -4,8 +4,8 @@
 # PCによってここを書き換える!!
 ##################################################################
 
-MS_HOME="/cygdrive/c/Users/Mamoru"
-SVN_LOCAL_PATH="${MS_HOME}/Documents/yuiProjcet/ITF-2"
+MS_HOME=
+SVN_LOCAL_PATH=
 
 ##################################################################
 # alias
@@ -13,8 +13,9 @@ SVN_LOCAL_PATH="${MS_HOME}/Documents/yuiProjcet/ITF-2"
 
 #カラースキームの設定
 [ -z '$LS_COLORS' ] && eval '`dircolors -b /etc/DIR_COLORS`'
-#eval '$(dircolors -b /etc/DIR_COLORS)'
-#source /etc/colorSchime/mintty-colors-solarized/sol.dark
+
+
+
 
 #起動時
 cd ~/

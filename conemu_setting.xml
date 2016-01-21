@@ -579,8 +579,8 @@
 					<value name="Flags" type="dword" data="00000003"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="-new_console&quot;cmd&quot;:d:&quot;C:\Users\Mamoru&quot; cmd.exe /k C:\cygwin64\home\Mamoru\dotfiles\CommandPrompt_ini.bat"/>
-					<value name="Cmd2" type="string" data="-new_console:t:&quot;bash&quot;:d:&quot;C:\cygwin64\home\Mamoru&quot; bash.exe"/>
+					<value name="Cmd1" type="string" data="-new_console&quot;cmd&quot;:d:&quot;C:\Users\rsc95133&quot; cmd.exe /k C:\cygwin64\home\rsc95133\dotfiles\CommandPrompt_ini.bat"/>
+					<value name="Cmd2" type="string" data="-new_console:t:&quot;bash&quot;:d:&quot;C:\cygwin64\home\rsc95133&quot; bash.exe"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="2"/>
 				</key>
@@ -589,7 +589,7 @@
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
-					<value name="Cmd1" type="string" data="-new_console:t:&quot;bash&quot;:d:&quot;C:\cygwin64\home\Mamoru&quot; bash.exe"/>
+					<value name="Cmd1" type="string" data="-new_console:t:&quot;bash&quot;:d:&quot;C:\cygwin64\home\rsc95133&quot; bash.exe"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
@@ -615,7 +615,7 @@
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="cmd.exe /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot; -new_console:a"/>
-					<value name="Cmd2" type="string" data="-cur_console:a -cur_console:d:C:\Users\Mamoru {bash}"/>
+					<value name="Cmd2" type="string" data="-cur_console:a -cur_console:d:C:\Users\rsc95133 {bash}"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="2"/>
 				</key>
@@ -653,7 +653,7 @@
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="powershell.exe -new_console:a"/>
-					<value name="Cmd2" type="string" data="-cur_console:a -cur_console:d:C:\Users\Mamoru {bash}"/>
+					<value name="Cmd2" type="string" data="-cur_console:a -cur_console:d:C:\Users\rsc95133 {bash}"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="2"/>
 				</key>
@@ -681,7 +681,7 @@
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="*cmd.exe /k Title Chocolatey &amp; &quot;%ConEmuBaseDir%\Addons\ChocolateyAbout.cmd&quot;"/>
-					<value name="Cmd2" type="string" data="-cur_console:a -cur_console:d:C:\Users\Mamoru {bash}"/>
+					<value name="Cmd2" type="string" data="-cur_console:a -cur_console:d:C:\Users\rsc95133 {bash}"/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="2"/>
 				</key>
