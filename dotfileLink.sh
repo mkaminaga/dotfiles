@@ -1,8 +1,5 @@
 #!/bin/sh
 
-ln -sf "${HOME}/dotfiles/.git"           "${HOME}/.git"
-ln -sf "${HOME}/dotfiles/.gitattributes" "${HOME}/.gitattributes"
-ln -sf "${HOME}/dotfiles/.gitignore"     "${HOME}/.gitignore"
 ln -sf "${HOME}/dotfiles/.bashrc"        "${HOME}/.bashrc"
 ln -sf "${HOME}/dotfiles/.bash_profile"  "${HOME}/.bash_profile"
 ln -sf "${HOME}/dotfiles/.screenrc"      "${HOME}/.screenrc"
