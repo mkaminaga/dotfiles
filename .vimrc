@@ -181,7 +181,7 @@ if (exists('+colorcolumn'))
 endif
 
 "カーソル位置のsyntaxを表示
-nnoremap <S-Q> :ShowSyntaxName<CR>
+nnoremap ts :ShowSyntaxName<CR>
 command! ShowSyntaxName call s:ShowSyntaxName()
 function! s:ShowSyntaxName()
     :echo synIDattr(synID(line('.'), col('.'), 0), 'name')
