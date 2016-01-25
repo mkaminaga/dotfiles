@@ -1,12 +1,12 @@
 #!/bin/sh
 
-ln -sf "${HOME}/dotfiles/.bashrc"        "${HOME}/.bashrc"
-ln -sf "${HOME}/dotfiles/.bash_profile"  "${HOME}/.bash_profile"
-ln -sf "${HOME}/dotfiles/.screenrc"      "${HOME}/.screenrc"
-ln -sf "${HOME}/dotfiles/.vim"           "${HOME}/.vim"
-ln -sf "${HOME}/dotfiles/.vimrc"         "${HOME}/.vimrc"
-ln -sf "${HOME}/dotfiles/.virc"          "${HOME}/.virc"
+ln -s -f "${HOME}/dotfiles/.bashrc"        "${HOME}/.bashrc"
+ln -s -f "${HOME}/dotfiles/.bash_profile"  "${HOME}/.bash_profile"
+ln -s -f "${HOME}/dotfiles/.screenrc"      "${HOME}/.screenrc"
+ln -s -f "${HOME}/dotfiles/.vim"           "${HOME}/.vim"
+ln -s -f "${HOME}/dotfiles/.vimrc"         "${HOME}/.vimrc"
+ln -s -f "${HOME}/dotfiles/.virc"          "${HOME}/.virc"
 
 #code under this has no effect to mintty.
 #copy .minttyrc directory in your home directory.
-#ln -sf ${HOME}/dotfiles/.minttyrc         ${HOME}/.minttyrc
+#ln -s -f ${HOME}/dotfiles/.minttyrc         ${HOME}/.minttyrc
