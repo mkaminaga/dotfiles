@@ -5,7 +5,7 @@
 ##################################################################
 
 MS_HOME="/cygdrive/c/Users/rsc95133"
-SVN_LOCAL_PATH="cygdrive/d/Documents/yui/ITF-2"
+SVN_LOCAL_PATH="cygdrive/d/Documents/ITF-2"
 
 ##################################################################
 # alias
