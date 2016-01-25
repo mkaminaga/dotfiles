@@ -5,7 +5,7 @@
 ##################################################################
 
 MS_HOME="/cygdrive/c/Users/rsc95133"
-SVN_LOCAL_PATH="${MS_HOME}/Documents/yui/ITF-2"
+SVN_LOCAL_PATH="cygdrive/d/Documents/yui/ITF-2"
 
 ##################################################################
 # alias
@@ -60,7 +60,7 @@ alias Doxygen='DoxygenProjectNameOverRide'
 ##################################################################
 
 #コマンドプロンプトの起動時オプション
-alias cmd='Cmd /k 'C:\WinLinks\Cmd_ini.bat''
+alias cmd='cmd /k 'C:\WinLinks\Cmd_ini.bat''
 
 #ウィンドウズアプリを起動
 alias c='cygstart'
@@ -69,26 +69,25 @@ alias c='cygstart'
 alias balse='taskkill /im explorer.exe /f'
 
 ##################################################################
-# シンボリックリンクの設定
+# リンクの作成
 ##################################################################
 
 function make_lnk() {
     #homeから主要フォルダにアクセス
-    ln -sf ${MS_HOME}/Desktop ${HOME}/Desktop;
-    ln -sf ${MS_HOME}/Documents ${HOME}/Documents;
-    ln -sf ${MS_HOME}/Downloads ${HOME}/Downloads;
-    ln -sf ${MS_HOME}/Music ${HOME}/Music;
-    ln -sf ${MS_HOME}/Pictures ${HOME}/Pictures;
-    ln -sf ${MS_HOME}/Videos ${HOME}/Videos;
+    ln -sf ${MS_HOME}/Downloads     ${HOME}/Downloads;
+    ln -sf ${MS_HOME}/Desktop       ${HOME}/Desktop;
+    ln -sf /cygdrive/d/Documents    ${HOME}/Documents;
+    ln -sf /cygdrive/d/Pictures     ${HOME}/Pictures;
+    ln -sf /cygdrive/d/Videos       ${HOME}/Videos;
+    ln -sf /cygdrive/d/Music        ${HOME}/Music;
 
     #よく使うSVNのパスへのショートカット
-    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)" ${HOME}/Powpic;
-    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Com)" ${HOME}/Compic;
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh" ${HOME}/CDH;
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/EagleUniversalBoardProjects ${HOME}/Uni;
-    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/EM ${HOME}/EM;
-    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/PFM ${HOME}/FM;
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理 ${HOME}/Command;
+    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ${HOME}/Powpic;
+    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Com)"  ${HOME}/Compic;
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理    ${HOME}/Command;
+    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/PFM            ${HOME}/FM;
+    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/EM             ${HOME}/EM;
+    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"                 ${HOME}/CDH;
 }
 alias Mklnk='make_lnk'
 
