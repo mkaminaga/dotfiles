@@ -4,8 +4,8 @@
 # PCによってここを書き換える!!
 ##################################################################
 
-MS_HOME=
-SVN_LOCAL_PATH=
+MS_HOME=/cygdrive/c/Users/rsc95133
+SVN_LOCAL_PATH=/cygdrive/d/Documents/ITF-2
 
 ##################################################################
 # alias
@@ -76,10 +76,10 @@ function make_lnk() {
     #homeから主要フォルダにアクセス
     ln -sf ${MS_HOME}/Downloads     ${HOME}/Downloads;
     ln -sf ${MS_HOME}/Desktop       ${HOME}/Desktop;
-    ln -sf /cygdrive/ /Documents    ${HOME}/Documents;
-    ln -sf /cygdrive/ /Pictures     ${HOME}/Pictures;
-    ln -sf /cygdrive/ /Videos       ${HOME}/Videos;
-    ln -sf /cygdrive/ /Music        ${HOME}/Music;
+    ln -sf /cygdrive/d/Documents    ${HOME}/Documents;
+    ln -sf /cygdrive/d/Pictures     ${HOME}/Pictures;
+    ln -sf /cygdrive/d/Videos       ${HOME}/Videos;
+    ln -sf /cygdrive/d/Music        ${HOME}/Music;
 
     #よく使うSVNのパスへのショートカット
     ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ${HOME}/Powpic;
