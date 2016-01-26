@@ -181,11 +181,8 @@ if (exists('+colorcolumn'))
 endif
 
 "カーソル位置のsyntaxを表示
-nnoremap <F4> :ShowSyntaxName<CR>
-command! ShowSyntaxName call s:ShowSyntaxName()
-function! s:ShowSyntaxName()
-    :echo synIDattr(synID(line('.'), col('.'), 0), 'name')
-endfunction
+nnoremap * <Nop>
+nnoremap * :echo synIDattr(synID(line('.'), col('.'), 0), 'name')
 
 "余裕を持たせたスクロール
 set scrolloff=3
