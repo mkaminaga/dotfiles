@@ -36,6 +36,9 @@ set incsearch
 "検索ハイライト
 set hlsearch
 
+"正規表現を楽にする
+nmap / /\v
+
 "---------------------------------------------------------------------------
 "文字コード設定
 "---------------------------------------------------------------------------
@@ -178,7 +181,8 @@ if (exists('+colorcolumn'))
 endif
 
 "カーソル位置のsyntaxを表示
-nnoremap <F4> :echo synIDattr(synID(line('.'), col('.'), 0), 'name')
+nnoremap * <Nop>
+nnoremap * :echo synIDattr(synID(line('.'), col('.'), 0), 'name')
 
 "余裕を持たせたスクロール
 set scrolloff=3
