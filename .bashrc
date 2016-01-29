@@ -1,13 +1,6 @@
 #.bash.rc
 
 ##################################################################
-# PCによってここを書き換える!!
-##################################################################
-
-MS_HOME=
-SVN_LOCAL_PATH=
-
-##################################################################
 # alias
 ##################################################################
 
@@ -72,22 +65,24 @@ alias balse='taskkill /im explorer.exe /f'
 # リンクの作成
 ##################################################################
 
+SVN_LOCAL_PATH=/cygdrive/d/Documents/ITF-2
+
 function make_lnk() {
     #homeから主要フォルダにアクセス
-    ln -sf ${MS_HOME}/Downloads     ${HOME}/Downloads;
-    ln -sf ${MS_HOME}/Desktop       ${HOME}/Desktop;
-    ln -sf /cygdrive/ /Documents    ${HOME}/Documents;
-    ln -sf /cygdrive/ /Pictures     ${HOME}/Pictures;
-    ln -sf /cygdrive/ /Videos       ${HOME}/Videos;
-    ln -sf /cygdrive/ /Music        ${HOME}/Music;
+    ln -s -f /cygdrive/c/Downloads    ~/Downloads;
+    ln -s -f /cygdrive/c/Desktop      ~/Desktop;
+    ln -s -f /cygdrive/d/Documents    ~/Documents;
+    ln -s -f /cygdrive/d/Pictures     ~/Pictures;
+    ln -s -f /cygdrive/d/Videos       ~/Videos;
+    ln -s -f /cygdrive/d/Music        ~/Music;
 
     #よく使うSVNのパスへのショートカット
-    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ${HOME}/Powpic;
-    ln -sf ${SVN_LOCAL_PATH}/code_share/"PIC(Com)"  ${HOME}/Compic;
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理    ${HOME}/Command;
-    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/PFM            ${HOME}/FM;
-    ln -sf ${SVN_LOCAL_PATH}/PCB/CDH/EM             ${HOME}/EM;
-    ln -sf ${SVN_LOCAL_PATH}/"C&Dh"                 ${HOME}/CDH;
+    ln -s -f ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ~/Powpic;
+    ln -s -f ${SVN_LOCAL_PATH}/code_share/"PIC(Com)"  ~/Compic;
+    ln -s -f ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理    ~/Command;
+    ln -s -f ${SVN_LOCAL_PATH}/PCB/CDH/PFM            ~/FM;
+    ln -s -f ${SVN_LOCAL_PATH}/PCB/CDH/EM             ~/EM;
+    ln -s -f ${SVN_LOCAL_PATH}/"C&Dh"                 ~/CDH;
 }
 alias Mklnk='make_lnk'
 
