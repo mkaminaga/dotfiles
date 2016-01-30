@@ -65,16 +65,16 @@ alias balse='taskkill /im explorer.exe /f'
 # リンクの作成
 ##################################################################
 
-SVN_LOCAL_PATH=/cygdrive/d/Documents/ITF-2
+SVN_LOCAL_PATH=/cygdrive/c/Documents/ITF-2
 
 function make_lnk() {
     #homeから主要フォルダにアクセス
     ln -s -f /cygdrive/c/Downloads    ~/Downloads;
     ln -s -f /cygdrive/c/Desktop      ~/Desktop;
-    ln -s -f /cygdrive/d/Documents    ~/Documents;
-    ln -s -f /cygdrive/d/Pictures     ~/Pictures;
-    ln -s -f /cygdrive/d/Videos       ~/Videos;
-    ln -s -f /cygdrive/d/Music        ~/Music;
+    ln -s -f /cygdrive/c/Documents    ~/Documents;
+    ln -s -f /cygdrive/c/Pictures     ~/Pictures;
+    ln -s -f /cygdrive/c/Videos       ~/Videos;
+    ln -s -f /cygdrive/c/Music        ~/Music;
 
     #よく使うSVNのパスへのショートカット
     ln -s -f ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ~/Powpic;
