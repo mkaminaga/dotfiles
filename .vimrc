@@ -26,7 +26,7 @@
 "   https://github.com/Shougo/neosnippet
 "   https://github.com/Shougo/neosnippet-snippets
 "   https://github.com/Shougo/vimproc
-"   https://github.com/Shougo/unite
+"   https://github.com/Shougo/unite.vim
 "   https://github.com/rking/ag
 "   https://github.com/itchyny/lightline
 "   https://github.com/tomasr/molokai
@@ -424,7 +424,7 @@ call neobundle#begin(expand('$HOME/.vim/bundle'))
 " キャッシュの読込み
 call neobundle#load_cache()
 
-NeoBundleFetch 'Shougo/neobundle'       " neobundle自体をneobundleで管理
+NeoBundleFetch 'Shougo/neobundle.vim'   " neobundle自体をneobundleで管理
 NeoBundle 'Shougo/neocomplete'          "コード補完の強化
 NeoBundle 'Shougo/neosnippet'           "コード補完
 NeoBundle 'Shougo/neosnippet-snippets'  "コード補完
@@ -439,9 +439,9 @@ NeoBundle 'Shougo/vimproc', {
 \    },
 \}
 
-NeoBundle 'Shougo/unite'                "統合ユーザーインターフェース
-NeoBundle 'rking/ag'                    "高速検索（grep強化版的な?）
-NeoBundle 'itchyny/lightline'           "ステータスラインの表示を強化
+NeoBundle 'Shougo/unite.vim'            "統合ユーザーインターフェース
+NeoBundle 'rking/ag.vim'                "高速検索（grep強化版的な?）
+NeoBundle 'itchyny/lightline.vim'       "ステータスラインの表示を強化
 NeoBundle 'tomasr/molokai'              "カラースキーマ
 NeoBundle 'tomtom/tcomment_vim'         "一瞬でコメントアウト
 
