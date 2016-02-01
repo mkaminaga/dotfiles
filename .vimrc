@@ -553,7 +553,7 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " ====ファイル名補完====
 " 検索対象のディレクトリ`,`区切り
-let g:neocomplete#souces#include#paths = '.,/usr/include'
+let g:neocomplete#souces#include#paths = '., /usr/include'
 
 " パターンにマッチしたら補完を開始
 let g:neocomplete#sources#include#patterns = 'l:include'
