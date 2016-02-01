@@ -69,12 +69,12 @@ SVN_LOCAL_PATH=/cygdrive/d/Documents/ITF-2
 
 function make_lnk() {
     #homeから主要フォルダにアクセス
-    ln -s -f /cygdrive/c/Downloads    ~/Downloads;
-    ln -s -f /cygdrive/c/Desktop      ~/Desktop;
-    ln -s -f /cygdrive/d/Documents    ~/Documents;
-    ln -s -f /cygdrive/d/Pictures     ~/Pictures;
-    ln -s -f /cygdrive/d/Videos       ~/Videos;
-    ln -s -f /cygdrive/d/Music        ~/Music;
+    ln -s -f /cygdrive/c/Users/rsc95133/Downloads    ~/Downloads;
+    ln -s -f /cygdrive/c/Users/rsc95133/Desktop      ~/Desktop;
+    ln -s -f /cygdrive/d/Documents                   ~/Documents;
+    ln -s -f /cygdrive/d/Pictures                    ~/Pictures;
+    ln -s -f /cygdrive/d/Videos                      ~/Videos;
+    ln -s -f /cygdrive/d/Music                       ~/Music;
 
     #よく使うSVNのパスへのショートカット
     ln -s -f ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ~/Powpic;
