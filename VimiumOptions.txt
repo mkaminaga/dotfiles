@@ -1,0 +1,15 @@
+#resolve default
+unmap    s
+unmap    x
+
+map   sp    previousTab
+map   sn    nextTab
+map   sq    removeTab
+map   s1    firstTab
+map   sl    lastTab
+
+map   tj    goForward
+map   tr    goBack
+
+map    i    LinkHints.activateModeToOpenInNewForegroundTab
+map    I    LinkHints.activateModeWithQueue
