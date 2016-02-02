@@ -1,7 +1,9 @@
 #resolve default
 unmap    s
 unmap    x
+unmap t
 
+map   st     createTab
 map   sp    previousTab
 map   sn    nextTab
 map   sq    removeTab
