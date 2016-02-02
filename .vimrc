@@ -468,8 +468,8 @@ endif
 
 
 " uniteの設定
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
+let g:unite_enable_start_insert = 1
+let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_grep_max_candidates = 200
@@ -479,7 +479,7 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 try
-    let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+    let g:unite_source_rec_async_command='ag --nocolor --nogroup -g .'
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
 catch
 endtry
@@ -529,21 +529,21 @@ let g:neocomplcache_enable_camel_case_completion = 0
 let g:neocomplcache_enable_underbar_completion = 1
 
 " syntaxをキャッシュするときの最小文字長
-let g:neocomplcache_min_syntax_length = 4
+let g:neocomplcache_min_syntax_length = 5
 
 " neocompleteを自動的にロックするバッファ名のパターンを指定
 let g:neocomplcache_dictionary_filetype_lists = '*.txt'
 
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 5
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+    \ 'default'     : '',
+    \ 'vimshell'    : $HOME.'/.vimshell_hist',
+    \ 'scheme'      : $HOME.'/.gosh_completions'
+    \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -553,7 +553,7 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " ====ファイル名補完====
 " 検索対象のディレクトリ`,`区切り
-let g:neocomplete#souces#include#paths = '., /usr/include'
+let g:neocomplete#souces#include#paths = '., ../lib'
 
 " パターンにマッチしたら補完を開始
 let g:neocomplete#sources#include#patterns = 'l:include'
@@ -577,7 +577,7 @@ let g:neocomplete#include_patterns = {
 
 "インクルード先のファイル名解析パターン
 let g:neocomplete#include_exprs = {
-  \ 'ruby' : substitute(v:fname,'::','/','g')
+  \ 'ruby' : substitute(v:fname, '::', '/', 'g')
   \ }
 
 " ファイルを探す際、この拡張子を末尾にもつファイルを探す
