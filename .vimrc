@@ -50,7 +50,7 @@ set fileencoding=utf-8
 set fencs=iso-2022-jp,enc-jp,cp932
 
 "改行文字の設定（CR LF: dos, FL: unix）
-set fileformat=dos
+set fileformat=unix
 
 "========編集設定========
 " vi互換にしない
@@ -302,7 +302,6 @@ set noswapfile
 "保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
 
-
 "========IDEとしての設定========
 " make
 nnoremap <F5> :MakeCompile<CR>
@@ -324,26 +323,6 @@ function! s:Run()
         :Gpp
     elseif e == "f90" || e == "f95"
         :Gfortran
-    endif
-endfunction
-
-"Microsoft nmake
-nnoremap <F7> :NMakeCompile<CR>
-command! NMakeCompile call s:NMakeCompile()
-function! s:NMakeCompile()
-    if has("win32") || has("win64") || has("win32unix")
-        :bufdo w
-        :!nmake
-    endif
-endfunction
-
-"Microsoft cl
-nnoremap <F8> :Cl<CR>
-command! Cl call s:Cl()
-function! s:Cl()
-    if has("win32") || has("win64") || has("win32unix")
-        :w
-		:!cl % -o %:r.exe
     endif
 endfunction
 
@@ -409,3 +388,9 @@ function! s:Gfortran()
         :!gfortran % -o %:r.out
     endif
 endfunction
+
+"========補完設定========
+set complete=".,w,b,u,t,i,d"
+set tags=./tags
+inoremap <C-i> <C-x><C-i>
+inoremap <C-t> <C-x><C-]>
