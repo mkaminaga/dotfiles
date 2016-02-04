@@ -18,11 +18,11 @@
 
 " 1. .vimrc_HEAVY
 " Plugin is so heavy, but completion is powered.
-" source ~/.vimrc_HEAVY
+" source ${HOME}/.vimrc_HEAVY
 
 " 2. .vimrc_LIGHT
 " Lighter than above setting.
-source ~/.vimrc_LIGHT
+source ${HOME}/.vimrc_LIGHT
 
 "========共通の設定======
 
