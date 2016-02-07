@@ -87,7 +87,7 @@ set wildmenu
 set formatoptions+=mM
 
 " 手動でファイル形式を定義
-autocmd BufRead *.ico set ft=c
+autocmd BufRead *.ino set ft=c
 
 " 超えたら折り返す長さの設定
 autocmd BufRead *.txt setlocal textwidth=80
@@ -96,7 +96,7 @@ autocmd BufRead *.txt setlocal textwidth=80
 filetype on
 
 " インデントの自動調整
-autocmd FileType c,cpp,perl,html,ico set cindent
+autocmd FileType c,cpp,perl,html,ino set cindent
 
 " エスケープシーケンスを伴う入力の誤作動防止(neocompleteとかとの兼ね合い)
 set timeout timeoutlen=1000 ttimeoutlen=40
