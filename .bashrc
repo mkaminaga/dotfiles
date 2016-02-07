@@ -27,6 +27,10 @@ alias w2u='nkf -u -Lu'
 alias u2wo='nkf -w -Lw --overwrite'
 alias w2uo='nkf -u -Lu --overwrite'
 
+#vi, vimの起動は複数タブ
+alias vim='vim -p'
+alias vi='vi -p'
+
 #tree: カラー有効, 階層を指定
 alias tree='tree -C -L'
 
