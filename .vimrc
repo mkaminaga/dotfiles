@@ -18,11 +18,11 @@
 
 " 1. .vimrc_HEAVY
 " Plugin is so heavy, but completion is powered.
-" source ~/.vimrc_HEAVY
+" source ${HOME}/.vimrc_HEAVY
 
 " 2. .vimrc_LIGHT
 " Lighter than above setting.
-source ~/.vimrc_LIGHT
+source ${HOME}/.vimrc_LIGHT
 
 "========共通の設定======
 
@@ -86,14 +86,17 @@ set wildmenu
 " テキスト挿入中の自動折り返しを日本語に対応させる
 set formatoptions+=mM
 
+" 手動でファイル形式を定義
+autocmd BufRead *.ino set ft=c
+
+" 超えたら折り返す長さの設定
+autocmd BufRead *.txt setlocal textwidth=80
+
 " ファイル検出を有効化
 filetype on
 
 " インデントの自動調整
-autocmd FileType c,cpp,perl,html set cindent
-
-" 超えたら折り返す長さの設定
-autocmd FileType txt setlocal textwidth=80
+autocmd FileType c,cpp,perl,html,ino set cindent
 
 " エスケープシーケンスを伴う入力の誤作動防止(neocompleteとかとの兼ね合い)
 set timeout timeoutlen=1000 ttimeoutlen=40

@@ -34,6 +34,10 @@ alias vi='vi -p'
 #tree: カラー有効, 階層を指定
 alias tree='tree -C -L'
 
+#vim, viの起動時はタブ
+alias vim='vim -p'
+alias vi='vi -p'
+
 #ディレクトリの削除
 alias rmdir='rm -rf'
 
@@ -69,16 +73,16 @@ alias balse='taskkill /im explorer.exe /f'
 # リンクの作成
 ##################################################################
 
-SVN_LOCAL_PATH=/cygdrive/c/Documents/ITF-2
+SVN_LOCAL_PATH=/cygdrive/d/Documents/ITF-2
 
 function make_lnk() {
     #homeから主要フォルダにアクセス
     ln -s -f /cygdrive/c/Users/Mamoru/Downloads    ~/Downloads;
     ln -s -f /cygdrive/c/Users/Mamoru/Desktop      ~/Desktop;
-    ln -s -f /cygdrive/c/Users/Mamoru/Documents    ~/Documents;
-    ln -s -f /cygdrive/c/Users/Mamoru/Pictures     ~/Pictures;
-    ln -s -f /cygdrive/c/Users/Mamoru/Videos       ~/Videos;
-    ln -s -f /cygdrive/c/Users/Mamoru/Music        ~/Music;
+    ln -s -f /cygdrive/d/Users/Mamoru/Documents    ~/Documents;
+    ln -s -f /cygdrive/d/Users/Mamoru/Pictures     ~/Pictures;
+    ln -s -f /cygdrive/d/Users/Mamoru/Videos       ~/Videos;
+    ln -s -f /cygdrive/d/Users/Mamoru/Music        ~/Music;
 
     #よく使うSVNのパスへのショートカット
     ln -s -f ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ~/Powpic;
