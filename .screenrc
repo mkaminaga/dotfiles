@@ -2,19 +2,19 @@ defencoding UTF-8
 defkanji UTF-8
 encoding UTF-8 UTF-8
 
-defbce on
+defbc on
 term xterm-256color
 termcapinfo xterm* ti@:te@
 termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 hardstatus on
-hardstatus alwayslastline "[%Y/%m/%d %02c:%s] %`%-w%{=b bw}%n %t%{-}%+w"
+hardstatus alwaysfirstline "[%Y/%m/%d %02c:%s] %`%-w%{=b bw}%n %t%{-}%+w"
 
-shelltitle "$ |zsh"
+shelltitle "$ |bash"
 startup_message off
 autodetach on
 silencewait 15
-defscrollback 1024
+defscrollback 3000
 vbell off
 altscreen altscreen on
 shell -$SHELL
