@@ -69,6 +69,31 @@ alias c='cygstart'
 #stop エクスプローラを停止
 alias balse='taskkill /im explorer.exe /f'
 
+#TortiseSVNコマンドを使いやすくしておく
+alias tsvn='TortoiseSVN'
+function TortoiseSVN() {
+
+    #空コミットを許可しない
+    if [ "$1" = "commit" ]; then
+        #commit
+        if [ "$3" = "" ]; then
+            echo "write log message!";
+        else
+            cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+               /command:$1 \
+               /path:$2 \
+               /logmsg:"\"$3\"" \
+               /closeonend:1;
+        fi
+    else
+        #update
+        cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+           /command:$1\
+           /path:$2 \
+           /closeonend:1;
+    fi
+}
+
 ##################################################################
 # リンクの作成
 ##################################################################
