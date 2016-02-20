@@ -1,7 +1,7 @@
-#resolve default
+#change default
 unmap    s
 unmap    x
-unmap t
+unmap    t
 
 map   st     createTab
 map   sp    previousTab

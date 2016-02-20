@@ -45,7 +45,7 @@ set fileformat=dos
 "タブの画面上での幅
 set tabstop=4
 
-"自動インデントでずれる幅
+"自動インデント幅
 set shiftwidth=4
 
 "タブをスペースに展開する/ しない (expandtab:展開する)
@@ -66,7 +66,7 @@ set showmatch
 "コマンドライン補完するときに強化されたものを使う(参照 :help  wildmenu)
 set wildmenu
 
-"テキスト挿入中の自動折り返しを日本語に対応させる
+"テキスト挿入中の自動折り返しの日本語対応
 set formatoptions+=mM
 
 "エスケープシーケンスを伴う入力の誤作動防止(neocompleteとかとの兼ね合い)
