@@ -395,5 +395,3 @@ endfunction
 "========補完設定========
 set complete=".,w,b,u,t,i,d"
 set tags=./tags
-inoremap <C-i> <C-x><C-i>
-inoremap <C-t> <C-x><C-]>
