@@ -119,11 +119,11 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 augroup Binaly
     au!
     au BufReadPre   *.bin let &bin=1
-    au BufReadPost  *.bin if  &bin | %!xxd -g 1
+    au BufReadPost  *.bin if &bin | %!xxd -g 1
     au BufReadPost  *.bin set ft=xxd | endif
-    au BufWritePre  *.bin if  &bin | %!xxd -r
+    au BufWritePre  *.bin if &bin | %!xxd -r
     au BufWritePre  *.bin endif
-    au BufWritePost *.bin if  &bin | %!xxd -g 1
+    au BufWritePost *.bin if &bin | %!xxd -g 1
     au BufWritePost *.bin set nomod | end
 augroup END
 
@@ -222,6 +222,7 @@ inoremap [ []<Left>
 inoremap ( ()<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
+inoremap ` ``<Left>
 inoremap /* /*<Space><Space>*/<Left><Left><Left>
 nnoremap <Esc>; <S-a>;<Esc>
 
