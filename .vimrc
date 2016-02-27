@@ -133,7 +133,7 @@ set wildmenu
 set wildmode=longest:full,full
 
 "履歴バッファ
-set history=50
+set history=255
 
 "「保存して閉じる」の無効化
 nnoremap ZZ <Nop>
