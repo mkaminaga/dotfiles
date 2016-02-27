@@ -109,6 +109,16 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
+"カーソル移動に十字キーを使用しない
+nnoremap <Down> <Nop>
+inoremap <Down> <Nop>
+nnoremap <Up> <Nop>
+inoremap <Up> <Nop>
+nnoremap <Left> <Nop>
+inoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+inoremap <Right> <Nop>
+
 " カーソルを行頭、行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
