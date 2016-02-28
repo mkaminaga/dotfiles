@@ -90,7 +90,7 @@ set formatoptions+=mM
 autocmd BufRead *.ino set ft=c
 
 " 超えたら折り返す長さの設定
-autocmd BufRead *.txt setlocal textwidth=80
+" autocmd BufRead *.txt setlocal textwidth=80
 
 " ファイル検出を有効化
 filetype on

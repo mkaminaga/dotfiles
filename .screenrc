@@ -4,7 +4,6 @@ encoding UTF-8 UTF-8
 
 defbc on
 term xterm-256color
-termcapinfo xterm* ti@:te@
 termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 hardstatus on
