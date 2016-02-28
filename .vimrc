@@ -110,13 +110,9 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 "カーソル移動に十字キーを使用しない
-nnoremap <Down> <Nop>
 inoremap <Down> <Nop>
-nnoremap <Up> <Nop>
 inoremap <Up> <Nop>
-nnoremap <Left> <Nop>
 inoremap <Left> <Nop>
-nnoremap <Right> <Nop>
 inoremap <Right> <Nop>
 
 " カーソルを行頭、行末で止まらないようにする
@@ -233,8 +229,40 @@ inoremap ( ()<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
 inoremap ` ``<Left>
-inoremap /* /*<Space><Space>*/<Left><Left><Left>
 nnoremap <Esc>; <S-a>;<Esc>
+
+"========コメントルール（Doxygen）仕様========
+"ファイルコメントテンプレート
+inoremap @@F /**<CR>
+            \@file<Space><C-r>=expand("%")<CR><CR>
+            \@brief<Space><CR>
+            \@author<Space><CR>
+            \@date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
+            \*/
+
+"関数コメントテンプレート
+inoremap @@f /**<CR>
+            \@brief<Space><CR>
+            \@detail<Space><CR>
+            \@param [in]<Space><CR>
+            \@param [out]<Space><CR>
+            \@param [in,out]<Space><CR>
+            \@retval<Space><CR>
+            \@return<Space><CR>
+            \*/
+
+inoremap /** /**<Space><Space>*/<Left><Left><Left><CR><Space>*<Space>
+inoremap @F @file<Space><C-r>=expand("%")<CR><Space>
+inoremap @f @fn<Space><CR>
+inoremap @b @brief<Space>
+inoremap @a @author<Space>
+inoremap @d @date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><Space>
+inoremap @p @param<Space>
+inoremap @r @return<Space>
+inoremap @R @retval<Space>
+
+"個人的に気に入っているコメント表示
+inoremap /*<Space> /*<Space><Space>*/<Left><Left><Left>
 
 "========画面表示設定========
 set term=xterm
