@@ -251,7 +251,7 @@ inoremap @@f /**<CR>
             \@return<Space><CR>
             \*/
 
-inoremap /** /**<Space><Space>*/<Left><Left><Left><CR><Space>*<Space>
+nnoremap <F2> o/**<Space><Space>*/<Left><Left><Left>
 inoremap @F @file<Space><C-r>=expand("%")<CR><Space>
 inoremap @f @fn<Space><CR>
 inoremap @b @brief<Space>
@@ -260,9 +260,19 @@ inoremap @d @date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><Space>
 inoremap @p @param<Space>
 inoremap @r @return<Space>
 inoremap @R @retval<Space>
+inoremap @c @class<Space>
+inoremap @v @var<Space>
+inoremap @s @struct<Space>
+inoremap @e @enum<Space>
 
 "個人的に気に入っているコメント表示
-inoremap /*<Space> /*<Space><Space>*/<Left><Left><Left>
+inoremap /* /*<Space><Space>*/<Left><Left><Left>
+
+"全角文字、半角カタカナの削除
+command! DeleteMultiByte call s:DeleteMultiByte()
+function! s:DeleteMultiByte()
+    :%s/[^\x01-\x7E]//g
+endfunction
 
 "========画面表示設定========
 set term=xterm
