@@ -15,16 +15,16 @@
 "   Introduction:
 "   Vim setting file.
 "
+"   Plugins:
+"   https://github.com/itchyny/lightline
+"   https://github.com/tomasr/molokai
+"   https://github.com/tomtom/tcomment_vim
 
-" 1. .vimrc_HEAVY
-" Plugin is so heavy, but completion is powered.
-" source ~/dotfiles/.vimrc_HEAVY
-
-" 2. .vimrc_LIGHT
-" Lighter than above setting.
-source ~/dotfiles/.vimrc_LIGHT
-
-"========共通の設定======
+"========Pluginの管理========
+colorscheme molokai                    "カラースキーマ"
+source ~/.vim/tcomment.vim             "一瞬でコメントアウト"
+source ~/.vim/lightline.vim            "ステータスラインの強化"
+filetype plugin indent on
 
 "========検索設定=======
 "検索時に大文字小文字を無視（noignorecase：無視しない）
@@ -38,6 +38,12 @@ set incsearch
 
 "検索ハイライト
 set hlsearch
+
+"vimgrepのキーバインド
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
 
 "========文字コード設定========
 "vim（utf-8, shift_jis, cp932, etc.）
