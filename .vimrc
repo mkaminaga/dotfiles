@@ -261,11 +261,13 @@ nnoremap <F2> o/**<Space><Space>*/<Left><Left><Left>
 inoremap @F @file<Space><C-r>=expand("%")<CR><Space>
 inoremap @f @fn<Space><CR>
 inoremap @b @brief<Space>
+inoremap @D @detail<Space>
 inoremap @a @author<Space>
 inoremap @d @date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><Space>
 inoremap @p @param<Space>
 inoremap @r @return<Space>
 inoremap @R @retval<Space>
+inoremap @S @sa<Space>
 inoremap @c @class<Space>
 inoremap @v @var<Space>
 inoremap @s @struct<Space>
