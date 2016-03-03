@@ -256,7 +256,11 @@ inoremap @@f /**<CR>
             \@return<Space><CR>
             \*/
 
+"コメント
 nnoremap <F2> o/**<Space><Space>*/<Left><Left><Left>
+"メンバ変数へのコメント
+nnoremap <F3> A/**<<Space><Space>*/<Left><Left><Left>
+
 inoremap @F @file<Space><C-r>=expand("%")<CR><Space>
 inoremap @f @fn<Space><CR>
 inoremap @b @brief<Space>
@@ -272,7 +276,7 @@ inoremap @v @var<Space>
 inoremap @s @struct<Space>
 inoremap @e @enum<Space>
 
-"個人的に気に入っているコメント表示
+"Doxygenに関知されないコメント
 inoremap /* /*<Space><Space>*/<Left><Left><Left>
 
 "全角文字、半角カタカナの削除
