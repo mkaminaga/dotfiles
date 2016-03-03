@@ -1,0 +1,141 @@
+#.bash.rc
+
+##################################################################
+# alias
+##################################################################
+
+#カラースキームの設定
+[ -z '$LS_COLORS' ] && eval '`dircolors -b /etc/DIR_COLORS`'
+
+
+
+
+#起動時
+cd ~/
+
+##################################################################
+# alias
+##################################################################
+
+#ls: 詳細
+alias ls='ls --color=auto --show-control-chars'
+alias la='ls -la'
+
+#nkfコマンドの簡易設定
+alias u2w='nkf -w -Lw'
+alias w2u='nkf -u -Lu'
+alias u2wo='nkf -w -Lw --overwrite'
+alias w2uo='nkf -u -Lu --overwrite'
+
+#vi, vimの起動は複数タブ
+alias vim='vim -p'
+alias vi='vi -p'
+
+#tree: カラー有効, 階層を指定
+alias tree='tree -C -L'
+
+#vim, viの起動時はタブ
+alias vim='vim -p'
+alias vi='vi -p'
+
+#ディレクトリの削除
+alias rmdir='rm -rf'
+
+#ディレクトリごとコピー
+alias cpdir='cp -r'
+
+#新規ターミナルの立ち上げ
+alias new='c /cygdrive/c/WinLinks/mintty.lnk'
+
+#ウィンドウズアプリを含むプロセスの簡易表示
+alias ps='ps -s -W'
+
+#Doxygenでプロジェクト名のオーバーライド
+function DoxygenProjectNameOverRide() {
+    if [ "${1}" = "" ]; then
+        echo "No project name is specified";
+        return;
+    fi
+
+    if [ "${2}" = "" ]; then
+        echo "output dir is not specified";
+        return;
+    fi
+
+    (cat ~/dotfiles/Doxyfile ;\
+        echo "PROJECT_NAME=${1}";\
+        echo "HTML_OUTPUT=${2}/${1}") | doxygen -\
+        && cygstart ${2}/${1}/index.html;
+}
+alias doxygen='DoxygenProjectNameOverRide'
+
+##################################################################
+# WindowsとCygwinの対応
+##################################################################
+
+#コマンドプロンプトの起動時オプション
+alias cmd='cmd /k 'C:\WinLinks\Cmd_ini.bat''
+
+#ウィンドウズアプリを起動
+alias c='cygstart'
+
+#stop エクスプローラを停止
+alias balse='taskkill /im explorer.exe /f'
+
+#TortiseSVNコマンドを使いやすくしておく
+alias tsvn='TortoiseSVN'
+function TortoiseSVN() {
+
+    #空コミットを許可しない
+    if [ "$1" = "commit" ]; then
+        #commit
+        if [ "$3" = "" ]; then
+            echo "write log message!";
+        else
+            cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+               /command:$1 \
+               /path:`cygpath -w $2` \
+               /logmsg:"\"$3\"" \
+               /closeonend:1;
+        fi
+    else
+        #update
+        cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+           /command:$1\
+           /path:`cygpath -w $2` \
+           /closeonend:1;
+    fi
+}
+
+##################################################################
+# リンクの作成
+##################################################################
+
+SVN_LOCAL_PATH=/cygdrive/d/Documents/ITF-2
+
+function make_lnk() {
+    #homeから主要フォルダにアクセス
+    ln -s -f /cygdrive/c/Users/Mamoru/Downloads    ~/Downloads;
+    ln -s -f /cygdrive/c/Users/Mamoru/Desktop      ~/Desktop;
+    ln -s -f /cygdrive/c/Users/Mamoru/Documents    ~/Documents;
+    ln -s -f /cygdrive/c/Users/Mamoru/Pictures     ~/Pictures;
+    ln -s -f /cygdrive/c/Users/Mamoru/Videos       ~/Videos;
+    ln -s -f /cygdrive/c/Users/Mamoru/Music        ~/Music;
+    ln -s -f /cygdrive/c/Users/Mamoru/"Google ドライブ" ~/Gdrive;
+
+    #よく使うSVNのパスへのショートカット
+    ln -s -f ${SVN_LOCAL_PATH}/code_share/"PIC(Pow)"  ~/Powpic;
+    ln -s -f ${SVN_LOCAL_PATH}/code_share/"PIC(Com)"  ~/Compic;
+    ln -s -f ${SVN_LOCAL_PATH}/"C&Dh"/コマンド処理    ~/Command;
+    ln -s -f ${SVN_LOCAL_PATH}/PCB/CDH/PFM            ~/FM;
+    ln -s -f ${SVN_LOCAL_PATH}/PCB/CDH/EM             ~/EM;
+    ln -s -f ${SVN_LOCAL_PATH}/"C&Dh"                 ~/CDH;
+}
+alias Mklnk='make_lnk'
+
+##################################################################
+# オマケ
+##################################################################
+
+DATE_TEMP=`date|awk '{print $1 $2 $3 $5.}'`
+echo "It is ${DATE_TEMP}"

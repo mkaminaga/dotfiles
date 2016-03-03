@@ -248,8 +248,7 @@ inoremap @@F /**<CR>
 
 "関数コメントテンプレート
 inoremap @@f /**<CR>
-            \@brief<Space><CR>
-            \@detail<Space><CR>
+            \@brief<Space><br><CR>
             \@param [in]<Space><CR>
             \@param [out]<Space><CR>
             \@param [in,out]<Space><CR>
@@ -363,6 +362,10 @@ set noswapfile
 autocmd BufWritePre * :%s/\s\+$//ge
 
 "========IDEとしての設定========
+
+"clコンパイラでの単体コンパイル
+nnoremap <F4> :!cl /EHsc /c %<CR>
+
 " make
 nnoremap <F5> :MakeCompile<CR>
 command! MakeCompile call s:MakeCompile()
