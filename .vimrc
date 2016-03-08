@@ -41,6 +41,7 @@ set hlsearch
 
 "quickfixのあるファイルをargsに設定
 "「実践Vim」p.302
+"https://github.com/nelstrom/vim-qargs
 command! -nargs=0 -bar Qargs execute 'args' QucikFixFileNames()
 function! QucikFixFileNames()
     let buffer_numbers = {}
