@@ -39,7 +39,19 @@ set incsearch
 "検索ハイライト
 set hlsearch
 
-"vimgrepのキーバインド
+"quickfixのあるファイルをargsに設定
+"「実践Vim」p.302
+command! -nargs=0 -bar Qargs execute 'args' QucikFixFileNames()
+function! QucikFixFileNames()
+    let buffer_numbers = {}
+    for quickfix_item in getqflist()
+        let buffer_numbers[quickfix_item['bufnr']]=
+                    \ bufname(quickfix_item['bufnr'])
+    endfor
+    return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
+"quickfixのキーバインド
 nnoremap [q :cprevious<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
@@ -94,6 +106,7 @@ set formatoptions+=mM
 
 " 手動でファイル形式を定義
 autocmd BufRead *.ino set ft=c
+autocmd BufRead README.* set ft=markdown
 
 " 超えたら折り返す長さの設定
 " autocmd BufRead *.txt setlocal textwidth=80
@@ -259,7 +272,7 @@ inoremap @@f /**<CR>
 "コメント
 nnoremap <F2> o/**<Space><Space>*/<Left><Left><Left>
 "メンバ変数へのコメント
-nnoremap <F3> A/**<<Space><Space>*/<Left><Left><Left>
+nnoremap <F3> A<Space>/**<<Space><Space>*/<Left><Left><Left>
 
 inoremap @F @file<Space><C-r>=expand("%")<CR><Space>
 inoremap @f @fn<Space><CR>

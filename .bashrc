@@ -69,6 +69,9 @@ function DoxygenProjectNameOverRide() {
 }
 alias doxygen='DoxygenProjectNameOverRide'
 
+#gimpのフォント読み込み抑制
+alias gimp='gimp --no-fonts'
+
 ##################################################################
 # WindowsとCygwinの対応
 ##################################################################
