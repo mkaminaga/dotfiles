@@ -1,34 +1,35 @@
 "
-"      __          __  ._.    .__.      .__.   ._______       ._____.
-"      \ \        / /  | |    |   \    /   |   | .___. \     / .___. \
-"       \ \      / /   | |    | |\ \  / /| |   | |    \ \   /_/     \_\
-"        \ \    / /    | |    | | \ \/ / | |   | |____/ /   CC
-"         \ \  / /     | |    | |  \  /  | |   | _____ /    CC       __
-"          \ \/ /      | |    | |   \/   | |   | |    \ \   \ \_____/ /
-"     []    \__/       |_|    |_|        |_|   |_|     \_\   \_______/
+"      __          __    ._.    .__.      .__.   ._______       ._____.
+"      \ \        / /    | |    |   \    /   |   | .___. \     / .___. \
+"       \ \      / /     | |    | |\ \  / /| |   | |    \ \   /_/     \_\
+"        \ \    / /      | |    | | \ \/ / | |   | |____/ /   CC
+"         \ \  / /       | |    | |  \  /  | |   | _____ /    CC       __
+"          \ \/ /        | |    | |   \/   | |   | |    \ \   \ \_____/ /
+"     []    \__/         |_|    |_|        |_|   |_|     \_\   \_______/
 "
 "
-"                        Author   Mamoru Kaminaga
+"                         Author   Mamoru Kaminaga
 "
-"                              Since  2015
+"                               Since  2015
+
+
+"    Introduction:
+"    Vim setting file.
 "
-"   Introduction:
-"   Vim setting file.
-"
-"   Plugins:
-"   https://github.com/itchyny/lightline
-"   https://github.com/tomasr/molokai
-"   https://github.com/tomtom/tcomment_vim
+"    Plugins:
+"    https://github.com/itchyny/lightline
+"    https://github.com/tomasr/molokai
+"    https://github.com/tomtom/tcomment_vim
 
 "========Pluginの管理========
-colorscheme molokai                    "カラースキーマ"
-source ~/.vim/tcomment.vim             "一瞬でコメントアウト"
-source ~/.vim/lightline.vim            "ステータスラインの強化"
+colorscheme molokai					   "カラースキーマ"
+source ~/.vim/tcomment.vim			   "一瞬でコメントアウト"
+source ~/.vim/lightline.vim			   "ステータスラインの強化"
 filetype plugin indent on
 
 "========検索設定=======
 "検索時に大文字小文字を無視（noignorecase：無視しない）
-set ignorecase
+" set ignorecase
 
 "大文字小文字の両方が含まれている場合は大文字小文字を区別
 set smartcase
@@ -44,12 +45,12 @@ set hlsearch
 "https://github.com/nelstrom/vim-qargs
 command! -nargs=0 -bar Qargs execute 'args' QucikFixFileNames()
 function! QucikFixFileNames()
-    let buffer_numbers = {}
-    for quickfix_item in getqflist()
-        let buffer_numbers[quickfix_item['bufnr']]=
-                    \ bufname(quickfix_item['bufnr'])
-    endfor
-    return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+	let buffer_numbers = {}
+	for quickfix_item in getqflist()
+		let buffer_numbers[quickfix_item['bufnr']]=
+					\ bufname(quickfix_item['bufnr'])
+	endfor
+	return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
 
 "quickfixのキーバインド
@@ -75,8 +76,13 @@ set fileformat=unix
 " vi互換にしない
 set nocompatible
 
-" 最大タブ数
-set tabpagemax=30
+" タブをスペースに展開する/ しない
+set noexpandtab
+
+" タブ文字の表示
+autocmd InsertEnter * set list
+autocmd InsertLeave * set nolist
+set listchars=tab:>-
 
 " タブの画面上での幅
 set tabstop=4
@@ -84,14 +90,17 @@ set tabstop=4
 " 自動インデントでずれる幅
 set shiftwidth=4
 
-" タブをスペースに展開する/ しない (expandtab:展開する)
-set expandtab
+" 連続した空白文字に対して動く幅
+set softtabstop=4
 
-" C言語形式でインデントする (noautoindent:インデントしない)
+" C言語形式でインデントする
 set cindent
 
 " バックスペースでインデントや改行を削除できるようにする
 set backspace=indent,eol,start
+
+" 最大タブページ数
+set tabpagemax=30
 
 " 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
 set wrapscan
@@ -143,14 +152,14 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 "binalyファイルはHEXスタイルで編集
 augroup Binaly
-    au!
-    au BufReadPre   *.bin let &bin=1
-    au BufReadPost  *.bin if &bin | %!xxd -g 1
-    au BufReadPost  *.bin set ft=xxd | endif
-    au BufWritePre  *.bin if &bin | %!xxd -r
-    au BufWritePre  *.bin endif
-    au BufWritePost *.bin if &bin | %!xxd -g 1
-    au BufWritePost *.bin set nomod | end
+	au!
+	au BufReadPre	*.bin let &bin=1
+	au BufReadPost	*.bin if &bin | %!xxd -g 1
+	au BufReadPost	*.bin set ft=xxd | endif
+	au BufWritePre	*.bin if &bin | %!xxd -r
+	au BufWritePre	*.bin endif
+	au BufWritePost *.bin if &bin | %!xxd -g 1
+	au BufWritePost *.bin set nomod | end
 augroup END
 
 "========コマンド設定========
@@ -254,21 +263,21 @@ nnoremap <Esc>; <S-a>;<Esc>
 "========コメントルール（Doxygen）仕様========
 "ファイルコメントテンプレート
 inoremap @@F /**<CR>
-            \@file<Space><C-r>=expand("%")<CR><CR>
-            \@brief<Space><CR>
-            \@author<Space><CR>
-            \@date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
-            \*/
+			\@file<Space><C-r>=expand("%")<CR><CR>
+			\@brief<Space><CR>
+			\@author<Space><CR>
+			\@date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
+			\*/
 
 "関数コメントテンプレート
 inoremap @@f /**<CR>
-            \@brief<Space><br><CR>
-            \@param [in]<Space><CR>
-            \@param [out]<Space><CR>
-            \@param [in,out]<Space><CR>
-            \@retval<Space><CR>
-            \@return<Space><CR>
-            \*/
+			\@brief<Space><br><CR>
+			\@param [in]<Space><CR>
+			\@param [out]<Space><CR>
+			\@param [in,out]<Space><CR>
+			\@retval<Space><CR>
+			\@return<Space><CR>
+			\*/
 
 "コメント
 nnoremap <F2> o/**<Space><Space>*/<Left><Left><Left>
@@ -296,7 +305,7 @@ inoremap /* /*<Space><Space>*/<Left><Left><Left>
 "全角文字、半角カタカナの削除
 command! DeleteMultiByte call s:DeleteMultiByte()
 function! s:DeleteMultiByte()
-    :%s/[^\x01-\x7E]//g
+	:%s/[^\x01-\x7E]//g
 endfunction
 
 "========画面表示設定========
@@ -340,8 +349,8 @@ syntax on
 
 " 80カラムの表示
 if (exists('+colorcolumn'))
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=9
+	set colorcolumn=80
+	highlight ColorColumn ctermbg=9
 endif
 
 " 余裕を持たせたスクロール
@@ -388,86 +397,86 @@ nnoremap <F4> :!cl /EHsc /c %<CR>
 nnoremap <F5> :MakeCompile<CR>
 command! MakeCompile call s:MakeCompile()
 function! s:MakeCompile()
-    :bufdo w
-    :!make
+	:bufdo w
+	:!make
 endfunction
 
 " gcc
 nnoremap <F6> :Run<CR>
 command! Run call s:Run()
 function! s:Run()
-    :w
-    let e = expand("%:e")
-    if e == "c"
-        :Gcc
-    elseif e == "cpp"
-        :Gpp
-    elseif e == "f90" || e == "f95"
-        :Gfortran
-    endif
+	:w
+	let e = expand("%:e")
+	if e == "c"
+		:Gcc
+	elseif e == "cpp"
+		:Gpp
+	elseif e == "f90" || e == "f95"
+		:Gfortran
+	endif
 endfunction
 
 "実行
 nnoremap <F9> :Execute<CR>
 command! Execute call s:Execute()
 function! s:Execute()
-    :w
-    let e = expand("%:e")
-    if e == "c"
-        if has("win32") || has("win64") || has("win32unix")
-            :!./%:r.exe
-        else
-            :!./%:r.out
-        endif
-    elseif e == "cpp"
-        if has("win32") || has("win64") || has("win32unix")
-            :!./%:r.exe
-        else
-            :!./%:r.out
-        endif
-    elseif e == "f90" || e == "f95"
-        if has("win32") || has("win64") || has("win32unix")
-            :!./%:r.exe
-        else
-            :!./%:r.out
-        endif
-    elseif e == "py"
-        :!python ./%
-    elseif e == "pl"
-        :!perl ./%
-    else
-        :!cygstart %
-    endif
+	:w
+	let e = expand("%:e")
+	if e == "c"
+		if has("win32") || has("win64") || has("win32unix")
+			:!./%:r.exe
+		else
+			:!./%:r.out
+		endif
+	elseif e == "cpp"
+		if has("win32") || has("win64") || has("win32unix")
+			:!./%:r.exe
+		else
+			:!./%:r.out
+		endif
+	elseif e == "f90" || e == "f95"
+		if has("win32") || has("win64") || has("win32unix")
+			:!./%:r.exe
+		else
+			:!./%:r.out
+		endif
+	elseif e == "py"
+		:!python ./%
+	elseif e == "pl"
+		:!perl ./%
+	else
+		:!cygstart %
+	endif
 endfunction
 
 " c言語
 command! Gcc call s:Gcc()
 function! s:Gcc()
-    if has("win32") || has("win64") || has("win32unix")
-        :!gcc % -o %:r.exe
-    else
-        :!gcc % -o %:r.out
-    endif
+	if has("win32") || has("win64") || has("win32unix")
+		:!gcc % -o %:r.exe
+	else
+		:!gcc % -o %:r.out
+	endif
 endfunction
 
 " C++
 command! Gpp call s:Gpp()
 function! s:Gpp()
-    if has("win32") || has("win64") || has("win32unix")
-        :!g++ % -o %:r.exe
-    else
-        :!g++ % -o %:r.out
-    endif
+	if has("win32") || has("win64") || has("win32unix")
+		:!g++ % -o %:r.exe
+	else
+		:!g++ % -o %:r.out
+	endif
 endfunction
 
 " fortran
 command! Gfortran call s:Gfortran()
 function! s:Gfortran()
-    if has("win32") || has("win64") || has("win32unix")
-        :!gfortran % -o %:r.exe
-    else
-        :!gfortran % -o %:r.out
-    endif
+	if has("win32") || has("win64") || has("win32unix")
+		:!gfortran % -o %:r.exe
+	else
+		:!gfortran % -o %:r.out
+	endif
 endfunction
 
 "========補完設定========
