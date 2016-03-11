@@ -82,7 +82,7 @@ set noexpandtab
 " タブ文字の表示
 autocmd InsertEnter * set list
 autocmd InsertLeave * set nolist
-set listchars=tab:>-
+set listchars=tab:>-,eol:↲,trail:-
 
 " タブの画面上での幅
 set tabstop=4
