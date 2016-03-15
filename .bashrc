@@ -19,7 +19,7 @@ cd ~/
 
 #ls: 詳細
 alias ls='ls --color=auto --show-control-chars'
-alias la='ls -la'
+alias la='ls -la -l -h'
 
 #nkfコマンドの簡易設定
 alias u2w='nkf -w -Lw'
