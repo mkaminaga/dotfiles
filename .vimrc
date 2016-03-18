@@ -62,7 +62,7 @@ endfunction
 set encoding=utf-8 "default"
 set fileencoding=utf-8 "save"
 set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 "open"
-set fileformat=unix
+set fileformat=unix "LF format"
 
 "========Insert mode========
 set nocompatible
@@ -93,10 +93,10 @@ set timeout timeoutlen=1000 ttimeoutlen=40
 
 nnoremap j gj
 nnoremap k gk
-inoremap <C-j>	<Down>
-inoremap <C-k>	<Up>
-inoremap <C-h>	<Left>
-inoremap <C-l>	<Right>
+inoremap <C-j>		<Down>
+inoremap <C-k>		<Up>
+inoremap <C-h>		<Left>
+inoremap <C-l>		<Right>
 
 inoremap <Down>		<Nop>
 inoremap <Up>		<Nop>
@@ -124,14 +124,16 @@ augroup END
 set wildmenu
 set wildmode=longest:full,full
 set history=255
-nnoremap ZZ <Nop>
-nnoremap ZQ <Nop>
-nnoremap <C-z> <Nop>
-nnoremap Q gq
+
+"easy touch"
 nnoremap <Space>w :w<CR>
 nnoremap <Space>q :q<CR>
-nnoremap <C-i> <C-a>
 nnoremap ! %
+
+"avoid dangerous mapping"
+nnoremap ZZ		<Nop>
+nnoremap ZQ		<Nop>
+nnoremap <C-z>	<Nop>
 
 "========Window shortcut========
 nnoremap s <Nop>
@@ -165,11 +167,8 @@ nnoremap sf 15gt
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bq<CR>
 
-"========Ctags========
-nnoremap t <Nop>
-nnoremap tn :!Ctags -R<CR>
-nnoremap tj g<C-]>
-nnoremap tr <C-o>
+"========tags shortcut========
+nnoremap <silent> <F4> :!Ctags -R<CR>
 
 "========Small completion========
 inoremap {<CR> {}<LEFT><CR><ESC><S-o>
@@ -233,6 +232,7 @@ set laststatus=2
 set cmdheight=2
 set showcmd
 set showmode
+set showbreak=>
 set title
 set scrolloff=3
 
@@ -256,9 +256,6 @@ set noswapfile
 autocmd BufWritePre * :%s/\s\+$//ge "delete white spaces at $"
 
 "========IDE vim========
-"Microsoft cl, Visual C++"
-nnoremap <F4> :!cl /EHsc /c %<CR>
-
 "make
 nnoremap <F5> :MakeCompile<CR>
 command! MakeCompile call s:MakeCompile()
@@ -267,50 +264,11 @@ function! s:MakeCompile()
 	:!make
 endfunction
 
-"gcc
-nnoremap <F6> :Run<CR>
-command! Run call s:Run()
-function! s:Run()
-	:w
-	let e = expand("%:e")
-	if e == "c"
-		:Gcc
-	elseif e == "cpp"
-		:Gpp
-	elseif e == "f90" || e == "f95"
-		:Gfortran
-	endif
-endfunction
+"gcc"
+nnoremap <F6> :!gcc -c %<CR>
 
-"c
-command! Gcc call s:Gcc()
-function! s:Gcc()
-	if has("win32") || has("win64") || has("win32unix")
-		:!gcc % -o %:r.exe
-	else
-		:!gcc % -o %:r.out
-	endif
-endfunction
-
-"C++
-command! Gpp call s:Gpp()
-function! s:Gpp()
-	if has("win32") || has("win64") || has("win32unix")
-		:!g++ % -o %:r.exe
-	else
-		:!g++ % -o %:r.out
-	endif
-endfunction
-
-"fortran
-command! Gfortran call s:Gfortran()
-function! s:Gfortran()
-	if has("win32") || has("win64") || has("win32unix")
-		:!gfortran % -o %:r.exe
-	else
-		:!gfortran % -o %:r.out
-	endif
-endfunction
+"Microsoft cl, Visual C++"
+nnoremap <F7> :!cl /EHsc /c %<CR>
 
 "========Completion========
 set complete=".,w,b,u,t,i,d"

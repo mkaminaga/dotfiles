@@ -16,4 +16,5 @@ silencewait 15
 defscrollback 3000
 vbell off
 altscreen altscreen on
+escape t
 shell -$SHELL
