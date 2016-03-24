@@ -52,20 +52,20 @@ alias ps='ps -s -W'
 
 #Doxygenでプロジェクト名のオーバーライド
 function DoxygenProjectNameOverRide() {
-    if [ "${1}" = "" ]; then
-        echo "No project name is specified";
-        return;
-    fi
+	if [ "${1}" = "" ]; then
+		echo "No project name is specified";
+		return;
+	fi
 
-    if [ "${2}" = "" ]; then
-        echo "output dir is not specified";
-        return;
-    fi
+	if [ "${2}" = "" ]; then
+		echo "output dir is not specified";
+		return;
+	fi
 
-    (cat ~/dotfiles/Doxyfile ;\
-        echo "PROJECT_NAME=${1}";\
-        echo "HTML_OUTPUT=${2}/${1}") | doxygen -\
-        && cygstart ${2}/${1}/index.html;
+	(cat ~/dotfiles/Doxyfile ;\
+		echo "PROJECT_NAME=${1}";\
+		echo "HTML_OUTPUT=${2}/${1}") | doxygen -\
+		&& cygstart ${2}/${1}/index.html;
 }
 alias doxygen='DoxygenProjectNameOverRide'
 
@@ -89,25 +89,25 @@ alias balse='taskkill /im explorer.exe /f'
 alias tsvn='TortoiseSVN'
 function TortoiseSVN() {
 
-    #空コミットを許可しない
-    if [ "$1" = "commit" ]; then
-        #commit
-        if [ "$3" = "" ]; then
-            echo "write log message!";
-        else
-            cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
-               /command:$1 \
-               /path:`cygpath -w $2` \
-               /logmsg:"\"$3\"" \
-               /closeonend:1;
-        fi
-    else
-        #update
-        cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
-           /command:$1\
-           /path:`cygpath -w $2` \
-           /closeonend:1;
-    fi
+	#空コミットを許可しない
+	if [ "$1" = "commit" ]; then
+		#commit
+		if [ "$3" = "" ]; then
+			echo "write log message!";
+		else
+			cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+			   /command:$1 \
+			   /path:`cygpath -w $2` \
+			   /logmsg:"\"$3\"" \
+			   /closeonend:1;
+		fi
+	else
+		#update
+		cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+		   /command:$1\
+		   /path:`cygpath -w $2` \
+		   /closeonend:1;
+	fi
 }
 
 ##################################################################
