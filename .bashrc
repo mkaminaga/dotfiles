@@ -72,6 +72,9 @@ alias doxygen='DoxygenProjectNameOverRide'
 #gimpのフォント読み込み抑制
 alias gimp='gimp --no-fonts'
 
+#Compiler opption
+alias cl='cl /W4 /Zi /DUNICODE /D_UNICODE'
+
 ##################################################################
 # WindowsとCygwinの対応
 ##################################################################

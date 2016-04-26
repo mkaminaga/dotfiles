@@ -273,6 +273,7 @@ nnoremap <F7> :!cl /EHsc /c %<CR>
 "========Completion========
 set complete=".,w,b,u,t,i,d"
 set tags=./tags
+set path=.
 set path+=~/.vim/dir/dxlib
 set path+=~/.vim/dir/directx
 
