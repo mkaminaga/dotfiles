@@ -129,6 +129,7 @@ set history=255
 nnoremap <Space>w :w<CR>
 nnoremap <Space>q :q<CR>
 nnoremap ! %
+vnoremap ! %
 
 "avoid dangerous mapping"
 nnoremap ZZ		<Nop>

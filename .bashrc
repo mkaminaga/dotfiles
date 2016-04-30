@@ -73,7 +73,7 @@ alias doxygen='DoxygenProjectNameOverRide'
 alias gimp='gimp --no-fonts'
 
 #Compiler opption
-alias cl='cl /W4 /Zi /DUNICODE /D_UNICODE'
+alias cl='cl /W4 /DUNICODE /D_UNICODE'
 
 ##################################################################
 # WindowsとCygwinの対応
@@ -116,6 +116,4 @@ function TortoiseSVN() {
 ##################################################################
 # オマケ
 ##################################################################
-
-DATE_TEMP=`date|awk '{print $1 $2 $3 $5.}'`
-echo "It is ${DATE_TEMP}"
+echo `date "+It is %Y/%m/%d %H:%M:%S"`
