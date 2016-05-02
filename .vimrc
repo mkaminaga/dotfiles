@@ -33,6 +33,11 @@ set smartcase
 set incsearch
 set hlsearch
 
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+
 "quickfix arguments
 "Vimp.302
 "https://github.com/nelstrom/vim-qargs
