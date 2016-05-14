@@ -14,7 +14,13 @@ ln -s -f ${SVN_LOCAL_PATH}							~/ITF-2;
 ln -s -f ${SVN_LOCAL_PATH}/"C&Dh"					~/CDH;
 
 #Google Drive
-ln -s -f /cygdrive/c/Users/Mamoru/"Google ドライブ"	~/Gdrive
+ln -s -f /cygdrive/c/Users/Mamoru/"Google ドライブ"	~/gdrive
+
+#Univ of tsukuba
+ln -s -f /cygdrive/c/Users/Mamoru/Documents/ut_lectures/エネルギー工学専門実験	~/reports
+
+#programming
+ln -s -f /cygdrive/c/projects	~/projects
 
 #vim include completion dir setting
 ln -s -f /cygdrive/c/DxLib_VC/Lib	~/.vim/dir/dxlib
