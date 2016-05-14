@@ -79,7 +79,6 @@ set listchars=tab:>-,eol:$,trail:-
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set cindent
 set backspace=indent,eol,start
 
 set tabpagemax=30
@@ -89,17 +88,12 @@ set noshowmatch
 set wildmenu
 set formatoptions+=mM
 
-autocmd BufRead *.ino set ft=c
-autocmd BufRead README.* set ft=markdown
-" autocmd BufRead *.txt setlocal textwidth=80
-
-autocmd FileType c,cpp,perl,html,ino set cindent
-set timeout timeoutlen=1000 ttimeoutlen=40
+set timeout timeoutlen=500 ttimeoutlen=10
 
 nnoremap j gj
 nnoremap k gk
-inoremap <C-j>		<Down>
-inoremap <C-k>		<Up>
+inoremap <C-j>		<Esc>gji
+inoremap <C-k>		<Esc>gki
 inoremap <C-h>		<Left>
 inoremap <C-l>		<Right>
 
@@ -176,52 +170,6 @@ nnoremap sQ :<C-u>bq<CR>
 "========tags shortcut========
 nnoremap <silent> <F4> :!Ctags -R<CR>
 
-"========Small completion========
-inoremap {<CR> {}<LEFT><CR><ESC><S-o>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ` ``<Left>
-nnoremap <Esc>; <S-a>;<Esc>
-
-"========Doxygen style comment========
-inoremap @@F /**<CR>
-			\@file<Space><C-r>=expand("%")<CR><CR>
-			\@brief<Space><CR>
-			\@author<Space><CR>
-			\@date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
-			\*/
-
-inoremap @@f /**<CR>
-			\@brief<Space><br><CR>
-			\@param [in]<Space><CR>
-			\@param [out]<Space><CR>
-			\@param [in,out]<Space><CR>
-			\@retval<Space><CR>
-			\@return<Space><CR>
-			\*/
-
-nnoremap <F2> o/**<Space><Space>*/<Left><Left><Left>
-nnoremap <F3> A<Space>/**<<Space><Space>*/<Left><Left><Left>
-inoremap @F @file<Space><C-r>=expand("%")<CR><Space>
-inoremap @f @fn<Space><CR>
-inoremap @b @brief<Space>
-inoremap @D @detail<Space>
-inoremap @a @author<Space>
-inoremap @d @date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><Space>
-inoremap @p @param<Space>
-inoremap @r @return<Space>
-inoremap @R @retval<Space>
-inoremap @S @sa<Space>
-inoremap @c @class<Space>
-inoremap @v @var<Space>
-inoremap @s @struct<Space>
-inoremap @e @enum<Space>
-
-"========No doxygen style comment========
-inoremap /* /*<Space><Space>*/<Left><Left><Left>
-
 "========Window Looks========
 set term=xterm
 set t_Co=256
@@ -288,3 +236,9 @@ set spelllang=en_us
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 setlocal spellfile+=~/.vim/yui_p/pic.utf-8.add
 
+"========Specific file plugins========"
+autocmd BufRead *.ino set ft=c
+autocmd BufRead README.* set ft=markdown
+autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
+autocmd BufRead *.plt source ~/dotfiles/.my_vim/tex.vim
+autocmd FileType c,cpp,perl,html,ino source ~/dotfiles/.my_vim/cpp.vim
