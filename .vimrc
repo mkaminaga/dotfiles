@@ -28,6 +28,14 @@ filetype plugin indent on
 syntax on
 filetype on
 
+"========General========
+set timeout timeoutlen=400 ttimeoutlen=50
+
+"=======IME========
+let &t_SI .= "\e[<r"
+let &t_EI .= "\e[<s\e[<0t"
+let &t_te .= "\e[<0t\e[<s"
+
 "=======Search========
 set smartcase
 set incsearch
@@ -87,8 +95,6 @@ set noshowmatch
 
 set wildmenu
 set formatoptions+=mM
-
-set timeout timeoutlen=500 ttimeoutlen=10
 
 nnoremap j gj
 nnoremap k gk
