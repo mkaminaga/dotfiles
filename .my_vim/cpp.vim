@@ -1,5 +1,8 @@
 set cindent
 
+"========Unicode macro in cl"
+nnoremap tt a_T("")<Left><Left>
+
 "========Small completion========
 inoremap {<CR> {}<LEFT><CR><ESC><S-o>
 inoremap [ []<Left>
