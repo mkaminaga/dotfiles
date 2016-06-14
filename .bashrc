@@ -44,8 +44,20 @@ alias rmdir='rm -rf'
 #ディレクトリごとコピー
 alias cpdir='cp -r'
 
-#新規ターミナルの立ち上げ
-alias new='c /cygdrive/c/WinLinks/mintty.lnk'
+#カレントディレクトリでの新規ターミナルの立ち上げ
+TMPDIRFILE='/tmp/TempFileForBashrc'
+if [ ! -e ${TMPDIRFILE} ]; then
+	touch ${TMPDIRFILE}
+fi
+function SetWakeupDir() {
+	cd `cat ${TMPDIRFILE}`
+}
+alias setWakeupDir='SetWakeupDir'
+
+function New() {
+	pwd > ${TMPDIRFILE} && cygstart /cygdrive/c/WinLinks/mintty.lnk
+}
+alias new='New'
 
 #ウィンドウズアプリを含むプロセスの簡易表示
 alias ps='ps -s -W'
@@ -112,6 +124,11 @@ function TortoiseSVN() {
 		   /closeonend:1;
 	fi
 }
+
+##################################################################
+# 起動時設定
+##################################################################
+setWakeupDir
 
 ##################################################################
 # オマケ

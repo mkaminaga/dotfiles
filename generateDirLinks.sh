@@ -22,6 +22,9 @@ ln -s -f /cygdrive/c/Users/Mamoru/Documents/ut_lectures/エネルギー工学専
 #programming
 ln -s -f /cygdrive/c/projects	~/projects
 
+# gimp 2.0
+ln -s -f /cygdrive/c/"Program Files"/"GIMP 2"/share/gimp/2.0/palettes ~/gimpPalettes
+
 #vim include completion dir setting
 ln -s -f /cygdrive/c/DxLib_VC/Lib	~/.vim/dir/dxlib
 ln -s -f /cygdrive/c/"Program Files (x86)"/"Microsoft DirectX SDK (June 2010)"/Include	~/.vim/dir/directx
