@@ -23,7 +23,7 @@ ln -s -f /cygdrive/c/Users/Mamoru/Documents/ut_lectures/エネルギー工学専
 ln -s -f /cygdrive/c/projects	~/projects
 
 # gimp 2.0
-ln -s -f /cygdrive/c/"Program Files"/"GIMP 2"/share/gimp/2.0/palettes ~/gimpPalettes
+ln -s -f /cygdrive/c/cygwin64/home/Mamoru/.gimp-2.8/palettes ~/gimpPalettes
 
 #vim include completion dir setting
 ln -s -f /cygdrive/c/DxLib_VC/Lib	~/.vim/dir/dxlib

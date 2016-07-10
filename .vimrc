@@ -73,7 +73,8 @@ endfunction
 
 "========Encodings========
 set encoding=utf-8 "default"
-set fileencoding=utf-8 bomb "save"
+set fileencoding=utf-8 "save"
+"set fileencoding=utf-8 bomb "save"
 set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 "open"
 set fileformat=unix "LF format"
 
@@ -244,6 +245,8 @@ setlocal spellfile+=~/.vim/yui_p/pic.utf-8.add
 
 "========Specific file plugins========"
 autocmd BufRead *.ino set ft=c
+autocmd BufRead *.pde set ft=c
+
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
 autocmd BufRead *.plt source ~/dotfiles/.my_vim/tex.vim

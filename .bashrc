@@ -59,6 +59,8 @@ function New() {
 }
 alias new='New'
 
+alias exit='pwd > ${TMPDIRFILE} && exit'
+
 #ウィンドウズアプリを含むプロセスの簡易表示
 alias ps='ps -s -W'
 
