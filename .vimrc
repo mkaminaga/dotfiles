@@ -250,4 +250,4 @@ autocmd BufRead *.pde set ft=c
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
 autocmd BufRead *.plt source ~/dotfiles/.my_vim/tex.vim
-autocmd FileType c,cpp,perl,html,ino source ~/dotfiles/.my_vim/cpp.vim
+autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.my_vim/cpp.vim
