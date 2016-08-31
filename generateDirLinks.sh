@@ -12,6 +12,7 @@ ln -s -f /cygdrive/c/Users/Mamoru/Music		~/Music;
 SVN_LOCAL_PATH=/cygdrive/c/Users/Mamoru/Documents/ITF-2
 ln -s -f ${SVN_LOCAL_PATH}							~/ITF-2;
 ln -s -f ${SVN_LOCAL_PATH}/"C&Dh"					~/CDH;
+ln -s -f ${SVN_LOCAL_PATH}/"地上局"					~/groundStation;
 
 #Google Drive
 ln -s -f /cygdrive/c/Users/Mamoru/"Google ドライブ"	~/gdrive
