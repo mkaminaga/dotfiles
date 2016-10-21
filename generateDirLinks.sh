@@ -18,7 +18,7 @@ ln -s -f ${SVN_LOCAL_PATH}/"地上局"					~/groundStation;
 ln -s -f /cygdrive/c/Users/Mamoru/"Google ドライブ"	~/gdrive
 
 #Univ of tsukuba
-ln -s -f /cygdrive/c/Users/Mamoru/Documents/ut_lectures/エネルギー工学専門実験	~/reports
+ln -s -f /cygdrive/c/Users/Mamoru/Documents/ut_lectures/エネルギー工学応用実験	~/reports
 
 #yui project
 ln -s -f /cygdrive/c/Users/Mamoru/Documents/YUI	~/yui
