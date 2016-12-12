@@ -1,3 +1,23 @@
+.bash_profile
+.bashrc
+.ctags
+.gitignore
+.gvimrc
+.minttyrc
+.my_vim
+.screenrc
+.vimrc
+.virc
+CommandPrompt_ini.bat
+Doxyfile
+IME_START.bat
+README.txt
+TERATERM.INI
+VimiumOptions.txt
+dotfileLink.sh
+generateDirLinks.sh
+
+#
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
