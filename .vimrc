@@ -1,23 +1,23 @@
 "
-"      __          __    ._.    .__.      .__.   ._______       ._____.
-"      \ \        / /    | |    |   \    /   |   | .___. \     / .___. \
-"       \ \      / /     | |    | |\ \  / /| |   | |    \ \   /_/     \_\
-"        \ \    / /      | |    | | \ \/ / | |   | |____/ /   CC
-"         \ \  / /       | |    | |  \  /  | |   | _____ /    CC       __
-"          \ \/ /        | |    | |   \/   | |   | |    \ \   \ \_____/ /
-"     []    \__/         |_|    |_|        |_|   |_|     \_\   \_______/
+"			 __					 __		 ._.		.__.			.__.	 ._______				._____.
+"			 \ \				/ /		 | |		|		\		 /	 |	 | .___. \		 / .___. \
+"				\ \			 / /		 | |		| |\ \	/ /| |	 | |		\ \		/_/			\_\
+"				 \ \		/ /			 | |		| | \ \/ / | |	 | |____/ /		CC
+"					\ \  / /			 | |		| |  \	/  | |	 | _____ /		CC			 __
+"					 \ \/ /				 | |		| |		\/	 | |	 | |		\ \		\ \_____/ /
+"			[]		\__/				 |_|		|_|				 |_|	 |_|		 \_\	 \_______/
 "
 "							Author	Mamoru Kaminaga
-"							Since	2015
+"							Since 2015
 "
-"	Plugins
-"   Introduction:
-"   Vim setting file.
+" Plugins
+"		Introduction:
+"		Vim setting file.
 "
-"	Plugins:
-"	https://github.com/itchyny/lightline
-"	https://github.com/tomasr/molokai
-"	https://github.com/tomtom/tcomment_vim
+" Plugins:
+" https://github.com/itchyny/lightline
+" https://github.com/tomasr/molokai
+" https://github.com/tomtom/tcomment_vim
 
 "========Plugin========
 colorscheme molokai
@@ -85,9 +85,10 @@ autocmd InsertEnter * set list
 autocmd InsertLeave * set nolist
 set listchars=tab:>-,eol:$,trail:-
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set backspace=indent,eol,start
 
 set tabpagemax=30
@@ -117,7 +118,7 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 "Binary editor vim"
 augroup Binaly
 	au!
-	au BufReadPre	*.bin let &bin=1
+	au BufReadPre *.bin let &bin=1
 	au BufReadPost	*.bin if &bin | %!xxd -g 1
 	au BufReadPost	*.bin set ft=xxd | endif
 	au BufWritePre	*.bin if &bin | %!xxd -r
