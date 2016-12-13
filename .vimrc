@@ -85,7 +85,7 @@ autocmd InsertEnter * set list
 autocmd InsertLeave * set nolist
 set listchars=tab:>-,eol:$,trail:-
 
-" set expandtab
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
