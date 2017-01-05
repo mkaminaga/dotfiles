@@ -4,3 +4,4 @@ if [ -f "${HOME}/.bashrc" ] ; then
 fi
 
 export PATH="${PATH}:/cygdrive/c/WinLinks"
+export XDG_CONFIG_HOME="~"

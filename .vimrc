@@ -217,6 +217,13 @@ set nobackup
 set noswapfile
 autocmd BufWritePre * :%s/\s\+$//ge "delete white spaces at $"
 
+"CamelCase -> snake_case
+"http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
+vnoremap ,s :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
+"snake_case -> CamelCase
+"http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
+vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
+
 "========IDE vim========
 "make
 nnoremap <F5> :MakeCompile<CR>
