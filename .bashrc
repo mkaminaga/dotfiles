@@ -83,11 +83,11 @@ function DoxygenProjectNameOverRide() {
 }
 alias doxygen='DoxygenProjectNameOverRide'
 
-#gimpのフォント読み込み抑制
-alias gimp='gimp --no-fonts'
-
 #Compiler opption
 alias cl='cl /W4 /DUNICODE /D_UNICODE'
+
+#cpplint (google cording style helper tool)
+alias cpplint='cpplint.py'
 
 ##################################################################
 # WindowsとCygwinの対応

@@ -19,6 +19,7 @@ inoremap @@F /**<CR>
 			\@brief<Space><CR>
 			\@author<Space><CR>
 			\@date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
+      \Copyright <C-r>=strftime("%Y")<CR><Space><CR>
 			\*/
 
 inoremap @@f /**<CR>
