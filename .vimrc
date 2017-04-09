@@ -216,6 +216,7 @@ set clipboard+=unnamed,autoselect
 set nobackup
 set noswapfile
 autocmd BufWritePre * :%s/\s\+$//ge "delete white spaces at $"
+command! Fit :v/\S/d
 
 "CamelCase -> snake_case
 "http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
@@ -258,4 +259,4 @@ autocmd BufRead *.pde set ft=c
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
 autocmd BufRead *.plt source ~/dotfiles/.my_vim/tex.vim
-autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.my_vim/cpp.vim
+autocmd FileType c,cpp,perl,html,ino,rc,pde source ~/dotfiles/.my_vim/cpp.vim
