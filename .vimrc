@@ -1,18 +1,18 @@
 "
-"			 __					 __		 ._.		.__.			.__.	 ._______				._____.
-"			 \ \				/ /		 | |		|		\		 /	 |	 | .___. \		 / .___. \
-"				\ \			 / /		 | |		| |\ \	/ /| |	 | |		\ \		/_/			\_\
-"				 \ \		/ /			 | |		| | \ \/ / | |	 | |____/ /		CC
-"					\ \  / /			 | |		| |  \	/  | |	 | _____ /		CC			 __
-"					 \ \/ /				 | |		| |		\/	 | |	 | |		\ \		\ \_____/ /
-"			[]		\__/				 |_|		|_|				 |_|	 |_|		 \_\	 \_______/
+"      __          __    ._.    .__.      .__.   ._______       ._____.
+"      \ \        / /    | |    |   \    /   |   | .___. \     / .___. \
+"       \ \      / /     | |    | |\ \  / /| |   | |    \ \   /_/     \_\
+"        \ \    / /      | |    | | \ \/ / | |   | |____/ /   CC
+"         \ \  / /       | |    | |  \  /  | |   | _____ /    CC       __
+"          \ \/ /        | |    | |   \/   | |   | |    \ \   \ \_____/ /
+"     []    \__/         |_|    |_|        |_|   |_|     \_\   \_______/
 "
-"							Author	Mamoru Kaminaga
-"							Since 2015
+"             Author  Mamoru Kaminaga
+"             Since 2015
 "
 " Plugins
-"		Introduction:
-"		Vim setting file.
+"   Introduction:
+"   Vim setting file.
 "
 " Plugins:
 " https://github.com/itchyny/lightline
@@ -51,12 +51,12 @@ nmap # #zz
 "https://github.com/nelstrom/vim-qargs
 command! -nargs=0 -bar Qargs execute 'args' QucikFixFileNames()
 function! QucikFixFileNames()
-	let buffer_numbers = {}
-	for quickfix_item in getqflist()
-		let buffer_numbers[quickfix_item['bufnr']]=
-					\ bufname(quickfix_item['bufnr'])
-	endfor
-	return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']]=
+          \ bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
 
 "quick fix list
@@ -68,7 +68,7 @@ nnoremap ]Q :clast<CR>
 "Unicode characters only remain
 command! DeleteMultiByte call s:DeleteMultiByte()
 function! s:DeleteMultiByte()
-	:%s/[^\x01-\x7E]//g
+  :%s/[^\x01-\x7E]//g
 endfunction
 
 "========Encodings========
@@ -100,15 +100,15 @@ set formatoptions+=mM
 
 nnoremap j gj
 nnoremap k gk
-inoremap <C-j>		<Esc>gji
-inoremap <C-k>		<Esc>gki
-inoremap <C-h>		<Left>
-inoremap <C-l>		<Right>
+inoremap <C-j>    <Esc>gji
+inoremap <C-k>    <Esc>gki
+inoremap <C-h>    <Left>
+inoremap <C-l>    <Right>
 
-inoremap <Down>		<Nop>
-inoremap <Up>		<Nop>
-inoremap <Left>		<Nop>
-inoremap <Right>	<Nop>
+inoremap <Down>   <Nop>
+inoremap <Up>   <Nop>
+inoremap <Left>   <Nop>
+inoremap <Right>  <Nop>
 
 set whichwrap=b,s,h,l,<,>,[,]
 
@@ -117,14 +117,14 @@ command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 
 "Binary editor vim"
 augroup Binaly
-	au!
-	au BufReadPre *.bin let &bin=1
-	au BufReadPost	*.bin if &bin | %!xxd -g 1
-	au BufReadPost	*.bin set ft=xxd | endif
-	au BufWritePre	*.bin if &bin | %!xxd -r
-	au BufWritePre	*.bin endif
-	au BufWritePost *.bin if &bin | %!xxd -g 1
-	au BufWritePost *.bin set nomod | end
+  au!
+  au BufReadPre *.bin let &bin=1
+  au BufReadPost  *.bin if &bin | %!xxd -g 1
+  au BufReadPost  *.bin set ft=xxd | endif
+  au BufWritePre  *.bin if &bin | %!xxd -r
+  au BufWritePre  *.bin endif
+  au BufWritePost *.bin if &bin | %!xxd -g 1
+  au BufWritePost *.bin set nomod | end
 augroup END
 
 "========Command mode========
@@ -139,9 +139,9 @@ nnoremap ! %
 vnoremap ! %
 
 "avoid dangerous mapping"
-nnoremap ZZ		<Nop>
-nnoremap ZQ		<Nop>
-nnoremap <C-z>	<Nop>
+nnoremap ZZ   <Nop>
+nnoremap ZQ   <Nop>
+nnoremap <C-z>  <Nop>
 
 "========Window shortcut========
 nnoremap s <Nop>
@@ -200,8 +200,8 @@ set scrolloff=3
 
 "80 column visual
 if (exists('+colorcolumn'))
-	set colorcolumn=80
-	highlight ColorColumn ctermbg=9
+  set colorcolumn=80
+  highlight ColorColumn ctermbg=9
 endif
 
 set synmaxcol=300
@@ -230,8 +230,8 @@ vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
 nnoremap <F5> :MakeCompile<CR>
 command! MakeCompile call s:MakeCompile()
 function! s:MakeCompile()
-	:bufdo w
-	:!make
+  :bufdo w
+  :!make
 endfunction
 
 "gcc"
@@ -259,4 +259,4 @@ autocmd BufRead *.pde set ft=c
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
 autocmd BufRead *.plt source ~/dotfiles/.my_vim/tex.vim
-autocmd FileType c,cpp,perl,html,ino,rc,pde source ~/dotfiles/.my_vim/cpp.vim
+autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.my_vim/cpp.vim
