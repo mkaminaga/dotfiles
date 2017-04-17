@@ -7,7 +7,7 @@ ln -s -f /cygdrive/c/Users/Mamoru/Documents ~/Documents;
 ln -s -f /cygdrive/c/Users/Mamoru/Pictures  ~/Pictures;
 ln -s -f /cygdrive/c/Users/Mamoru/Videos    ~/Videos;
 ln -s -f /cygdrive/c/Users/Mamoru/Music     ~/Music;
-ln -s -f /cygdrive/c/Users/Mamoru/Temp      /cygdrive/c/Users/Mamoru/AppData/Local/Temp
+ln -s -f /cygdrive/c/Users/Mamoru/AppData/Local/Temp ~/Temp
 #SVN
 SVN_LOCAL_PATH=/cygdrive/c/Users/Mamoru/Documents/ITF-2
 ln -s -f ${SVN_LOCAL_PATH}                  ~/ITF-2;
