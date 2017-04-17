@@ -1,6 +1,6 @@
 #!/bin/sh
-
 ########## Constants ##########
+
 # Arg 1 constants, PC
 PC_MINE="my_pc"
 PC_LABS="lab_pc"
@@ -8,8 +8,8 @@ PC_LABS="lab_pc"
 # Arg 2 constants, Terminal
 TERMINAL_CYGWIN="cygwin"
 TERMINAL_MSYS2="msys2"
-
 ########## Functions ##########
+
 # Common links
 function dotfile_links () {
   ln -s -f "${HOME}/dotfiles/.bashrc"        "${HOME}/.bashrc"
@@ -17,6 +17,7 @@ function dotfile_links () {
   ln -s -f "${HOME}/dotfiles/.screenrc"      "${HOME}/.screenrc"
   ln -s -f "${HOME}/dotfiles/.vim"           "${HOME}/.vim"
   ln -s -f "${HOME}/dotfiles/.vimrc"         "${HOME}/.vimrc"
+  ln -s -f "${HOME}/dotfiles/.gvimrc"        "${HOME}/.vimrc"
   ln -s -f "${HOME}/dotfiles/.virc"          "${HOME}/.virc"
 }
 
@@ -117,43 +118,59 @@ function lab_PC_msys2 () {
   # Cache
   ln -s -f /c/Users/mkami/AppData/Local/Temp ~/Temp
 }
-
 ########## Calls ##########
+
 # Argument check
 if [ $# -ne 2 ]; then
   echo "Arg error"
+
   # Arg1 check
   echo "Arg 1!"
   echo "${PC_MINE}: Own PC"
   echo "${PC_LABS}: Lab PC"
+
   # Arg2 check
   echo "Arg 2!"
   echo "${TERMINAL_CYGWIN}: Cygwin terminal"
   echo "${TERMINAL_MSYS2}: MSYS2 terminal"
+
+  # Error exit
   exit 1
 fi
 
-# Link generation
+# Common link generation
 dotfile_links
+
+# Separated Link generation
 if [ $1 == ${PC_MINE} ]; then
-  # My PC
+
+  # For My PC
   if [ $2 == ${TERMINAL_CYGWIN} ]; then
     my_PC_cygwin
   elif [ $2 == ${TERMINAL_MSYS2} ]; then
     my_PC_msys2
   else
+
+    # Erro Exit
     echo "Arg2 error"
+    exit 1
   fi
 elif [ $1 == ${PC_LABS} ]; then
-  # Lab PC
+
+  # For Lab PC
   if [ $2 == ${TERMINAL_CYGWIN} ]; then
     lab_PC_cygwin
   elif [ $2 == ${TERMINAL_MSYS2} ]; then
     lab_PC_msys2
   else
+
+    # Erro Exit
     echo "Arg2 error"
+    exit 1
   fi
 else
-  echo "Arg1 error"
-fi
 
+  # Erro Exit
+  echo "Arg1 error"
+  exit 1
+fi
