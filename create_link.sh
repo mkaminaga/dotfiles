@@ -8,7 +8,7 @@
 # ./create_link.sh /cygdrive/c/cygwin64/home/Mamoru my_pc cygwin
 #
 # Pattern 2: Msys at Laboratry
-# ./create_link.sh /c/msys64/home/mkami my_pc msys2
+# ./create_link.sh /c/msys64/home/mamoru my_pc msys2
 #
 # Pattern 3: Cygwin at Laboratry
 # ./create_link.sh /cygdrive/c/cygwin64/home/mkami lab_pc cygwin
