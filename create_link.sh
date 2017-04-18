@@ -1,6 +1,22 @@
 #!/bin/sh
-########## Constants ##########
 
+########## Description ##########
+# Script to create link
+# Use collect command form patterns below:
+#
+# Pattern 1: Cygwin at My PC
+# ./create_link.sh /cygdrive/c/cygwin64/home/Mamoru my_pc cygwin
+#
+# Pattern 2: Msys at Laboratry
+# ./create_link.sh /c/msys64/home/mkami my_pc msys2
+#
+# Pattern 3: Cygwin at Laboratry
+# ./create_link.sh /cygdrive/c/cygwin64/home/mkami lab_pc cygwin
+#
+# Pattern 4: Msys at Laboratry
+# ./create_link.sh /c/msys64/home/mkami lab_pc msys2
+
+########## Constants ##########
 # Arg 2 constants, PC
 PC_MINE="my_pc"
 PC_LABS="lab_pc"
