@@ -25,8 +25,8 @@ function dotfile_links () {
 # Cygwin for my PC
 function my_PC_cygwin () {
   # Dotfiles (Local)
-  ln -s -f ${1}/dotfiles/.bashrc_cygwin        ${1}/.bashrc        
-  ln -s -f ${1}/dotfiles/.bash_profile_cygwin  ${1}/.bash_profile  
+  ln -s -f ${1}/dotfiles/.bashrc_cygwin       ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_cygwin ${1}/.bash_profile  
 
   # Windows shortcuts
   ln -s -f /cygdrive/c/Users/Mamoru/Downloads ${1}/Downloads
@@ -58,14 +58,14 @@ function my_PC_cygwin () {
   ln -s -f /cygdrive/c/cygwin64/home/Mamoru/.gimp-2.8/palettes ${1}/gimpPalettes
 
   # vim include completion dir setting
-  ln -s -f /cygdrive/c/"Program Files (x86)"/"Microsoft DirectX SDK (June 2010)"/Include  ${1}/.vim/dir/directx
+  ln -s -f /cygdrive/c/"Program Files (x86)"/"Microsoft DirectX SDK (June 2010)"/Include ${1}/.vim/dir/directx
 }
 
 # MSYS2 for my PC
 function my_PC_msys2 () {
   # Dotfiles (Local)
-  ln -s -f ${1}/dotfiles/.bashrc_msys2        ${1}/.bashrc        
-  ln -s -f ${1}/dotfiles/.bash_profile_msys2  ${1}/.bash_profile  
+  ln -s -f ${1}/dotfiles/.bashrc_msys2       ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_msys2 ${1}/.bash_profile  
 
   # Windows shortcuts
   ln -s -f /c/Users/Mamoru/Downloads ${1}/Downloads
@@ -103,8 +103,8 @@ function my_PC_msys2 () {
 # Cygwin for Lab PC
 function lab_PC_cygwin () {
   # Dotfiles (Local)
-  ln -s -f ${1}/dotfiles/.bashrc_cygwin        ${1}/.bashrc        
-  ln -s -f ${1}/dotfiles/.bash_profile_cygwin  ${1}/.bash_profile  
+  ln -s -f ${1}/dotfiles/.bashrc_cygwin       ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_cygwin ${1}/.bash_profile  
 
   # Windows shortcuts
   ln -s -f /cygdrive/c/Users/mkami/Downloads ${1}/Downloads
@@ -121,8 +121,8 @@ function lab_PC_cygwin () {
 # MSYS2 for Lab PC
 function lab_PC_msys2 () {
   # Dotfiles (Local)
-  ln -s -f ${1}/dotfiles/.bashrc_msys2        ${1}/.bashrc        
-  ln -s -f ${1}/dotfiles/.bash_profile_msys2  ${1}/.bash_profile  
+  ln -s -f ${1}/dotfiles/.bashrc_msys2       ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_msys2 ${1}/.bash_profile  
 
   # Common
   ln -s -f /c/Users/mkami/Downloads ${1}/Downloads
