@@ -10,8 +10,9 @@ TERMINAL_CYGWIN="cygwin"
 TERMINAL_MSYS2="msys2"
 ########## Functions ##########
 
-# Common links
+# Common dotfiles
 function dotfile_links () {
+  # Dotfiles (Common)
   ln -s -f ${1}/dotfiles/.ctags         ${1}/.ctags
   ln -s -f ${1}/dotfiles/.git           ${1}/.git
   ln -s -f ${1}/dotfiles/.gitattributes ${1}/.gitattributes
@@ -23,7 +24,11 @@ function dotfile_links () {
 
 # Cygwin for my PC
 function my_PC_cygwin () {
-  # Common
+  # Dotfiles (Local)
+  ln -s -f ${1}/dotfiles/.bashrc_cygwin        ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_cygwin  ${1}/.bash_profile  
+
+  # Windows shortcuts
   ln -s -f /cygdrive/c/Users/Mamoru/Downloads ${1}/Downloads
   ln -s -f /cygdrive/c/Users/Mamoru/Desktop   ${1}/Desktop
   ln -s -f /cygdrive/c/Users/Mamoru/Documents ${1}/Documents
@@ -58,7 +63,11 @@ function my_PC_cygwin () {
 
 # MSYS2 for my PC
 function my_PC_msys2 () {
-  # Common
+  # Dotfiles (Local)
+  ln -s -f ${1}/dotfiles/.bashrc_msys2        ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_msys2  ${1}/.bash_profile  
+
+  # Windows shortcuts
   ln -s -f /c/Users/Mamoru/Downloads ${1}/Downloads
   ln -s -f /c/Users/Mamoru/Desktop   ${1}/Desktop
   ln -s -f /c/Users/Mamoru/Documents ${1}/Documents
@@ -93,7 +102,11 @@ function my_PC_msys2 () {
 
 # Cygwin for Lab PC
 function lab_PC_cygwin () {
-  # Common
+  # Dotfiles (Local)
+  ln -s -f ${1}/dotfiles/.bashrc_cygwin        ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_cygwin  ${1}/.bash_profile  
+
+  # Windows shortcuts
   ln -s -f /cygdrive/c/Users/mkami/Downloads ${1}/Downloads
   ln -s -f /cygdrive/c/Users/mkami/Desktop   ${1}/Desktop
   ln -s -f /cygdrive/c/Users/mkami/Documents ${1}/Documents
@@ -107,6 +120,10 @@ function lab_PC_cygwin () {
 
 # MSYS2 for Lab PC
 function lab_PC_msys2 () {
+  # Dotfiles (Local)
+  ln -s -f ${1}/dotfiles/.bashrc_msys2        ${1}/.bashrc        
+  ln -s -f ${1}/dotfiles/.bash_profile_msys2  ${1}/.bash_profile  
+
   # Common
   ln -s -f /c/Users/mkami/Downloads ${1}/Downloads
   ln -s -f /c/Users/mkami/Desktop   ${1}/Desktop
