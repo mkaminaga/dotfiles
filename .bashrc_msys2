@@ -49,7 +49,7 @@ function SetWakeupDir() {
 alias setWakeupDir='SetWakeupDir'
 
 function New() {
-  pwd > ${TMPDIRFILE} && cygstart /cygdrive/c/cygwin32/bin/bash.exe --login
+  pwd > ${TMPDIRFILE} && /c/msys64/home/bash.exe --login
 }
 alias new='New'
 
@@ -73,7 +73,7 @@ function DoxygenProjectNameOverRide() {
   (cat ~/dotfiles/Doxyfile ;\
     echo "PROJECT_NAME=${1}";\
     echo "HTML_OUTPUT=${2}/${1}") | doxygen -\
-    && cygstart ${2}/${1}/index.html;
+    && ${2}/${1}/index.html;
 }
 alias doxygen='DoxygenProjectNameOverRide'
 
@@ -88,10 +88,7 @@ alias cpplint='cpplint.py'
 ##################################################################
 
 # コマンドプロンプトの起動時オプション
-alias cmd='cmd /k `cygpath -u ~/dotfiles/win64/CMD_INI.bat`'
-
-# ウィンドウズアプリを起動
-alias c='cygstart'
+alias cmd='cmd /k ~/dotfiles/win64/CMD_INI.bat'
 
 # stop エクスプローラを停止
 alias balse='taskkill /im explorer.exe /f'
@@ -106,18 +103,13 @@ function TortoiseSVN() {
     if [ "$3" = "" ]; then
       echo "write log message!";
     else
-      cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
-         /command:$1 \
-         /path:`cygpath -w $2` \
-         /logmsg:"\"$3\"" \
-         /closeonend:1;
+      /c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+         /command:$1 /path:$2 /logmsg:"\"$3\"" /closeonend:1;
     fi
   else
     # update
-    cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
-       /command:$1\
-       /path:`cygpath -w $2` \
-       /closeonend:1;
+    /c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+       /command:$1 /path:$2 /closeonend:1;
   fi
 }
 
