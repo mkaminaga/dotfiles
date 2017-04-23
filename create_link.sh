@@ -4,6 +4,7 @@
 # Script to create link
 # Usage:
 # ./create_link.sh <Home> <pc_flag> <terminal_flag>
+# Execute with authorized account!
 #
 # Example:
 # 1) Cygwin on My PC
@@ -32,40 +33,38 @@ CONST_MSYS2="msys2"
 function common_links_for_all_pc () {
   # Dotfiles (Common)
   \cmd /c "mklink /H ${1}\\.ctags         ${1}\\dotfiles\\.ctags"
-  \cmd /c "mklink /H ${1}\\.gitattributes ${1}\\dotfiles\\.gitattributes"
-  \cmd /c "mklink /H ${1}\\.gitignore     ${1}\\dotfiles\\.gitignore"
   \cmd /c "mklink /H ${1}\\.gvimrc        ${1}\\dotfiles\\.gvimrc"
   \cmd /c "mklink /H ${1}\\.minttyrc      ${1}\\dotfiles\\.minttyrc"
-  \cmd /c "mklink /H ${1}\\.my_vim        ${1}\\dotfiles\\.my_vim"
   \cmd /c "mklink /H ${1}\\.vimrc         ${1}\\dotfiles\\.vimrc"
+  \cmd /c "mklink /D ${1}\\.my_vim        ${1}\\dotfiles\\.my_vim"
 }
 
 #### My PC ####
 ## Common links
 function common_links_for_mypc () {
   # Windows shortcuts
-  \cmd /c "mklink /J ${1}\\Downloads C:\\cygdrive\\c\\Users\\Mamoru\\Downloads"
-  \cmd /c "mklink /J ${1}\\Desktop   C:\\cygdrive\\c\\Users\\Mamoru\\Desktop"
-  \cmd /c "mklink /J ${1}\\Documents C:\\cygdrive\\c\\Users\\Mamoru\\Documents"
-  \cmd /c "mklink /J ${1}\\Pictures  C:\\cygdrive\\c\\Users\\Mamoru\\Pictures"
-  \cmd /c "mklink /J ${1}\\Videos    C:\\cygdrive\\c\\Users\\Mamoru\\Videos"
-  \cmd /c "mklink /J ${1}\\Music     C:\\cygdrive\\c\\Users\\Mamoru\\Music"
-  \cmd /c "mklink /J ${1}\\Temp      C:\\cygdrive\\c\\Users\\Mamoru\\AppData\\Local\\Temp"
+  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\Mamoru\\Downloads"
+  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\Mamoru\\Desktop"
+  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\Mamoru\\Documents"
+  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\Mamoru\\Pictures"
+  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\Mamoru\\Videos"
+  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\Mamoru\\Music"
+  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\Mamoru\\AppData\\Local\\Temp"
 
   # programming
-  \cmd /c "mklink /J ${1}\\projects C:\\cygdrive\\c\\projects"
+  \cmd /c "mklink /D ${1}\\projects C:\\projects"
 
   #SVN
-  SVN_PATH=C:\\cygdrive\\c\\Users\\Mamoru\\Documents\\ITF-2
-  \cmd /c "mklink /J ${1}\\ITF-2         ${SVN_PATH}"
-  \cmd /c "mklink /J ${1}\\CDH           ${SVN_PATH}/\"C&Dh\""
-  \cmd /c "mklink /J ${1}\\groundStation ${SVN_PATH}/地上局"
+  SVN_PATH=C:\\Users\\Mamoru\\Documents\\ITF-2
+  \cmd /c "mklink /D ${1}\\ITF-2         ${SVN_PATH}"
+  \cmd /c "mklink /D ${1}\\CDH           ${SVN_PATH}\\\"C&Dh\""
+  \cmd /c "mklink /D ${1}\\groundStation ${SVN_PATH}\\地上局"
 
   # University
-  \cmd /c "mklink /J ${1}\\Lab C:\\cygdrive\\c\\Users\\Mamoru\\Documents\\ut_lectures\\Lab"
+  \cmd /c "mklink /D ${1}\\Lab C:\\Users\\Mamoru\\Documents\\ut_lectures\\Lab"
 
   # project
-  \cmd /c "mklink /J ${1}\\yui C:\\cygdrive\\c\\Users\\Mamoru\\Documents\\YUI"
+  \cmd /c "mklink /D ${1}\\yui C:\\Users\\Mamoru\\Documents\\YUI"
 }
 
 # Cygwin links
@@ -125,6 +124,7 @@ if [ $# -ne 3 ]; then
   echo "Format error"
   echo "Usage:"
   echo "./create_link.sh <Home> <pc_flag> <terminal_flag>"
+  echo "Execute with authorized account!:"
   exit 1
 fi
 
