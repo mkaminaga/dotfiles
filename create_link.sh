@@ -6,16 +6,16 @@
 # ./create_link.sh <Home> <pc_flag> <terminal_flag>
 #
 # Example:
-# 1) Cygwin at My PC
+# 1) Cygwin on My PC
 # ./create_link.sh C:\\cygwin64\\home\\Mamoru my_pc cygwin
 #
-# 2) Msys at Laboratry
+# 2) Msys on My PC
 # ./create_link.sh C:\\msys64\\home\\Mamoru my_pc msys2
 #
-# 3) Cygwin at Laboratry
+# 3) Cygwin on Laboratry
 # ./create_link.sh C:\\cygwin64\\home\\mkami lab_pc cygwin
 #
-# 4) Msys at Laboratry
+# 4) Msys on Laboratry
 # ./create_link.sh C:\\msys64\\home\\mkami lab_pc msys2
 
 ########## Constants ##########
@@ -27,9 +27,15 @@ CONST_LABPC="lab_pc"
 CONST_CYGWIN="cygwin"
 CONST_MSYS2="msys2"
 
+# Prevent Grabled
+# See also: http://qiita.com/javacommons/items/15fe76491eced93ec58b
+function () {
+  $* |& iconv -f cp932 -t utf-8
+}
+
 ########## Functions ##########
 #### Common ####
-function common_links_for_all () {
+function common_links_for_all_pc () {
   # Dotfiles (Common)
   \cmd /c "mklink /H ${1}\\.ctags         ${1}\\dotfiles\\.ctags"
   \cmd /c "mklink /H ${1}\\.git           ${1}\\dotfiles\\.git"
@@ -130,7 +136,7 @@ if [ $# -ne 3 ]; then
 fi
 
 # Argument 2 check
-if [ [ $2 != ${CONST_MYPC} ] && [ $2 != ${CONST_LABPC} ]]; then
+if [ $2 != ${CONST_MYPC} -a $2 != ${CONST_LABPC} ]; then
   echo "Argument 2 error"
   echo "${CONST_MYPC}"
   echo "${CONST_LABPC}"
@@ -138,7 +144,7 @@ if [ [ $2 != ${CONST_MYPC} ] && [ $2 != ${CONST_LABPC} ]]; then
 fi
 
 # Argument 3 check
-if [ [ $3 != ${CONST_CYGWIN} ] && [ $3 != ${CONST_MSYS2} ]]; then
+if [ $3 != ${CONST_CYGWIN} -a $3 != ${CONST_MSYS2} ]; then
   echo "Argument 3 error"
   echo "${CONST_CYGWIN}"
   echo "${CONST_MSYS2}"
@@ -149,7 +155,7 @@ fi
 CONST_HOME=$1
 
 # Common link generation
-common_links_for_all ${CONST_HOME}
+common_links_for_all_pc ${CONST_HOME}
 
 # Separated Link generation
 if [ $2 == ${CONST_MYPC} ]; then
