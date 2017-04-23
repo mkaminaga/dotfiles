@@ -10,4 +10,4 @@ set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\L
 set LIB=%LIBPATH%;
 
 @rem Terminal launched
-start C:\cygwin64\bin\bash.exe --login
+start C:\cygwin64\bin\mintty -e C:\cygwin64\bin\bash.exe --login

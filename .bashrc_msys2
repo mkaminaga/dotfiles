@@ -49,7 +49,7 @@ function SetWakeupDir() {
 alias setWakeupDir='SetWakeupDir'
 
 function New() {
-  pwd > ${TMPDIRFILE} && /c/msys64/home/bash.exe --login
+  pwd > ${TMPDIRFILE} && /c/msys64/msys2.exe
 }
 alias new='New'
 
