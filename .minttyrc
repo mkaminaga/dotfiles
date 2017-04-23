@@ -26,3 +26,5 @@ ClickTargetMod=shift
 Columns=90
 Rows=25
 Printer=Canon MF8300C Series CARPS2
+Locale=C
+Charset=UTF-8

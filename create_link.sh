@@ -27,18 +27,11 @@ CONST_LABPC="lab_pc"
 CONST_CYGWIN="cygwin"
 CONST_MSYS2="msys2"
 
-# Prevent Grabled
-# See also: http://qiita.com/javacommons/items/15fe76491eced93ec58b
-function () {
-  $* |& iconv -f cp932 -t utf-8
-}
-
 ########## Functions ##########
 #### Common ####
 function common_links_for_all_pc () {
   # Dotfiles (Common)
   \cmd /c "mklink /H ${1}\\.ctags         ${1}\\dotfiles\\.ctags"
-  \cmd /c "mklink /H ${1}\\.git           ${1}\\dotfiles\\.git"
   \cmd /c "mklink /H ${1}\\.gitattributes ${1}\\dotfiles\\.gitattributes"
   \cmd /c "mklink /H ${1}\\.gitignore     ${1}\\dotfiles\\.gitignore"
   \cmd /c "mklink /H ${1}\\.gvimrc        ${1}\\dotfiles\\.gvimrc"
