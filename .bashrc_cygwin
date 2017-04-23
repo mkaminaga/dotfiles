@@ -39,21 +39,21 @@ alias rmdir='rm -rf'
 alias cpdir='cp -r'
 
 # カレントディレクトリでの新規ターミナルの立ち上げ
-TMPDIRFILE='/tmp/TempFileForBashrc'
-if [ ! -e ${TMPDIRFILE} ]; then
-  touch ${TMPDIRFILE}
+TMPFILE='/tmp/TempFileForBashrc'
+if [ ! -e ${TMPFILE} ]; then
+  touch ${TMPFILE}
 fi
 function SetWakeupDir() {
-  cd `cat ${TMPDIRFILE}`
+  cd `cat ${TMPFILE}`
 }
 alias setWakeupDir='SetWakeupDir'
 
 function New() {
-  pwd > ${TMPDIRFILE} && cygstart /cygdrive/c/cygwin32/bin/bash.exe --login
+  pwd > ${TMPFILE} && cygstart /cygdrive/c/cygwin64/bin/mintty -e /cygdrive/c/cygwin64/bin/bash.exe --login
 }
 alias new='New'
 
-alias exit='pwd > ${TMPDIRFILE} && exit'
+alias exit='pwd > ${TMPFILE} && exit'
 
 # ウィンドウズアプリを含むプロセスの簡易表示
 alias ps='ps -s -W'
