@@ -83,14 +83,10 @@ alias cl='cl /W4 /DUNICODE /D_UNICODE'
 # cpplint (google cording style helper tool)
 alias cpplint='cpplint.py'
 
-##################################################################
-# WindowsとCygwinの対応
-##################################################################
-
 # コマンドプロンプトの起動時オプション
 alias cmd='cmd /k `cygpath -u ~/dotfiles/win64/CMD_INI.bat`'
 
-# ウィンドウズアプリを起動
+# 開く
 alias c='cygstart'
 
 # stop エクスプローラを停止
