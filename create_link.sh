@@ -32,11 +32,11 @@ CONST_MSYS2="msys2"
 #### Common ####
 function common_links_for_all_pc () {
   # Dotfiles (Common)
-  \cmd /c "mklink /H ${1}\\.ctags         ${1}\\dotfiles\\.ctags"
-  \cmd /c "mklink /H ${1}\\.gvimrc        ${1}\\dotfiles\\.gvimrc"
-  \cmd /c "mklink /H ${1}\\.minttyrc      ${1}\\dotfiles\\.minttyrc"
-  \cmd /c "mklink /H ${1}\\.vimrc         ${1}\\dotfiles\\.vimrc"
-  \cmd /c "mklink /D ${1}\\.my_vim        ${1}\\dotfiles\\.my_vim"
+  \cmd /c "mklink /H ${1}\\.ctags	  ${1}\\dotfiles\\.ctags"
+  \cmd /c "mklink /H ${1}\\.gvimrc	  ${1}\\dotfiles\\.gvimrc"
+  \cmd /c "mklink /H ${1}\\.minttyrc	  ${1}\\dotfiles\\.minttyrc"
+  \cmd /c "mklink /H ${1}\\.vimrc	  ${1}\\dotfiles\\.vimrc"
+  \cmd /c "mklink /D ${1}\\.my_vim	  ${1}\\dotfiles\\.my_vim"
 }
 
 #### My PC ####
@@ -56,8 +56,8 @@ function common_links_for_mypc () {
 
   #SVN
   SVN_PATH=C:\\Users\\Mamoru\\Documents\\ITF-2
-  \cmd /c "mklink /D ${1}\\ITF-2         ${SVN_PATH}"
-  \cmd /c "mklink /D ${1}\\CDH           ${SVN_PATH}\\\"C&Dh\""
+  \cmd /c "mklink /D ${1}\\ITF-2	 ${SVN_PATH}"
+  \cmd /c "mklink /D ${1}\\CDH		 ${SVN_PATH}\\\"C&Dh\""
   \cmd /c "mklink /D ${1}\\groundStation ${SVN_PATH}\\地上局"
 
   # University
@@ -70,52 +70,45 @@ function common_links_for_mypc () {
 # Cygwin links
 function cygwin_links_for_mypc () {
   # Dotfiles (Local)
-  \cmd /c "mklink /H ${1}\\.bashrc       ${1}\\dotfiles\\.bashrc_cygwin"
+  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_cygwin"
   \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_cygwin"
 }
 
 # MSYS2 links
-function msys_links_for_mypc () {
+function msys2_links_for_mypc () {
   # Dotfiles (Local)
-  \cmd /c "mklink /H ${1}\\.bashrc       ${1}\\dotfiles\\.bashrc_msys2"
+  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_msys2"
   \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_msys2"
 }
 
 #### Lab PC ####
-# Cygwin for Lab PC
-function lab_PC_cygwin () {
-  # Dotfiles (Local)
-  ln -s -f ${1}/dotfiles/.bashrc_cygwin       ${1}/.bashrc
-  ln -s -f ${1}/dotfiles/.bash_profile_cygwin ${1}/.bash_profile
-
+## Common links
+function common_links_for_labpc () {
   # Windows shortcuts
-  ln -s -f /cygdrive/c/Users/mkami/Downloads ${1}/Downloads
-  ln -s -f /cygdrive/c/Users/mkami/Desktop   ${1}/Desktop
-  ln -s -f /cygdrive/c/Users/mkami/Documents ${1}/Documents
-  ln -s -f /cygdrive/c/Users/mkami/Pictures  ${1}/Pictures
-  ln -s -f /cygdrive/c/Users/mkami/Videos    ${1}/Videos
-  ln -s -f /cygdrive/c/Users/mkami/Music     ${1}/Music
+  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\Mamoru\\Downloads"
+  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\Mamoru\\Desktop"
+  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\Mamoru\\Documents"
+  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\Mamoru\\Pictures"
+  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\Mamoru\\Videos"
+  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\Mamoru\\Music"
+  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\Mamoru\\AppData\\Local\\Temp"
 
-  # Cache
-  ln -s -f /cygdrive/c/Users/mkami/AppData/Local/Temp ${1}/Temp
+  # Google drive
+  \cmd /c "mklink /D ${1}\\gdrive    C:\\Users\\mkami\\\"Google ドライブ\""
+}
+
+# Cygwin for Lab PC
+function cygwin_links_for_labpc () {
+  # Dotfiles (Local)
+  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_cygwin"
+  \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_cygwin"
 }
 
 # MSYS2 for Lab PC
-function lab_PC_msys2 () {
+function msys2_links_for_labpc () {
   # Dotfiles (Local)
-  ln -s -f ${1}/dotfiles/.bashrc_msys2       ${1}/.bashrc
-  ln -s -f ${1}/dotfiles/.bash_profile_msys2 ${1}/.bash_profile
-
-  # Common
-  ln -s -f /c/Users/mkami/Downloads ${1}/Downloads
-  ln -s -f /c/Users/mkami/Desktop   ${1}/Desktop
-  ln -s -f /c/Users/mkami/Documents ${1}/Documents
-  ln -s -f /c/Users/mkami/Pictures  ${1}/Pictures
-  ln -s -f /c/Users/mkami/Videos    ${1}/Videos
-  ln -s -f /c/Users/mkami/Music     ${1}/Music
-
-  # Cache
-  ln -s -f /c/Users/mkami/AppData/Local/Temp ${1}/Temp
+  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_msys2"
+  \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_msys2"
 }
 ########## Calls ##########
 
@@ -159,17 +152,18 @@ if [ $2 == ${CONST_MYPC} ]; then
     cygwin_links_for_mypc ${CONST_HOME}
 
   elif [ $3 == ${CONST_MSYS2} ]; then
-    msys_links_for_mypc ${CONST_HOME}
+    msys2_links_for_mypc ${CONST_HOME}
 
   fi
 elif [ $2 == ${CONST_LABPC} ]; then
   # For Lab PC
+  common_links_for_labpc ${CONST_HOME}
 
   if [ $3 == ${CONST_CYGWIN} ]; then
-    lab_PC_cygwin ${CONST_HOME}
+    cygwin_links_for_labpc ${CONST_HOME}
 
   elif [ $3 == ${CONST_MSYS2} ]; then
-    lab_PC_msys2 ${CONST_HOME}
+    msys2_links_for_labpc ${CONST_HOME}
 
   fi
 fi
