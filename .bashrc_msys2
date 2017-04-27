@@ -15,28 +15,12 @@
 alias ls='ls --color=auto --show-control-chars'
 alias la='ls -la -l -h'
 
-# nkfコマンドの簡易設定
-alias u2w='nkf -w -Lw'
-alias w2u='nkf -u -Lu'
-alias u2wo='nkf -w -Lw --overwrite'
-alias w2uo='nkf -u -Lu --overwrite'
-
 # vi, vimの起動は複数タブ
 alias vim='vim -p'
 alias vi='vi -p'
 
 # tree: カラー有効, 階層を指定
 alias tree='tree -C -L'
-
-# vim, viの起動時はタブ
-alias vim='vim -p'
-alias vi='vi -p'
-
-# ディレクトリの削除
-alias rmdir='rm -rf'
-
-# ディレクトリごとコピー
-alias cpdir='cp -r'
 
 # カレントディレクトリでの新規ターミナルの立ち上げ
 TMPFILE='/tmp/TempFileForBashrc'
@@ -49,7 +33,7 @@ function SetWakeupDir() {
 alias setWakeupDir='SetWakeupDir'
 
 function New() {
-  pwd > ${TMPFILE} && /c/msys64/msys2.exe
+  pwd > ${TMPFILE} && explorer win64/VC++ToolChain_MY_PC_MSYS2.bat
 }
 alias new='New'
 
@@ -58,7 +42,7 @@ alias exit='pwd > ${TMPFILE} && exit'
 # ウィンドウズアプリを含むプロセスの簡易表示
 alias ps='ps -s -W'
 
-#Doxygenでプロジェクト名のオーバーライド
+# Doxygenでプロジェクト名のオーバーライド
 function DoxygenProjectNameOverRide() {
   if [ "${1}" = "" ]; then
     echo "No project name is specified";
@@ -76,9 +60,6 @@ function DoxygenProjectNameOverRide() {
     && ${2}/${1}/index.html;
 }
 alias doxygen='DoxygenProjectNameOverRide'
-
-# Compiler opption
-alias cl='cl /W4 /DUNICODE /D_UNICODE'
 
 # cpplint (google cording style helper tool)
 alias cpplint='cpplint.py'
