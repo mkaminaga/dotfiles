@@ -85,13 +85,13 @@ function msys2_links_for_mypc () {
 ## Common links
 function common_links_for_labpc () {
   # Windows shortcuts
-  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\Mamoru\\Downloads"
-  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\Mamoru\\Desktop"
-  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\Mamoru\\Documents"
-  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\Mamoru\\Pictures"
-  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\Mamoru\\Videos"
-  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\Mamoru\\Music"
-  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\Mamoru\\AppData\\Local\\Temp"
+  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\mkami\\Downloads"
+  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\mkami\\Desktop"
+  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\mkami\\Documents"
+  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\mkami\\Pictures"
+  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\mkami\\Videos"
+  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\mkami\\Music"
+  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\mkami\\AppData\\Local\\Temp"
 
   # Google drive
   \cmd /c "mklink /D ${1}\\gdrive    C:\\Users\\mkami\\\"Google ドライブ\""
