@@ -30,6 +30,7 @@ filetype on
 
 "========General========
 set timeout timeoutlen=400 ttimeoutlen=50
+set spell
 
 "=======IME========
 let &t_SI .= "\e[<r"
@@ -73,8 +74,7 @@ endfunction
 
 "========Encodings========
 set encoding=utf-8 "default"
-set fileencoding=utf-8 "save"
-"set fileencoding=utf-8 bomb "save"
+set fileencoding=utf-8 bomb "save"
 set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 "open"
 set fileformat=unix "LF format"
 
