@@ -51,6 +51,9 @@ function common_links_for_mypc () {
   \cmd /c "mklink /D ${1}\\Music     C:\\Users\\Mamoru\\Music"
   \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\Mamoru\\AppData\\Local\\Temp"
 
+  # Google drive
+  \cmd /c "mklink /D ${1}\\gdrive    C:\\Users\\Mamoru\\\"Google ドライブ\""
+
   # programming
   \cmd /c "mklink /D ${1}\\projects C:\\projects"
 
