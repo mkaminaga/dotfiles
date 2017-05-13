@@ -28,6 +28,7 @@ set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\L
 
 @rem Debugging tool path
 set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\Debuggers\x64
+set _NT_SYMBOL_PATH=srv*C:\Symbols*http://msdl.microsoft.com/download/symbols
 
 @rem Library Path
 set LIB=%LIBPATH%;
