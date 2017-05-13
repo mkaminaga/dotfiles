@@ -26,6 +26,9 @@ set PATH=%PATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Utiliti
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86
 
+@rem Debugging tool path
+set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\Debuggers\x64
+
 @rem Library Path
 set LIB=%LIBPATH%;
 
