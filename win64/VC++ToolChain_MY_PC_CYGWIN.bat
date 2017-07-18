@@ -26,9 +26,16 @@ set PATH=%PATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Utiliti
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86
 
+@rem My git local repogitories
+set INCLUDE=%INCLUDE%;C:\cygwin64\home\Mamoru\projects\mkaminaga
+set LIBPATH=%LIBPATH%;C:\cygwin64\home\Mamoru\projects\mkaminaga
+
 @rem Debugging tool path
 set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\Debuggers\x64
 set _NT_SYMBOL_PATH=srv*C:\Symbols*http://msdl.microsoft.com/download/symbols
+
+@rem vecmath
+set INCLUDE=%INCLUDE%;C:\projects\vecmath-c++-1.2-1.4
 
 @rem Library Path
 set LIB=%LIBPATH%;
