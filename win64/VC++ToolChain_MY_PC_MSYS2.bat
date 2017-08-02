@@ -35,7 +35,7 @@ set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\Debuggers\x86
 set _NT_SYMBOL_PATH=srv*C:\Symbols*http://msdl.microsoft.com/download/symbols
 
 @rem Performance tool path
-set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Team Tools\Performance Tools\VSPerf.exe
+set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Team Tools\Performance Tools
 
 @rem vecmath
 set INCLUDE=%INCLUDE%;C:\projects\vecmath-c++-1.2-1.4
