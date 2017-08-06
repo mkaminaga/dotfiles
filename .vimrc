@@ -91,7 +91,7 @@ set shiftwidth=2
 set softtabstop=2
 set backspace=indent,eol,start
 
-set tabpagemax=30
+set tabpagemax=100
 set wrapscan
 set noshowmatch
 
