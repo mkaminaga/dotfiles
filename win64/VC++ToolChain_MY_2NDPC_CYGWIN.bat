@@ -29,7 +29,6 @@ set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\L
 @rem SGP4 library Path
 set INCLUDE=%INCLUDE%;C:\projects\SGP4\cpp
 set LIBPATH=%LIBPATH%;C:\projects\SGP4\cpp
-set LIB=%LIB%;C:\projects\SGP4\cpp
 
 @rem My git local repogitories
 set INCLUDE=%INCLUDE%;C:\cygwin64\home\OSAMU\projects\mkaminaga
