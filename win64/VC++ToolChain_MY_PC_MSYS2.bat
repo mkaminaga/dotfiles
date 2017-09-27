@@ -31,8 +31,8 @@ set INCLUDE=%INCLUDE%;C:\projects\SGP4\cpp
 set LIBPATH=%LIBPATH%;C:\projects\SGP4\cpp
 
 @rem My git local repogitories
-set INCLUDE=%INCLUDE%;C:\cygwin64\home\Mamoru\projects\mkaminaga
-set LIBPATH=%LIBPATH%;C:\cygwin64\home\Mamoru\projects\mkaminaga
+set INCLUDE=%INCLUDE%;C:\cygwin64\home\Mamoru\projects\library
+set LIBPATH=%LIBPATH%;C:\cygwin64\home\Mamoru\projects\library
 
 @rem Debugging tool path
 set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\Debuggers\x86

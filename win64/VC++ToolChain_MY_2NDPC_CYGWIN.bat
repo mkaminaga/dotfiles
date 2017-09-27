@@ -31,8 +31,8 @@ set INCLUDE=%INCLUDE%;C:\projects\SGP4\cpp
 set LIBPATH=%LIBPATH%;C:\projects\SGP4\cpp
 
 @rem My git local repogitories
-set INCLUDE=%INCLUDE%;C:\cygwin64\home\OSAMU\projects\mkaminaga
-set LIBPATH=%LIBPATH%;C:\cygwin64\home\OSAMU\projects\mkaminaga
+set INCLUDE=%INCLUDE%;C:\cygwin64\home\OSAMU\projects\library
+set LIBPATH=%LIBPATH%;C:\cygwin64\home\OSAMU\projects\library
 
 @rem Debugging tool and performance tool path
 set _NT_SYMBOL_PATH=srv*C:\Symbols*http://msdl.microsoft.com/download/symbols
