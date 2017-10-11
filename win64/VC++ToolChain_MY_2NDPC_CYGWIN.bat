@@ -30,6 +30,11 @@ set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\L
 set INCLUDE=%INCLUDE%;C:\projects\SGP4\cpp
 set LIBPATH=%LIBPATH%;C:\projects\SGP4\cpp
 
+@rem FBX SDK Path
+set INCLUDE=%INCLUDE%;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include
+set LIBPATH=%LIBPATH%;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x86\release
+set LIBPATH=%LIBPATH%;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x86\debug
+
 @rem My git local repogitories
 set INCLUDE=%INCLUDE%;C:\cygwin64\home\OSAMU\projects\library
 set LIBPATH=%LIBPATH%;C:\cygwin64\home\OSAMU\projects\library
