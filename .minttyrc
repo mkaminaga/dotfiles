@@ -29,3 +29,4 @@ Printer=Canon MF8300C Series CARPS2
 Locale=C
 Charset=UTF-8
 BellType=0
+ScrollbackLines=50000

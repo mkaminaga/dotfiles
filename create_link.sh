@@ -8,10 +8,10 @@
 #
 # Example:
 # 1) Cygwin on My PC
-# ./create_link.sh C:\\cygwin64\\home\\Mamoru my_pc cygwin
+# ./create_link.sh C:\\cygwin64\\home\\OSAMU my_pc cygwin
 #
 # 2) Msys on My PC
-# ./create_link.sh C:\\msys64\\home\\Mamoru my_pc msys2
+# ./create_link.sh C:\\msys64\\home\\OSAMU my_pc msys2
 #
 # 3) Cygwin on Laboratry
 # ./create_link.sh C:\\cygwin64\\home\\mkami lab_pc cygwin
@@ -43,31 +43,31 @@ function common_links_for_all_pc () {
 ## Common links
 function common_links_for_mypc () {
   # Windows shortcuts
-  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\Mamoru\\Downloads"
-  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\Mamoru\\Desktop"
-  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\Mamoru\\Documents"
-  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\Mamoru\\Pictures"
-  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\Mamoru\\Videos"
-  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\Mamoru\\Music"
-  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\Mamoru\\AppData\\Local\\Temp"
+  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\OSAMU\\Downloads"
+  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\OSAMU\\Desktop"
+  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\OSAMU\\Documents"
+  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\OSAMU\\Pictures"
+  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\OSAMU\\Videos"
+  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\OSAMU\\Music"
+  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\OSAMU\\AppData\\Local\\Temp"
 
   # Google drive
-  \cmd /c "mklink /D ${1}\\gdrive    C:\\Users\\Mamoru\\\"Google ドライブ\""
+  \cmd /c "mklink /D ${1}\\gdrive    C:\\Users\\OSAMU\\\"Google ドライブ\""
 
   # programming
   \cmd /c "mklink /D ${1}\\projects C:\\projects"
 
   #SVN
-  SVN_PATH=C:\\Users\\Mamoru\\Documents\\ITF-2
+  SVN_PATH=C:\\Users\\OSAMU\\Documents\\ITF-2
   \cmd /c "mklink /D ${1}\\ITF-2	 ${SVN_PATH}"
   \cmd /c "mklink /D ${1}\\CDH		 ${SVN_PATH}\\\"C&Dh\""
   \cmd /c "mklink /D ${1}\\groundStation ${SVN_PATH}\\地上局"
 
   # University
-  \cmd /c "mklink /D ${1}\\Lab C:\\Users\\Mamoru\\Documents\\ut_lectures\\Lab"
+  \cmd /c "mklink /D ${1}\\Lab C:\\Users\\OSAMU\\Documents\\ut_lectures\\Lab"
 
   # project
-  \cmd /c "mklink /D ${1}\\yui C:\\Users\\Mamoru\\Documents\\YUI"
+  \cmd /c "mklink /D ${1}\\yui C:\\Users\\OSAMU\\Documents\\YUI"
 }
 
 # Cygwin links
