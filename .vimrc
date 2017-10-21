@@ -249,9 +249,10 @@ set path+=~/.vim/dir/dxlib
 set path+=~/.vim/dir/directx
 
 "========Spell check========
-set spelllang=en_us
+set spelllang=en_us,cjk
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 setlocal spellfile+=~/.vim/yui_p/pic.utf-8.add
+set spell
 
 "========Specific file plugins========"
 autocmd BufRead *.ino set ft=c
