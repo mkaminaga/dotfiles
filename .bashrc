@@ -20,7 +20,29 @@ alias cpplint='cpplint.py'
 
 # 開く
 alias c='xdg-open'
+
 ##################################################################
 # オマケ
 ##################################################################
 echo `date "+It is %Y/%m/%d %H:%M:%S"`
+
+# カレントディレクトリでの新規ターミナルの立ち上げ(研究室PCでは無効)
+TMPFILE='/tmp/TempFileForBashrc'
+if [ ! -e ${TMPFILE} ]; then
+  touch ${TMPFILE}
+fi
+function SetWakeupDir() {
+  cd `cat ${TMPFILE}`
+}
+alias setWakeupDir='SetWakeupDir'
+
+function New() {
+  pwd > ${TMPFILE} && explorer win64/VC++ToolChain_MY_PC_CYGWIN.bat
+}
+alias exit='pwd > ${TMPFILE} && exit'
+
+if [[ $(logname) = 'mkami' ]]; then
+  cd /cygdrive/c/Users/mkami/Documents/Laboratory
+else
+  setWakeupDir
+fi
