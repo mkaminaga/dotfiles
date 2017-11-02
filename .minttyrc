@@ -1,6 +1,6 @@
 BoldAsFont=no
 Font=Ricty Diminished
-FontHeight=10
+FontHeight=14
 ForegroundColour=180,200,200
 Transparency=off
 Term=xterm-256color

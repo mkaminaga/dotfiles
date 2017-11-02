@@ -19,7 +19,7 @@ alias tree='tree -C -L'
 alias cpplint='cpplint.py'
 
 # 開く
-alias c='xdg-open'
+alias c='cygstart'
 
 ##################################################################
 # オマケ
