@@ -1,5 +1,5 @@
 @rem 2017/04/18 Cygwin launcher bat file of my PC
-@rem Copyright (C) 2017 OSAMU kaminaga
+@rem Copyright (C) 2017 Mamoru Kaminaga
 @rem See alse http://qiita.com/mkaminaga/items/7e15dd3ca385780b31b5
 
 @rem Common EXE Path
@@ -38,7 +38,11 @@ set LIBPATH=%LIBPATH%;C:\projects\SGP4\cpp
 set INCLUDE=%INCLUDE%;C:\Program Files\Autodesk\FBX\FBX SDK\2017.0.1\include
 set LIBPATH=%LIBPATH%;C:\Program Files\Autodesk\FBX\FBX SDK\2017.0.1\lib\vs2015\x86
 
-@rem My git local repogitories
+@rem zlib and libpng path
+set INCLUDE=%INCLUDE%;C:\projects\library\lpng1634;C:\projects\library\zlib
+set LIBPATH=%LIBPATH%;C:\projects\library\lpng1634\projects\visualc71\Win32_LIB_Release;C:\projects\library\lpng1634\projects\visualc71\Win32_LIB_Release\ZLib
+
+@rem My git local repositories
 set INCLUDE=%INCLUDE%;C:\cygwin64\home\OSAMU\projects\library
 set LIBPATH=%LIBPATH%;C:\cygwin64\home\OSAMU\projects\library
 

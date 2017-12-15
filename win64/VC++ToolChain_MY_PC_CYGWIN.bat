@@ -38,6 +38,10 @@ set LIBPATH=%LIBPATH%;C:\projects\SGP4\cpp
 set INCLUDE=%INCLUDE%;C:\Program Files\Autodesk\FBX\FBX SDK\2017.0.1\include
 set LIBPATH=%LIBPATH%;C:\Program Files\Autodesk\FBX\FBX SDK\2017.0.1\lib\vs2015\x86
 
+@rem zlib and libpng path
+set INCLUDE=%INCLUDE%;C:\projects\library\lpng1634;C:\projects\library\zlib
+set LIBPATH=%LIBPATH%;C:\projects\library\lpng1634\projects\visualc71\Win32_LIB_Release;C:\projects\library\lpng1634\projects\visualc71\Win32_LIB_Release\ZLib
+
 @rem My git local repogitories
 set INCLUDE=%INCLUDE%;C:\cygwin64\home\Mamoru\projects\library
 set LIBPATH=%LIBPATH%;C:\cygwin64\home\Mamoru\projects\library
