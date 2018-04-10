@@ -86,7 +86,7 @@ alias doxygen='DoxygenProjectNameOverRide'
 alias cl='cl /W4 /DUNICODE /D_UNICODE'
 
 # cpplint (google cording style helper tool)
-alias cpplint='cpplint.py'
+alias cpplint='cpplint.py --filter=-build/include'
 
 ##################################################################
 # WindowsとCygwinの対応
