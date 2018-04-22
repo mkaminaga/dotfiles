@@ -100,10 +100,6 @@ set formatoptions+=mM
 
 nnoremap j gj
 nnoremap k gk
-inoremap <C-j>    <Esc>gji
-inoremap <C-k>    <Esc>gki
-inoremap <C-h>    <Left>
-inoremap <C-l>    <Right>
 
 inoremap <Down>   <Nop>
 inoremap <Up>   <Nop>
