@@ -6,3 +6,4 @@ ln -f -s ~/dotfiles/.ctags ~/.ctags
 ln -f -s ~/dotfiles/.gvimrc ~/.gvimrc
 ln -f -s ~/dotfiles/.minttyrc ~/.minttyrc
 ln -f -s ~/dotfiles/.vimrc ~/.vimrc
+ln -f -s ~/dotfiles/.screenrc ~/.screenrc
