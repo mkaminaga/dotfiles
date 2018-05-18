@@ -15,16 +15,15 @@
 "   Vim setting file.
 "
 " Plugins:
-" https://github.com/itchyny/lightline
 " https://github.com/tomasr/molokai
 " https://github.com/tomtom/tcomment_vim
+" https://github.com/mkaminaga/dotfiles
 
 "========Plugin========
 colorscheme molokai
 source ~/.vim/tcomment.vim
-"source ~/.vim/lightline.vim
+source ~/dotfiles/.my_vim/format.vim
 filetype plugin indent on
-source ~/projects/mkaminaga/vimscripts/format.vim
 
 syntax on
 filetype on
