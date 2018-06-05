@@ -135,3 +135,4 @@ setWakeupDir
 # オマケ
 ##################################################################
 echo `date "+It is %Y/%m/%d %H:%M:%S"`
+cd /cygdrive/c/Users/mkami/Documents/Laboratory/

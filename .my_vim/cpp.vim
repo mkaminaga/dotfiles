@@ -6,11 +6,11 @@ nnoremap ts a_T('')<Left><Left>
 
 "========Small completion========
 inoremap {<CR> {}<LEFT><CR><ESC><S-o>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ` ``<Left>
+" inoremap [ []<Left>
+" inoremap ( ()<Left>
+" inoremap " ""<Left>
+" inoremap ' ''<Left>
+" inoremap ` ``<Left>
 nnoremap <Esc>; <S-a>;<Esc>
 
 "========Doxygen style comment========
