@@ -1,0 +1,39 @@
+@rem 2018/05/18 Cygwin launcher bat file for my PC
+@rem Copyright (C) 2018 Mamoru Kaminaga
+@rem See also http://qiita.com/mkaminaga/items/7e15dd3ca385780b31b5
+
+@rem Common EXE Path
+set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin
+set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\bin\x86
+
+@rem Common Include Path
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\shared
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\um
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt\wrl
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt\xaml
+
+@rem Common Library Path
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.0\Lib\win8\um\x86
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10240.0\ucrt\x86
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\store
+
+@rem Direct X SDK Path
+set PATH=%PATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Utilities\bin\x86
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86
+
+@rem Debugging tool and performance tool path
+set _NT_SYMBOL_PATH=srv*C:\Symbols*http://msdl.microsoft.com/download/symbols
+set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\Debuggers\x86
+set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Performance Tools
+set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE
+
+@rem Library Path
+set LIB=%LIBPATH%;
+
+@rem Terminal launched
+start C:\cygwin64\bin\mintty -e C:\cygwin64\bin\bash.exe --login

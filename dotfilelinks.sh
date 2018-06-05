@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 ln -f -s ~/dotfiles/.bash_profile_cygwin ~/.bash_profile_cygwin
 ln -f -s ~/dotfiles/.bash_profile_msys2 ~/.bash_profile_msys2
 ln -f -s ~/dotfiles/.bashrc ~/.bashrc
