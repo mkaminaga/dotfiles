@@ -18,10 +18,13 @@
 " https://github.com/tomasr/molokai
 " https://github.com/tomtom/tcomment_vim
 " https://github.com/mkaminaga/dotfiles
+" https://github.com/sophacles/vim-processing
 
 "========Plugin========
 colorscheme molokai
 source ~/.vim/tcomment.vim
+source ~/.vim/plugin/processing.vim
+
 source ~/dotfiles/.my_vim/format.vim
 filetype plugin indent on
 
@@ -250,7 +253,6 @@ set spell
 
 "========Specific file plugins========"
 autocmd BufRead *.ino set ft=c
-autocmd BufRead *.pde set ft=c
 
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
