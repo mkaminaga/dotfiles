@@ -15,14 +15,17 @@
 "   Vim setting file.
 "
 " Plugins:
-" https://github.com/itchyny/lightline
 " https://github.com/tomasr/molokai
 " https://github.com/tomtom/tcomment_vim
+" https://github.com/mkaminaga/dotfiles
+" https://github.com/sophacles/vim-processing
 
 "========Plugin========
 colorscheme molokai
 source ~/.vim/tcomment.vim
-source ~/.vim/lightline.vim
+source ~/.vim/plugin/processing.vim
+
+source ~/dotfiles/.my_vim/format.vim
 filetype plugin indent on
 
 syntax on
@@ -73,8 +76,7 @@ function! s:DeleteMultiByte()
 endfunction
 
 "========Encodings========
-set fileencoding=utf-8 "save"
-set fileencoding=utf-8 bomb "save"
+set fileencoding=utf-8 nobomb "save"
 set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 "open"
 set fileformat=unix "LF format"
 
@@ -100,10 +102,6 @@ set formatoptions+=mM
 
 nnoremap j gj
 nnoremap k gk
-inoremap <C-j>    <Esc>gji
-inoremap <C-k>    <Esc>gki
-inoremap <C-h>    <Left>
-inoremap <C-l>    <Right>
 
 inoremap <Down>   <Nop>
 inoremap <Up>   <Nop>
@@ -248,13 +246,13 @@ set path+=~/.vim/dir/dxlib
 set path+=~/.vim/dir/directx
 
 "========Spell check========
-set spelllang=en_us
+set spelllang=en_us,cjk
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 setlocal spellfile+=~/.vim/yui_p/pic.utf-8.add
+set spell
 
 "========Specific file plugins========"
 autocmd BufRead *.ino set ft=c
-autocmd BufRead *.pde set ft=c
 
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim

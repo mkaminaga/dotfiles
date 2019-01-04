@@ -51,20 +51,8 @@ function common_links_for_mypc () {
   \cmd /c "mklink /D ${1}\\Music     C:\\Users\\Mamoru\\Music"
   \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\Mamoru\\AppData\\Local\\Temp"
 
-  # Google drive
-  \cmd /c "mklink /D ${1}\\gdrive    C:\\Users\\Mamoru\\\"Google ドライブ\""
-
   # programming
   \cmd /c "mklink /D ${1}\\projects C:\\projects"
-
-  #SVN
-  SVN_PATH=C:\\Users\\Mamoru\\Documents\\ITF-2
-  \cmd /c "mklink /D ${1}\\ITF-2	 ${SVN_PATH}"
-  \cmd /c "mklink /D ${1}\\CDH		 ${SVN_PATH}\\\"C&Dh\""
-  \cmd /c "mklink /D ${1}\\groundStation ${SVN_PATH}\\地上局"
-
-  # University
-  \cmd /c "mklink /D ${1}\\Lab C:\\Users\\Mamoru\\Documents\\ut_lectures\\Lab"
 
   # project
   \cmd /c "mklink /D ${1}\\yui C:\\Users\\Mamoru\\Documents\\YUI"
@@ -95,9 +83,6 @@ function common_links_for_labpc () {
   \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\mkami\\Videos"
   \cmd /c "mklink /D ${1}\\Music     C:\\Users\\mkami\\Music"
   \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\mkami\\AppData\\Local\\Temp"
-
-  # Google drive
-  \cmd /c "mklink /D ${1}\\gdrive    C:\\Users\\mkami\\\"Google ドライブ\""
 }
 
 # Cygwin for Lab PC

@@ -21,6 +21,10 @@ set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.15063.0\uc
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\lib\x86
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\lib\x86\store
 
+@rem DxLib
+set INCLUDE=%INCLUDE%;C:\projects\library\dxlib
+set LIBPATH=%LIBPATH%;C:\projects\library\dxlib
+
 @rem Direct X SDK Path
 set PATH=%PATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Utilities\bin\x86
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include
@@ -30,9 +34,17 @@ set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\L
 set INCLUDE=%INCLUDE%;C:\projects\SGP4\cpp
 set LIBPATH=%LIBPATH%;C:\projects\SGP4\cpp
 
+@rem FBX SDK Path
+set INCLUDE=%INCLUDE%;C:\Program Files\Autodesk\FBX\FBX SDK\2017.0.1\include
+set LIBPATH=%LIBPATH%;C:\Program Files\Autodesk\FBX\FBX SDK\2017.0.1\lib\vs2015\x86
+
+@rem zlib and libpng path
+set INCLUDE=%INCLUDE%;C:\projects\library\lpng1634;C:\projects\library\zlib
+set LIBPATH=%LIBPATH%;C:\projects\library\lpng1634\projects\visualc71\Win32_LIB_Release;C:\projects\library\lpng1634\projects\visualc71\Win32_LIB_Release\ZLib
+
 @rem My git local repogitories
-set INCLUDE=%INCLUDE%;C:\cygwin64\home\Mamoru\projects\mkaminaga
-set LIBPATH=%LIBPATH%;C:\cygwin64\home\Mamoru\projects\mkaminaga
+set INCLUDE=%INCLUDE%;C:\cygwin64\home\Mamoru\projects\library
+set LIBPATH=%LIBPATH%;C:\cygwin64\home\Mamoru\projects\library
 
 @rem Debugging tool and performance tool path
 set _NT_SYMBOL_PATH=srv*C:\Symbols*http://msdl.microsoft.com/download/symbols

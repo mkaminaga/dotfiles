@@ -1,6 +1,6 @@
 BoldAsFont=no
 Font=Ricty Diminished
-FontHeight=10
+FontHeight=14
 ForegroundColour=180,200,200
 Transparency=off
 Term=xterm-256color
@@ -29,3 +29,4 @@ Printer=Canon MF8300C Series CARPS2
 Locale=C
 Charset=UTF-8
 BellType=0
+ScrollbackLines=50000
