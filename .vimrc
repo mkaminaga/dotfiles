@@ -23,7 +23,6 @@
 "========Plugin========
 colorscheme molokai
 source ~/.vim/tcomment.vim
-source ~/.vim/plugin/processing.vim
 
 source ~/dotfiles/.my_vim/format.vim
 filetype plugin indent on
