@@ -80,6 +80,18 @@ function! Format()
   " :%s/\ *private\ *:/\ private:/ge
   " :%s/\ *protected\ *:/\ protected:/ge
 
+  "Fix
+  :%s/&\ =/\&=/ge
+  :%s/+\ =/+=/ge
+  :%s/-\ =/-=/ge
+  :%s/*\ =/*=/ge
+  :%s/~\ =/~=/ge
+  :%s/^\ =/^=/ge
+  :%s/|\ =/|=/ge
+  :%s/\/\ =/\/=/ge
+  :%s/>\ >/>>/ge
+  :%s/<\ </<</ge
+  :%s/;[^/]*\//;\ \ \//g
 endfunction
 
 command! Format call Format()
