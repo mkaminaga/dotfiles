@@ -18,19 +18,84 @@
 " https://github.com/tomasr/molokai
 " https://github.com/tomtom/tcomment_vim
 " https://github.com/mkaminaga/dotfiles
+" https://github.com/easymotion/vim-easymotion
 
-"========Plugin========
-colorscheme molokai
-source ~/.vim/tcomment.vim
-source ~/dotfiles/.my_vim/format.vim
-filetype plugin indent on
-
+"======== General Settings ========
+set nocompatible
+set timeout timeoutlen=400 ttimeoutlen=50
+let mapleader="\<Space>"
 syntax on
 filetype on
 
-"========General========
-set timeout timeoutlen=400 ttimeoutlen=50
-set spell
+" Free keys for mapping.
+nnoremap s <Nop>
+nnoremap t <Nop>
+
+" Move across lines.
+nnoremap j gj
+nnoremap k gk
+
+" Do not use arrow keys as a Vimmer.
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+"======== Plugins ========
+colorscheme molokai
+source ~/.vim/tcomment.vim  "autoload doesn't work
+source ~/dotfiles/.my_vim/format.vim
+
+filetype plugin indent on
+
+" EasyMotion settings
+let g:EasyMotion_do_mapping=1
+let g:EasyMotion_leader_key="\<Leader>"
+let g:EasyMotion_keys='asdfghjklgyuiopqwertnmzxcvb,./\@:[]'
+let g:EasyMotion_smartcase=1
+map <Leader> <Plug>(easymotion-prefix)
+
+"nmap s <Plug>(easymotion-overwin-f)
+"nmap s <Plug>(easymotion-overwin-f2)
+"
+"Find {char} to the right. See |f|.
+  map sf <Plug>(easymotion-f)
+"Find {char} to the left. See |F|.
+  map sF <Plug>(easymotion-F)
+"Till before the {char} to the right. See |t|.
+  map st <Plug>(easymotion-t)
+"Till after the {char} to the left. See |T|.
+  map sT <Plug>(easymotion-T)
+"Beginning of word forward. See |w|.
+  map sw <Plug>(easymotion-w)
+"Beginning of WORD forward. See |W|.
+  map sW <Plug>(easymotion-W)
+"Beginning of word backward. See |b|.
+  map sb <Plug>(easymotion-b)
+"Beginning of WORD backward. See |B|.
+  map sB <Plug>(easymotion-B)
+"End of word forward. See |e|.
+  map se <Plug>(easymotion-e)
+"End of WORD forward. See |E|.
+  map sE <Plug>(easymotion-E)
+"End of word backward. See |ge|.e)
+  map sge <Plug>(easymotion-g
+"End of WORD backward. See |gE|.E)
+  map sgE <Plug>(easymotion-g
+"Line downward. See |j|.
+  map sj <Plug>(easymotion-j)
+"Line upward. See |k|.
+  map sk <Plug>(easymotion-k)
+"Jump to latest "/" or "?" forward. See |n|.
+  map sn <Plug>(easymotion-n)
+"Jump to latest "/" or "?" backward. See |N|.
+  map sN <Plug>(easymotion-N)
+"Find(Search) {char} forward and backward. See |f| and |F|.
+  map ss <Plug>(easymotion-s)
+
+" JK motions: Line motions
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
 
 "=======IME========
 let &t_SI .= "\e[<r"
@@ -78,7 +143,6 @@ set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 "open"
 set fileformat=unix "LF format"
 
 "========Insert mode========
-set nocompatible
 set noexpandtab
 autocmd InsertEnter * set list
 autocmd InsertLeave * set nolist
@@ -90,20 +154,12 @@ set shiftwidth=2
 set softtabstop=2
 set backspace=indent,eol,start
 
-set tabpagemax=100
+set tabpagemax=128
 set wrapscan
 set noshowmatch
 
 set wildmenu
 set formatoptions+=mM
-
-nnoremap j gj
-nnoremap k gk
-
-inoremap <Down>   <Nop>
-inoremap <Up>   <Nop>
-inoremap <Left>   <Nop>
-inoremap <Right>  <Nop>
 
 set whichwrap=b,s,h,l,<,>,[,]
 
@@ -125,11 +181,11 @@ augroup END
 "========Command mode========
 set wildmenu
 set wildmode=longest:full,full
-set history=255
+set history=256
 
 "easy touch"
-nnoremap <Space>w :w<CR>
-nnoremap <Space>q :q<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 nnoremap ! %
 vnoremap ! %
 
@@ -138,37 +194,35 @@ nnoremap ZZ   <Nop>
 nnoremap ZQ   <Nop>
 nnoremap <C-z>  <Nop>
 
-"========Window shortcut========
-nnoremap s <Nop>
-nnoremap s= <C-w>=
-nnoremap s> <C-w>>
-nnoremap s< <C-w><
-nnoremap s+ <C-w>+
-nnoremap s- <C-w>-
+"======== Tab mode shortcuts ========
+"nnoremap t= <C-w>= "Disabled for few opportunity
+"nnoremap t> <C-w>> "Disabled for few opportunity
+"nnoremap t< <C-w>< "Disabled for few opportunity
+"nnoremap t+ <C-w>+ "Disabled for few opportunity
+"nnoremap t- <C-w>- "Disabled for few opportunity
+"nnoremap tq :<C-u>q<CR> "Disabled for few opportunity
+"nnoremap tQ :<C-u>bq<CR> "Disabled for few opportunity
 
-nnoremap st :<C-u>tabnew<CR>
-nnoremap ss :tabs<CR>
-nnoremap sn gt
-nnoremap sp gT
+"nnoremap tt :<C-u>tabnew<CR> "Disabled for few opportunity and conflict.
+"nnoremap ts :tabs<CR> "Disabled for few opportunity and conflict.
+nnoremap tn gt
+nnoremap tp gT
 
-nnoremap s1 1gt
-nnoremap s2 2gt
-nnoremap s3 3gt
-nnoremap s4 4gt
-nnoremap s5 5gt
-nnoremap s6 6gt
-nnoremap s7 7gt
-nnoremap s8 8gt
-nnoremap s9 9gt
-nnoremap sa 10gt
-nnoremap sb 11gt
-nnoremap sc 12gt
-nnoremap sd 13gt
-nnoremap se 14gt
-nnoremap sf 15gt
-
-nnoremap sq :<C-u>q<CR>
-nnoremap sQ :<C-u>bq<CR>
+"nnoremap t1 1gt "Disabled for few opportunity
+"nnoremap t2 2gt "Disabled for few opportunity
+"nnoremap t3 3gt "Disabled for few opportunity
+"nnoremap t4 4gt "Disabled for few opportunity
+"nnoremap t5 5gt "Disabled for few opportunity
+"nnoremap t6 6gt "Disabled for few opportunity
+"nnoremap t7 7gt "Disabled for few opportunity
+"nnoremap t8 8gt "Disabled for few opportunity
+"nnoremap t9 9gt "Disabled for few opportunity
+"nnoremap ta 10gt "Disabled for few opportunity
+"nnoremap tb 11gt "Disabled for few opportunity
+"nnoremap tc 12gt "Disabled for few opportunity
+"nnoremap td 13gt "Disabled for few opportunity
+"nnoremap te 14gt "Disabled for few opportunity
+"nnoremap tf 15gt "Disabled for few opportunity
 
 "========tags shortcut========
 nnoremap <silent> <F4> :!Ctags -R<CR>
