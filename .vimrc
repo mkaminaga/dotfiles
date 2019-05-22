@@ -304,7 +304,6 @@ set spell
 
 "========Specific file plugins========"
 autocmd BufRead *.ino set ft=c
-autocmd BufRead *.pde set ft=c
 
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
