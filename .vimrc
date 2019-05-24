@@ -49,6 +49,11 @@ source ~/dotfiles/.my_vim/format.vim
 filetype plugin indent on
 
 " EasyMotion settings
+nmap h <Nop>
+" nmap j <Nop>
+" nmap k <Nop>
+nmap l <Nop>
+
 let g:EasyMotion_do_mapping=1
 let g:EasyMotion_leader_key="\<Leader>"
 let g:EasyMotion_keys='asdfghjklgyuiopqwertnmzxcvb,./\@:[]'
