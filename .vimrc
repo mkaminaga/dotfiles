@@ -79,9 +79,9 @@ map <Leader> <Plug>(easymotion-prefix)
 "End of WORD forward. See |E|.
   map sE <Plug>(easymotion-E)
 "End of word backward. See |ge|.e)
-  map sge <Plug>(easymotion-g
+  map sge <Plug>(easymotion-g)
 "End of WORD backward. See |gE|.E)
-  map sgE <Plug>(easymotion-g
+  map sgE <Plug>(easymotion-g)
 "Line downward. See |j|.
   map sj <Plug>(easymotion-j)
 "Line upward. See |k|.
@@ -92,10 +92,6 @@ map <Leader> <Plug>(easymotion-prefix)
   map sN <Plug>(easymotion-N)
 "Find(Search) {char} forward and backward. See |f| and |F|.
   map ss <Plug>(easymotion-s)
-
-" JK motions: Line motions
-  map <Leader>j <Plug>(easymotion-j)
-  map <Leader>k <Plug>(easymotion-k)
 
 "=======IME========
 let &t_SI .= "\e[<r"
