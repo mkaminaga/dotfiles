@@ -41,6 +41,16 @@ inoremap <Up> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
+" Replaced with EasyMotion plugin.
+nmap h <Nop>
+" nmap j <Nop>
+" nmap k <Nop>
+nmap l <Nop>
+
+" Easy key binding for Ctrl+x sub mode.
+" Ctrl+e has default another meaning, but ignore it.
+inoremap <C-e> <C-x>
+
 "======== Plugins ========
 colorscheme molokai
 source ~/.vim/tcomment.vim  "autoload doesn't work
@@ -48,21 +58,13 @@ source ~/dotfiles/.my_vim/format.vim
 
 filetype plugin indent on
 
-" EasyMotion settings
-nmap h <Nop>
-" nmap j <Nop>
-" nmap k <Nop>
-nmap l <Nop>
-
+" EasyMotion setting.
 let g:EasyMotion_do_mapping=1
 let g:EasyMotion_leader_key="\<Leader>"
 let g:EasyMotion_keys='asdfghjklgyuiopqwertnmzxcvb,./\@:[]'
 let g:EasyMotion_smartcase=1
 map <Leader> <Plug>(easymotion-prefix)
 
-"nmap s <Plug>(easymotion-overwin-f)
-"nmap s <Plug>(easymotion-overwin-f2)
-"
 "Find {char} to the right. See |f|.
   map sf <Plug>(easymotion-f)
 "Find {char} to the left. See |F|.
@@ -195,35 +197,9 @@ nnoremap ZZ   <Nop>
 nnoremap ZQ   <Nop>
 nnoremap <C-z>  <Nop>
 
-"======== Tab mode shortcuts ========
-"nnoremap t= <C-w>= "Disabled for few opportunity
-"nnoremap t> <C-w>> "Disabled for few opportunity
-"nnoremap t< <C-w>< "Disabled for few opportunity
-"nnoremap t+ <C-w>+ "Disabled for few opportunity
-"nnoremap t- <C-w>- "Disabled for few opportunity
-"nnoremap tq :<C-u>q<CR> "Disabled for few opportunity
-"nnoremap tQ :<C-u>bq<CR> "Disabled for few opportunity
-
-"nnoremap tt :<C-u>tabnew<CR> "Disabled for few opportunity and conflict.
-"nnoremap ts :tabs<CR> "Disabled for few opportunity and conflict.
+"======== Tab shortcuts ========
 nnoremap tn gt
 nnoremap tp gT
-
-"nnoremap t1 1gt "Disabled for few opportunity
-"nnoremap t2 2gt "Disabled for few opportunity
-"nnoremap t3 3gt "Disabled for few opportunity
-"nnoremap t4 4gt "Disabled for few opportunity
-"nnoremap t5 5gt "Disabled for few opportunity
-"nnoremap t6 6gt "Disabled for few opportunity
-"nnoremap t7 7gt "Disabled for few opportunity
-"nnoremap t8 8gt "Disabled for few opportunity
-"nnoremap t9 9gt "Disabled for few opportunity
-"nnoremap ta 10gt "Disabled for few opportunity
-"nnoremap tb 11gt "Disabled for few opportunity
-"nnoremap tc 12gt "Disabled for few opportunity
-"nnoremap td 13gt "Disabled for few opportunity
-"nnoremap te 14gt "Disabled for few opportunity
-"nnoremap tf 15gt "Disabled for few opportunity
 
 "========tags shortcut========
 nnoremap <silent> <F4> :!Ctags -R<CR>
