@@ -304,6 +304,7 @@ autocmd BufRead Readme.* set ft=markdown
 
 autocmd FileType tex source ~/dotfiles/.vim/tex.vim
 autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/cpp.vim
+autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/format.vim
 
 " ==================================================
 " Settings that must be at end.
