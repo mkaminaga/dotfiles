@@ -21,6 +21,10 @@ syntax on
 filetype on
 filetype plugin indent on
 
+" Free keys for mapping.
+nnoremap s <Nop>
+nnoremap t <Nop>
+
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
 let &t_SI .= "\e[<r"
@@ -162,6 +166,35 @@ map sN <Plug>(easymotion-N)
 map ss <Plug>(easymotion-s)
 
 " ==================================================
+" augroup.
+" ==================================================
+
+" Binary editor mode.
+augroup Binaly
+  au!
+  au BufReadPre *.bin let &bin=1
+  au BufReadPost  *.bin if &bin | %!xxd -g 1
+  au BufReadPost  *.bin set ft=xxd | endif
+  au BufWritePre  *.bin if &bin | %!xxd -r
+  au BufWritePre  *.bin endif
+  au BufWritePost *.bin if &bin | %!xxd -g 1
+  au BufWritePost *.bin set nomod | end
+augroup END
+
+" ==================================================
+" Common key mapping.
+" ==================================================
+
+" Ignore arrow key inputs.
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+" Stop highlighting of search result.
+map <Esc><Esc> :noh<CR>
+
+" ==================================================
 " Key mappings for normal mode.
 " ==================================================
 
@@ -170,10 +203,6 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
-
-" Free keys for mapping.
-nnoremap s <Nop>
-nnoremap t <Nop>
 
 " Move vertical across lines.
 nnoremap j gj
@@ -223,12 +252,6 @@ vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
 " Key mappings for insert mode.
 " ==================================================
 
-" Ignore arrow key inputs.
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
 " Easy key binding for Ctrl+x sub mode.
 " Ignore default Ctrl+e mapping.
 inoremap <C-e> <C-x>
@@ -251,18 +274,6 @@ endfunction
 
 " Rename the name of current buffer.the name of
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-
-" Binary editor mode.
-augroup Binaly
-  au!
-  au BufReadPre *.bin let &bin=1
-  au BufReadPost  *.bin if &bin | %!xxd -g 1
-  au BufReadPost  *.bin set ft=xxd | endif
-  au BufWritePre  *.bin if &bin | %!xxd -r
-  au BufWritePre  *.bin endif
-  au BufWritePost *.bin if &bin | %!xxd -g 1
-  au BufWritePost *.bin set nomod | end
-augroup END
 
 " Help build process.
 nnoremap <F5> :MakeCompile<CR>
