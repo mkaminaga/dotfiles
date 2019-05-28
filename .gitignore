@@ -1,6 +1,7 @@
 # Does not push spell files for privacy.
 # All word list to be local.
-../.vim/spell/*.add
+.vim/spell/*.add
+.vim/spell/*.add.spl
 
 #
 # Windows image file caches
