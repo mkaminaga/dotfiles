@@ -1,7 +1,7 @@
 ﻿" Force C++ code into google style
 " Copyright 2017 Mamoru Kaminaga
 function! Format()
-  " inb4
+  " Before hand.
   :retab!
   :%s/\s\+$//ge
 
