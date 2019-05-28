@@ -96,7 +96,6 @@ if (exists('+colorcolumn'))
 endif
 
 autocmd BufWritePre * :%s/\s\+$//ge "delete white spaces at line ends.
-command! Fit :v/\S/d
 
 " About completion.
 set complete=".,w,b,u,t,i,d"
@@ -166,7 +165,7 @@ map sN <Plug>(easymotion-N)
 map ss <Plug>(easymotion-s)
 
 " ==================================================
-" augroup.
+" augroups
 " ==================================================
 
 " Binary editor mode.
@@ -257,8 +256,11 @@ vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
 inoremap <C-e> <C-x>
 
 " ==================================================
-" Functions
+" Functions and commands.
 " ==================================================
+
+" Delete blank lines.
+command! Fit :v/\S/d
 
 " Hack quickfix argument list.
 " See also " https://github.com/nelstrom/vim-qargs
@@ -291,12 +293,19 @@ function! s:DeleteMultiByte()
 endfunction
 
 " ==================================================
-" Unique settings.
+" filetype related settings.
+" ==================================================
+autocmd BufRead *.ino set ft=c
+autocmd BufRead *.cc set ft=cpp
+autocmd BufRead *.plt set ft=tex
+autocmd BufRead README.* set ft=markdown
+autocmd BufRead readme.* set ft=markdown
+autocmd BufRead Readme.* set ft=markdown
+
+autocmd FileType tex source ~/dotfiles/.vim/tex.vim
+autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/cpp.vim
+
+" ==================================================
+" Settings that must be at end.
 " ==================================================
 filetype plugin indent on
-source ~/dotfiles/.vim/format.vim
-autocmd BufRead *.ino set ft=c
-autocmd BufRead README.* set ft=markdown
-autocmd BufRead *.tex source ~/dotfiles/.vim/tex.vim
-autocmd BufRead *.plt source ~/dotfiles/.vim/tex.vim
-autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/cpp.vim
