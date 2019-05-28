@@ -123,10 +123,9 @@ let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
-let &runtimepath=s:dein_repo_dir .",". &runtimepath
+let &runtimepath=&runtimepath .",". s:dein_repo_dir
 
 " Add the dein installation directory into runtimepath.
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
