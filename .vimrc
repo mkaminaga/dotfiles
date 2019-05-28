@@ -1,155 +1,44 @@
 "
-"      __          __    ._.    .__.      .__.   ._______       ._____.
-"      \ \        / /    | |    |   \    /   |   | .___. \     / .___. \
-"       \ \      / /     | |    | |\ \  / /| |   | |    \ \   /_/     \_\
-"        \ \    / /      | |    | | \ \/ / | |   | |____/ /   CC
-"         \ \  / /       | |    | |  \  /  | |   | _____ /    CC       __
-"          \ \/ /        | |    | |   \/   | |   | |    \ \   \ \_____/ /
-"     []    \__/         |_|    |_|        |_|   |_|     \_\   \_______/
+"     __          __    ._.    .__.      .__.   ._______       ._____.
+"     \ \        / /    | |    |   \    /   |   | .___. \     / .___. \
+"      \ \      / /     | |    | |\ \  / /| |   | |    \ \   / /     \_\
+"       \ \    / /      | |    | | \ \/ / | |   | |____/ /   | |
+"        \ \  / /       | |    | |  \  /  | |   | _____ /    | |      __
+"         \ \/ /        | |    | |   \/   | |   | |    \ \   \ \_____/ /
+"    []    \__/         |_|    |_|        |_|   |_|     \_\   \_______/
 "
-"             Author  Mamoru Kaminaga
-"             Since 2015
+"            Author  Mamoru Kaminaga
+"            Since 2015
 "
-" Plugins
-"   Introduction:
-"   Vim setting file.
-"
-" Plugins:
-" https://github.com/tomasr/molokai
-" https://github.com/tomtom/tcomment_vim
-" https://github.com/mkaminaga/dotfiles
-" https://github.com/easymotion/vim-easymotion
 
-"======== General Settings ========
+" ==================================================
+" General Settings.
+" ==================================================
 set nocompatible
 set timeout timeoutlen=400 ttimeoutlen=50
 let mapleader="\<Space>"
 syntax on
 filetype on
-
-" Free keys for mapping.
-nnoremap s <Nop>
-nnoremap t <Nop>
-
-" Move across lines.
-nnoremap j gj
-nnoremap k gk
-
-" Do not use arrow keys as a Vimmer.
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-" Replaced with EasyMotion plugin.
-nmap h <Nop>
-" nmap j <Nop>
-" nmap k <Nop>
-nmap l <Nop>
-
-" Easy key binding for Ctrl+x sub mode.
-" Ctrl+e has default another meaning, but ignore it.
-inoremap <C-e> <C-x>
-
-"======== Plugins ========
-colorscheme molokai
-source ~/.vim/tcomment.vim  "autoload doesn't work
-source ~/dotfiles/.my_vim/format.vim
-
 filetype plugin indent on
 
-" EasyMotion setting.
-let g:EasyMotion_do_mapping=1
-let g:EasyMotion_leader_key="\<Leader>"
-let g:EasyMotion_keys='asdfghjklgyuiopqwertnmzxcvb,./\@:[]'
-let g:EasyMotion_smartcase=1
-map <Leader> <Plug>(easymotion-prefix)
-
-"Find {char} to the right. See |f|.
-  map sf <Plug>(easymotion-f)
-"Find {char} to the left. See |F|.
-  map sF <Plug>(easymotion-F)
-"Till before the {char} to the right. See |t|.
-  map st <Plug>(easymotion-t)
-"Till after the {char} to the left. See |T|.
-  map sT <Plug>(easymotion-T)
-"Beginning of word forward. See |w|.
-  map sw <Plug>(easymotion-w)
-"Beginning of WORD forward. See |W|.
-  map sW <Plug>(easymotion-W)
-"Beginning of word backward. See |b|.
-  map sb <Plug>(easymotion-b)
-"Beginning of WORD backward. See |B|.
-  map sB <Plug>(easymotion-B)
-"End of word forward. See |e|.
-  map se <Plug>(easymotion-e)
-"End of WORD forward. See |E|.
-  map sE <Plug>(easymotion-E)
-"End of word backward. See |ge|.e)
-  map sge <Plug>(easymotion-g)
-"End of WORD backward. See |gE|.E)
-  map sgE <Plug>(easymotion-g)
-"Line downward. See |j|.
-  map sj <Plug>(easymotion-j)
-"Line upward. See |k|.
-  map sk <Plug>(easymotion-k)
-"Jump to latest "/" or "?" forward. See |n|.
-  map sn <Plug>(easymotion-n)
-"Jump to latest "/" or "?" backward. See |N|.
-  map sN <Plug>(easymotion-N)
-"Find(Search) {char} forward and backward. See |f| and |F|.
-  map ss <Plug>(easymotion-s)
-
-"=======IME========
+let &t_AB="\e[48;5;%dm"
+let &t_AF="\e[38;5;%dm"
 let &t_SI .= "\e[<r"
 let &t_EI .= "\e[<s\e[<0t"
 let &t_te .= "\e[<0t\e[<s"
 
-"=======Search========
-set smartcase
-set incsearch
-set hlsearch
+" Encoding.
+set fileencoding=utf-8 nobomb " default save.
+set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 " default open.
+set fileformat=unix " Return character is LF.
 
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-
-"quickfix arguments
-"Vimp.302
-"https://github.com/nelstrom/vim-qargs
-command! -nargs=0 -bar Qargs execute 'args' QucikFixFileNames()
-function! QucikFixFileNames()
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']]=
-          \ bufname(quickfix_item['bufnr'])
-  endfor
-  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-endfunction
-
-"quick fix list
-nnoremap [q :cprevious<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
-
-"Unicode characters only remain
-command! DeleteMultiByte call s:DeleteMultiByte()
-function! s:DeleteMultiByte()
-  :%s/[^\x01-\x7E]//g
-endfunction
-
-"========Encodings========
-set fileencoding=utf-8 nobomb "save"
-set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 "open"
-set fileformat=unix "LF format"
-
-"========Insert mode========
-set noexpandtab
+" Show white spaces in insert mode.
 autocmd InsertEnter * set list
 autocmd InsertLeave * set nolist
 set listchars=tab:>-,eol:$,trail:-
+
+set term=xterm
+set t_Co=256
 
 set expandtab
 set tabstop=2
@@ -157,58 +46,13 @@ set shiftwidth=2
 set softtabstop=2
 set backspace=indent,eol,start
 
-set tabpagemax=128
-set wrapscan
-set noshowmatch
-
-set wildmenu
-set formatoptions+=mM
-
-set whichwrap=b,s,h,l,<,>,[,]
-
-"Rename current buffer name"
-command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-
-"Binary editor vim"
-augroup Binaly
-  au!
-  au BufReadPre *.bin let &bin=1
-  au BufReadPost  *.bin if &bin | %!xxd -g 1
-  au BufReadPost  *.bin set ft=xxd | endif
-  au BufWritePre  *.bin if &bin | %!xxd -r
-  au BufWritePre  *.bin endif
-  au BufWritePost *.bin if &bin | %!xxd -g 1
-  au BufWritePost *.bin set nomod | end
-augroup END
-
-"========Command mode========
 set wildmenu
 set wildmode=longest:full,full
 set history=256
 
-"easy touch"
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap ! %
-vnoremap ! %
-
-"avoid dangerous mapping"
-nnoremap ZZ   <Nop>
-nnoremap ZQ   <Nop>
-nnoremap <C-z>  <Nop>
-
-"======== Tab shortcuts ========
-nnoremap tn gt
-nnoremap tp gT
-
-"========tags shortcut========
-nnoremap <silent> <F4> :!Ctags -R<CR>
-
-"========Window Looks========
-set term=xterm
-set t_Co=256
-let &t_AB="\e[48;5;%dm"
-let &t_AF="\e[38;5;%dm"
+set smartcase
+set incsearch
+set hlsearch
 
 set title
 set number
@@ -221,38 +65,206 @@ set cmdheight=2
 set showcmd
 set showmode
 set showbreak=>
-set title
 set scrolloff=3
 
-"80 column visual
-if (exists('+colorcolumn'))
-  set colorcolumn=80
-  highlight ColorColumn ctermbg=9
-endif
+set tabpagemax=128
+set wrapscan
+set noshowmatch
+
+set formatoptions+=mM
+
+set whichwrap=b,s,h,l,<,>,[,]
 
 set synmaxcol=300
 set lazyredraw
 set ttyfast
 
-"========Editing mode========
 set nobackup
 set autoread
 set writebackup
 set clipboard+=unnamed,autoselect
-set nobackup
 set noswapfile
-autocmd BufWritePre * :%s/\s\+$//ge "delete white spaces at $"
+
+" Show 80 column vertical line.
+if (exists('+colorcolumn'))
+  set colorcolumn=80
+  highlight ColorColumn ctermbg=9
+endif
+
+autocmd BufWritePre * :%s/\s\+$//ge "delete white spaces at line ends.
 command! Fit :v/\S/d
 
-"CamelCase -> snake_case
-"http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
+" About completion.
+set complete=".,w,b,u,t,i,d"
+set tags=./tags
+set path=.
+" Add include file directories.
+" Example:
+" set path+=~/.vim/dir/dxlib
+
+" Spell check
+set spell
+set spelllang=en_us,cjk
+setlocal spellfile=~/dotfiles/.vim/spell/en.utf-8.add
+
+" ==================================================
+" Plugins
+" ==================================================
+
+" Add the dein installation directory into runtimepath.
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('tomasr/molokai')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('tomtom/tcomment_vim')
+  call dein#add('easymotion/vim-easymotion')
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Installation check.
+if dein#check_install()
+  call dein#install()
+endif
+
+" Color scheme.
+colorscheme molokai
+
+" EasyMotion setting.
+let g:EasyMotion_do_mapping=1
+let g:EasyMotion_leader_key="\<Leader>"
+let g:EasyMotion_keys='asdfghjklgyuiopqwertnmzxcvb,./\@:[]'
+let g:EasyMotion_smartcase=1
+map <Leader> <Plug>(easymotion-prefix)
+
+" See also
+" ~/.cache/dein/repos/github.com/easymotion/vim-easymotion/doc/easymotion.txt
+map sf <Plug>(easymotion-f)
+map sF <Plug>(easymotion-F)
+map st <Plug>(easymotion-t)
+map sT <Plug>(easymotion-T)
+map sw <Plug>(easymotion-w)
+map sW <Plug>(easymotion-W)
+map sb <Plug>(easymotion-b)
+map sB <Plug>(easymotion-B)
+map se <Plug>(easymotion-e)
+map sE <Plug>(easymotion-E)
+map sge <Plug>(easymotion-g)
+map sgE <Plug>(easymotion-g)
+map sj <Plug>(easymotion-j)
+map sk <Plug>(easymotion-k)
+map sn <Plug>(easymotion-n)
+map sN <Plug>(easymotion-N)
+map ss <Plug>(easymotion-s)
+
+" ==================================================
+" Key mappings for normal mode.
+" ==================================================
+
+" Show search result in the middle of the screen.
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
+" Free keys for mapping.
+nnoremap s <Nop>
+nnoremap t <Nop>
+
+" Move vertical across lines.
+nnoremap j gj
+nnoremap k gk
+
+" Easy mapping for save and quit.
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+
+"avoid dangerous mapping"
+nnoremap ZZ   <Nop>
+nnoremap ZQ   <Nop>
+nnoremap <C-z>  <Nop>
+
+" Tab motion shortcuts
+nnoremap tn gt
+nnoremap tp gT
+
+" Tags shortcut
+nnoremap <silent> <F4> :!Ctags -R<CR>
+
+" Compilation shortcut.
+nnoremap <F6> :!gcc -c %<CR>
+nnoremap <F7> :!cl /EHsc /c %<CR>
+
+" Move among argument list.
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+
+" ==================================================
+" Key mappings for visual mode.
+" ==================================================
+
+" camel case -> snake case
+" See also
+" http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
 vnoremap ,s :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
-"snake_case -> CamelCase
-"http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
+
+" snake case -> camel case
+" See also
+" http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
 vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
 
-"========IDE vim========
-"make
+" ==================================================
+" Key mappings for insert mode.
+" ==================================================
+
+" Ignore arrow key inputs.
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+" Easy key binding for Ctrl+x sub mode.
+" Ignore default Ctrl+e mapping.
+inoremap <C-e> <C-x>
+
+" ==================================================
+" Functions
+" ==================================================
+
+" Hack quickfix argument list.
+" See also " https://github.com/nelstrom/vim-qargs
+command! -nargs=0 -bar Qargs execute 'args' QucikFixFileNames()
+function! QucikFixFileNames()
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']]=
+          \ bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
+" Rename the name of current buffer.the name of
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
+
+" Binary editor mode.
+augroup Binaly
+  au!
+  au BufReadPre *.bin let &bin=1
+  au BufReadPost  *.bin if &bin | %!xxd -g 1
+  au BufReadPost  *.bin set ft=xxd | endif
+  au BufWritePre  *.bin if &bin | %!xxd -r
+  au BufWritePre  *.bin endif
+  au BufWritePost *.bin if &bin | %!xxd -g 1
+  au BufWritePost *.bin set nomod | end
+augroup END
+
+" Help build process.
 nnoremap <F5> :MakeCompile<CR>
 command! MakeCompile call s:MakeCompile()
 function! s:MakeCompile()
@@ -260,29 +272,20 @@ function! s:MakeCompile()
   :!make
 endfunction
 
-"gcc"
-nnoremap <F6> :!gcc -c %<CR>
+" Remove non Unicode characters.
+nnoremap <F4> :MakeCompile<CR>
+command! DeleteMultiByte call s:DeleteMultiByte()
+function! s:DeleteMultiByte()
+  :%s/[^\x01-\x7E]//g
+endfunction
 
-"Microsoft cl, Visual C++"
-nnoremap <F7> :!cl /EHsc /c %<CR>
-
-"========Completion========
-set complete=".,w,b,u,t,i,d"
-set tags=./tags
-set path=.
-set path+=~/.vim/dir/dxlib
-set path+=~/.vim/dir/directx
-
-"========Spell check========
-set spelllang=en_us,cjk
-setlocal spellfile=~/.vim/spell/en.utf-8.add
-setlocal spellfile+=~/.vim/yui_p/pic.utf-8.add
-set spell
-
-"========Specific file plugins========"
+" ==================================================
+" Unique settings.
+" ==================================================
+filetype plugin indent on
+source ~/dotfiles/.vim/format.vim
 autocmd BufRead *.ino set ft=c
-
 autocmd BufRead README.* set ft=markdown
-autocmd BufRead *.tex source ~/dotfiles/.my_vim/tex.vim
-autocmd BufRead *.plt source ~/dotfiles/.my_vim/tex.vim
-autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.my_vim/cpp.vim
+autocmd BufRead *.tex source ~/dotfiles/.vim/tex.vim
+autocmd BufRead *.plt source ~/dotfiles/.vim/tex.vim
+autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/cpp.vim
