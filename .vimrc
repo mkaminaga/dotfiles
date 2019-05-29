@@ -130,13 +130,21 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " For the improvement of visual.
   call dein#add('tomasr/molokai')
   call dein#add('itchyny/lightline.vim')
+
+  " For the improvement of editing experience.
   call dein#add('tomtom/tcomment_vim')
   call dein#add('easymotion/vim-easymotion')
   call dein#add('jiangmiao/auto-pairs')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-repeat')
+
+  " for C/C++ code formatting.
+  call dein#add('rhysd/vim-clang-format')
+  call dein#add('kana/vim-operator-user')
 
   call dein#end()
   call dein#save_state()
@@ -148,17 +156,16 @@ if dein#check_install()
 endif
 
 " Color scheme.
+" tomasr/molokai
 colorscheme molokai
 
-" EasyMotion setting.
+" Motion plugin.
+" easymotion/vim-easymotion
 let g:EasyMotion_do_mapping=1
 let g:EasyMotion_leader_key="\<Leader>"
 let g:EasyMotion_keys='asdfghjklgyuiopqwertnmzxcvb,./\@:[]'
 let g:EasyMotion_smartcase=1
 map <Leader> <Plug>(easymotion-prefix)
-
-" See also
-" ~/.cache/dein/repos/github.com/easymotion/vim-easymotion/doc/easymotion.txt
 map sf <Plug>(easymotion-f)
 map sF <Plug>(easymotion-F)
 map st <Plug>(easymotion-t)
@@ -177,31 +184,40 @@ map sn <Plug>(easymotion-n)
 map sN <Plug>(easymotion-N)
 map ss <Plug>(easymotion-s)
 
+" Formatter plugin.
+" rhysd/vim-clang-format
+" kana/vim-operator-user
+"
+" Dependencies:
+" C/C++ http://releases.llvm.org/download.html
+let g:clang_format#code_style="google"
+let g:clang_format#style_options = {
+      \ "Standard" : "C++11"}
+augroup ClangFormatSettings
+  autocmd!
+  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
+augroup END
+
 " ==================================================
 " augroups
 " ==================================================
 
 " Binary editor mode.
 augroup Binaly
-  au!
-  au BufReadPre *.bin let &bin=1
-  au BufReadPost  *.bin if &bin | %!xxd -g 1
-  au BufReadPost  *.bin set ft=xxd | endif
-  au BufWritePre  *.bin if &bin | %!xxd -r
-  au BufWritePre  *.bin endif
-  au BufWritePost *.bin if &bin | %!xxd -g 1
-  au BufWritePost *.bin set nomod | end
+  autocmd!
+  autocmd BufReadPre *.bin let &bin=1
+  autocmd BufReadPost *.bin if &bin | %!xxd -g 1
+  autocmd BufReadPost *.bin set ft=xxd | endif
+  autocmd BufWritePre *.bin if &bin | %!xxd -r
+  autocmd BufWritePre *.bin endif
+  autocmd BufWritePost *.bin if &bin | %!xxd -g 1
+  autocmd BufWritePost *.bin set nomod | end
 augroup END
 
 " ==================================================
 " Common key mapping.
 " ==================================================
-
-" Ignore arrow key inputs.
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
 
 " Stop highlighting of search result.
 map <Esc><Esc> :noh<CR>
@@ -250,19 +266,15 @@ nnoremap ]Q :clast<CR>
 " Key mappings for visual mode.
 " ==================================================
 
-" camel case -> snake case
-" See also
-" http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
-vnoremap ,s :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
-
-" snake case -> camel case
-" See also
-" http://superuser.com/questions/271471/vim-macro-to-convert-camelcase-to-lowercase-with-underscores
-vnoremap ,c :s/_\([a-z]\)/\u\1/g<CR>gUl
-
 " ==================================================
 " Key mappings for insert mode.
 " ==================================================
+
+" Ignore arrow key inputs.
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 " Easy key binding for Ctrl+x sub mode.
 " Ignore default Ctrl+e mapping.
