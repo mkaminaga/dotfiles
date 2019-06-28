@@ -1,0 +1,117 @@
+"
+"     __          __    ._.    .__.      .__.   ._______       ._____.
+"     \ \        / /    | |    |   \    /   |   | .___. \     / .___. \
+"      \ \      / /     | |    | |\ \  / /| |   | |    \ \   / /     \_\
+"       \ \    / /      | |    | | \ \/ / | |   | |____/ /   | |
+"        \ \  / /       | |    | |  \  /  | |   | _____ /    | |      __
+"         \ \/ /        | |    | |   \/   | |   | |    \ \   \ \_____/ /
+"    []    \__/         |_|    |_|        |_|   |_|     \_\   \_______/
+"
+" About: Minimum vimrc. No plugins, no surprise.
+" Author: Mamoru Kaminaga
+" Date: 2019/06/28
+
+" Fundamental settings.
+set nocompatible
+set timeout timeoutlen=300 ttimeoutlen=-1
+syntax on
+filetype on
+filetype plugin indent on
+
+map <Down> <Nop>
+map <Up> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+nnoremap j gj
+nnoremap k gk
+
+" About terminal.
+set term=xterm
+set t_Co=256
+set lazyredraw
+set ttyfast
+let &t_AF="\e[38;5;%dm"
+let &t_AB="\e[48;5;%dm"
+
+" About IME on TeraTerm.
+let &t_SI.="\e[<r"
+let &t_EI.="\e[<s\e[<0t"
+let &t_te.="\e[<0t\e[<s"
+
+" About encoding.
+set fileencoding=utf-8 nobomb " default save encoding.
+set fileencodings=utf-8,iso-2022-jp,enc-jp,cp932 " default open encoding.
+set fileformat=unix " Return character is set to LF.
+
+" About save and load.
+set autoread
+set nobackup
+set writebackup
+set noswapfile
+set clipboard+=unnamed,autoselect
+nnoremap <Space>w :w<CR>
+nnoremap <Space>q :q<CR>
+autocmd BufWritePre * :%s/\s\+$//ge  " Delete white spaces at the end of lines.
+
+" About completion.
+set complete=".,w,b,u,t,i,d"
+set tags=./tags
+
+" About spell.
+set spell
+set spelllang=en_us,cjk
+setlocal spellfile=~/dotfiles/.vim/spell/en.utf-8.add
+
+" About visual for while spaces and text wrapping.
+autocmd InsertEnter * set list
+autocmd InsertLeave * set nolist
+set listchars=tab:>-,eol:$,trail:-
+set showbreak=>
+
+" About tab and spaces.
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set backspace=indent,eol,start
+
+" About command window.
+set wildmenu
+set wildmode=longest:full,full
+set history=256
+set wrap
+set laststatus=2
+set cmdheight=2
+set showcmd
+set showmode
+
+" About search.
+set smartcase
+set incsearch
+set hlsearch
+map <Esc><Esc> :noh<CR>
+
+" About title, window and tabe.
+set title
+set number
+set ruler
+set nolist
+set tabpagemax=128
+set wrapscan
+set noshowmatch
+set formatoptions+=mM
+
+" Show 80 column vertical line.
+if (exists('+colorcolumn'))
+  set colorcolumn=80
+  highlight ColorColumn ctermbg=9
+endif
+
+" Tab shortcuts.
+nnoremap tn gt
+nnoremap tp gT
+
+" About filetype.
+autocmd BufRead *.ino set ft=c
+autocmd BufRead *.cc set ft=cpp
+autocmd BufRead *.plt set ft=tex
