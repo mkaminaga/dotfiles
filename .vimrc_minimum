@@ -7,7 +7,7 @@
 "         \ \/ /        | |    | |   \/   | |   | |    \ \   \ \_____/ /
 "    []    \__/         |_|    |_|        |_|   |_|     \_\   \_______/
 "
-" About: Minimum vimrc. No plugins, no surprise.
+" About: Minimum vimrc. Few plugins, no surprise.
 " Author: Mamoru Kaminaga
 " Date: 2019/06/28
 
@@ -17,6 +17,7 @@ set timeout timeoutlen=300 ttimeoutlen=-1
 syntax on
 filetype on
 filetype plugin indent on
+colorscheme molokai
 
 map <Down> <Nop>
 map <Up> <Nop>
