@@ -32,7 +32,7 @@ set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\I
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86
 
 @rem Debugging tool and performance tool path
-set _NT_SYMBOL_PATH=srv*C:\projects\symbols*http://msdl.microsoft.com/download/symbols
+set _NT_SYMBOL_PATH=srv*C:\projects\symbols*http://msdl.microsoft.com/downloads/symbols
 set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\Debuggers\x86
 set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit
 set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE
