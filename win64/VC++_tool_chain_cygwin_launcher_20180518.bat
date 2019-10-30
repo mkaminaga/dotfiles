@@ -2,21 +2,26 @@
 @rem Copyright (C) 2018 Mamoru Kaminaga
 @rem See also http://qiita.com/mkaminaga/items/7e15dd3ca385780b31b5
 
-@rem Common EXE Path
-set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin
+@rem Specific directories.
+set VCINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin
+set LIBRARIES=C:\projects\library
+
+@rem Binary path
+set PATH=%PATH%;%VCINSTALLDIR%
 set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\bin\x86
 
-@rem Common Include Path
+@rem Include path
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\shared
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\um
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt\wrl
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt\xaml
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt
 
-@rem Common Library Path
+@rem Library path
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.0\Lib\win8\um\x86
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10240.0\ucrt\x86
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\store
@@ -27,9 +32,9 @@ set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\I
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86
 
 @rem Debugging tool and performance tool path
-set _NT_SYMBOL_PATH=srv*C:\Symbols*http://msdl.microsoft.com/download/symbols
-set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\Debuggers\x86
-set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Performance Tools
+set _NT_SYMBOL_PATH=srv*C:\projects\symbols*http://msdl.microsoft.com/downloads/symbols
+set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\Debuggers\x86
+set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit
 set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE
 
 @rem Library Path

@@ -241,8 +241,6 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
 "avoid dangerous mapping"
-nnoremap ZZ   <Nop>
-nnoremap ZQ   <Nop>
 nnoremap <C-z>  <Nop>
 
 " Tab motion shortcuts

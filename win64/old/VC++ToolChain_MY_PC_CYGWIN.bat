@@ -2,24 +2,29 @@
 @rem Copyright (C) 2017 Mamoru kaminaga
 @rem See alse http://qiita.com/mkaminaga/items/7e15dd3ca385780b31b5
 
+set VCINSTALLDIR=%VCINSTALLDIR%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin
+
 @rem Common EXE Path
-set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86
-set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\10\bin\10.0.15063.0\x86
+rem set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\bin\HostX86\x86
+rem set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\10\bin\10.0.15063.0\x86
+
+set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin
+rem set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.0\bin\x86
+set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\bin\x86
+set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\10\bin\x86\ucrt
 
 @rem Common Include Path
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\shared
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\um
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\ucrt
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\winrt
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\winrt\wrl
-set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\winrt\xaml
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\shared
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\um
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt
+set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include
 
 @rem Common Library Path
-set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.15063.0\um\x86
-set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.15063.0\ucrt\x86
-set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\lib\x86
-set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\lib\x86\store
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.0\Lib\win8\um\x86
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86
+set LIBPATH=%LIBPATH%;CC:\Program Files (x86)\Windows Kits\10\Lib\10.0.10240.0\ucrt\x86
+set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib
 
 @rem DxLib
 set INCLUDE=%INCLUDE%;C:\projects\library\dxlib
