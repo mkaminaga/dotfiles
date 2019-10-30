@@ -63,7 +63,11 @@ alias cmd='cmd /k `cygpath -u ~/dotfiles/win64/CMD_INI.bat`'
 
 alias c='cygstart'
 
-alias balse='taskkill /im explorer.exe /f'
+alias balse='Balse'
+function Balse() {
+  taskkill /im explorer.exe /f
+  c explorer
+}
 
 alias tsvn='TortoiseSVN'
 function TortoiseSVN() {
