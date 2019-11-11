@@ -4,6 +4,7 @@ export DISPLAY=:0
 
 alias ls='ls --color=auto --show-control-chars'
 alias la='ls -la -l -h'
+alias sl='ls --color=auto --show-control-chars'
 
 alias u2w='nkf -w -Lw'
 alias w2u='nkf -u -Lu'
