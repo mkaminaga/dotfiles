@@ -4,6 +4,7 @@ export DISPLAY=:0
 
 alias ls='ls --color=auto --show-control-chars'
 alias la='ls -la -l -h'
+alias sl='ls --color=auto --show-control-chars'
 
 alias u2w='nkf -w -Lw'
 alias w2u='nkf -u -Lu'
@@ -63,7 +64,11 @@ alias cmd='cmd /k `cygpath -u ~/dotfiles/win64/CMD_INI.bat`'
 
 alias c='cygstart'
 
-alias balse='taskkill /im explorer.exe /f'
+alias balse='Balse'
+function Balse() {
+  taskkill /im explorer.exe /f
+  c explorer
+}
 
 alias tsvn='TortoiseSVN'
 function TortoiseSVN() {
