@@ -31,3 +31,5 @@ Charset=UTF-8
 BellType=0
 ScrollbackLines=50000
 FontSmoothing=default
+MiddleClickAction=void
+RightClickAction=paste

@@ -79,7 +79,7 @@ set formatoptions+=mM
 
 set whichwrap=b,s,h,l,<,>,[,]
 
-set synmaxcol=300
+set synmaxcol=1024
 set lazyredraw
 set ttyfast
 

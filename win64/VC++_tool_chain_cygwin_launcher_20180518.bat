@@ -9,6 +9,7 @@ set LIBRARIES=C:\projects\library
 @rem Binary path
 set PATH=%PATH%;%VCINSTALLDIR%
 set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\bin\x86
+set PATH=%PATH%;C:\projects\library\sqlite-tools-win32-x86-3300100
 
 @rem Include path
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\shared
