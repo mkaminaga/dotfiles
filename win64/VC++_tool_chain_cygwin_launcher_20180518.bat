@@ -20,6 +20,7 @@ set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\8.1\Include\winrt\xaml
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include
 set INCLUDE=%INCLUDE%;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt
 set INCLUDE=%INCLUDE%;C:\projects\library\DxLibNoneModel_NoneSoftDrawCode_VC
+set INCLUDE=%INCLUDE%;C:\projects\library\bulletml-0.0.5
 
 @rem Library path
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.0\Lib\win8\um\x86
@@ -28,6 +29,7 @@ set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10240.0\uc
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\store
 set LIBPATH=%LIBPATH%;C:\projects\library\DxLibNoneModel_NoneSoftDrawCode_VC
+set LIBPATH=%LIBPATH%;C:\projects\library\bulletml-0.0.5
 
 @rem Direct X SDK Path
 set PATH=%PATH%;C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Utilities\bin\x86
