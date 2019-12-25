@@ -1,6 +1,7 @@
 #.bashrc
 [ -z '$LS_COLORS' ] && eval '`dircolors -b /etc/DIR_COLORS`'
 export DISPLAY=:0
+export HISTCONTROL=ignoredups
 
 alias ls='ls --color=auto --show-control-chars'
 alias la='ls -la -l -h'
