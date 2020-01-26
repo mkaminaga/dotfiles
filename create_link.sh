@@ -53,9 +53,6 @@ function common_links_for_mypc () {
 
   # programming
   \cmd /c "mklink /D ${1}\\projects C:\\projects"
-
-  # project
-  \cmd /c "mklink /D ${1}\\yui C:\\Users\\Mamoru\\Documents\\YUI"
 }
 
 # Cygwin links

@@ -47,5 +47,9 @@ set PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE
 @rem Library Path
 set LIB=%LIBPATH%;
 
+@rem Miscellaneous
+set PATH=%PATH%;C:\Program Files (x86)\MeCab\bin
+set PATH=%PATH%;C:\Program Files\LLVM\bin
+
 @rem Terminal launched
 start C:\cygwin64\bin\mintty -e C:\cygwin64\bin\bash.exe --login
