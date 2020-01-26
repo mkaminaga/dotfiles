@@ -9,3 +9,4 @@ ln -f -s ~/dotfiles/.vimrc ~/.vimrc
 ln -f -s ~/dotfiles/.screenrc ~/.screenrc
 ln -f -s ~/dotfiles/.Xmodmap ~/.Xmodmap
 ln -f -s ~/dotfiles/.xinitrc ~/.xinitrc
+ln -f -s ~/dotfiles/.imwheelrc ~/.imwheelrc
