@@ -1,0 +1,5 @@
+Note for ubuntu.
+
+* 2020/01/28 Change the brightness of backlight.
+sudo sh -c "echo 1200 > /sys/class/backlight/intel_backlight/brightness"
+
