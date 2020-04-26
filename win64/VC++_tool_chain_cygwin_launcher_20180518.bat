@@ -3,12 +3,12 @@
 @rem See also http://qiita.com/mkaminaga/items/7e15dd3ca385780b31b5
 
 @rem Specific directories.
-set VCINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin
+set VCINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC
 set LIBRARIES=C:\projects\library
 
 @rem Binary path
-set PATH=%PATH%;%VCINSTALLDIR%
-set PATH=%PATH%;C:\Program Files (x86)\Windows Kits\8.1\bin\x86
+set PATH=%PATH%;%VCINSTALLDIR%\bin
+set PATH=%PATH%;%VCINSTALLDIR%\bin\x86
 set PATH=%PATH%;C:\projects\library\sqlite-tools-win32-x86-3300100
 
 @rem Include path
@@ -27,8 +27,8 @@ set INCLUDE=%INCLUDE%;C:\projects\library\bulletml-0.0.5\src
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.0\Lib\win8\um\x86
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\8.1\Lib\winv6.3\um\x86
 set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10240.0\ucrt\x86
-set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib
-set LIBPATH=%LIBPATH%;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\lib\store
+set LIBPATH=%LIBPATH%;%VCINSTALLDIR%\lib
+set LIBPATH=%LIBPATH%;%VCINSTALLDIR%\lib\store
 set LIBPATH=%LIBPATH%;C:\projects\library\DxLibNoneModel_NoneSoftDrawCode_VC
 set LIBPATH=%LIBPATH%;C:\projects\library\bulletml-0.0.5
 set LIBPATH=%LIBPATH%;C:\projects\library\bulletml-0.0.5\src
