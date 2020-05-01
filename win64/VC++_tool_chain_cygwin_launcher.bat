@@ -72,18 +72,17 @@ IF %1 == !V32BIT! (
 
 SET LIBPATH=!LIBPATH!;!VCINSTALLDIR!\lib
 SET LIBPATH=!LIBPATH!;!VCINSTALLDIR!\lib\store
-SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\8.0\Lib\win8\um\x86
 SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\8.1\Lib\winv6.3\um\x86
+SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\8.0\Lib\win8\um\x86
 SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\10\Lib\10.0.10240.0\ucrt\x86
 
 ) ELSE (
 
 SET LIBPATH=!LIBPATH!;!VCINSTALLDIR!\lib\amd64
 SET LIBPATH=!LIBPATH!;!VCINSTALLDIR!\lib\store\amd64
-SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\8.0\Lib\win8\um\x64
 SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\8.1\Lib\winv6.3\um\x64
+SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\8.0\Lib\win8\um\x64
 SET LIBPATH=!LIBPATH!;C:\Program^ Files^ ^(x86^)\Windows^ Kits\10\Lib\10.0.10240.0\ucrt\x64
-
 )
 
 REM ========================================

@@ -244,10 +244,6 @@ nnoremap <Leader>q :q<CR>
 "avoid dangerous mapping"
 nnoremap <C-z>  <Nop>
 
-" Tab motion shortcuts
-nnoremap tn gt
-nnoremap tp gT
-
 " Tags shortcut
 nnoremap <silent> <F4> :!Ctags -R<CR>
 
