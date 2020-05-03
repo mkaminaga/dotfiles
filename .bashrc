@@ -40,8 +40,9 @@ alias exit='pwd > ${TMPFILE} && exit'
 
 alias ps='ps -s -W'
 
-alias ga='git add'
+alias ga='git add .'
 alias gc='git commit -m'
+alias gp='git push'
 
 function DoxygenProjectNameOverRide() {
   if [ "${1}" = "" ]; then
