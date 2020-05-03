@@ -40,6 +40,9 @@ alias exit='pwd > ${TMPFILE} && exit'
 
 alias ps='ps -s -W'
 
+alias ga='git add'
+alias gc='git commit -m'
+
 function DoxygenProjectNameOverRide() {
   if [ "${1}" = "" ]; then
     echo "No project name is specified";
