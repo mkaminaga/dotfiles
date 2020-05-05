@@ -3,8 +3,12 @@
 " Author  Mamoru Kaminaga
 " Since 2020
 "
-" Factorization because I want to use these key mappings for plugins of
-" Eclipse (.vrapperrc), Android Studio (.ideavimrc) and so on.
+" Factorization of key mappings.
+" I want to use these mappings commonly.
+"
+"  * Vim (.vimrc)
+"  * Vrapper, Eclipse (.vrapperrc)
+"  * IdeaVim, IntelJIDE (.ideavimrc)
 "
 
 " ==================================================

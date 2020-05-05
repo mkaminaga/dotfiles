@@ -18,24 +18,12 @@ set scrolloff=3
 set wrapscan
 set spell
 set clipboard+=unnamed,autoselect
-map <Esc><Esc> :noh<CR>
-nnoremap <Space>w :w<cr>
-nnoremap <Space>q :q<cr>
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-nnoremap j <Down>
-nnoremap k <Up>
 
-" Easy key binding for Ctrl+x sub mode.
-inoremap <C-e> <C-x>
-inoremap <C-k> <UP>
-inoremap <C-j> <DOWN>
-
-" Tab motion
-nnoremap gn gt
-nnoremap gp gT
+" ==================================================
+" Key mapping.
+" ==================================================
+" source ~/.vimrc.keymap
+source ~/.vimrc.keymap
 
 " ==================================================
 " Eclipse only.
