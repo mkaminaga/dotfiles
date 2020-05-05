@@ -42,7 +42,9 @@ alias ps='ps -s -W'
 
 alias ga='git add .'
 alias gc='git commit -m'
+alias gac='git add . && git commit -m'
 alias gp='git push'
+alias gs='git status'
 
 function DoxygenProjectNameOverRide() {
   if [ "${1}" = "" ]; then

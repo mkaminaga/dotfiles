@@ -223,6 +223,10 @@ augroup END
 " Stop highlighting of search result.
 map <Esc><Esc> :noh<CR>
 
+" Tab motion
+nnoremap gn gt
+nnoremap gp gT
+
 " ==================================================
 " Key mappings for normal mode.
 " ==================================================
