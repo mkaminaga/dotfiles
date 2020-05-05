@@ -45,8 +45,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Save and quit.
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
+nnoremap <SPACE>w :w<CR>
+nnoremap <SPACE>q :q<CR>
 
 " Avoid an accident.
 nnoremap <C-z>  <Nop>
