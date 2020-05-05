@@ -26,5 +26,5 @@ cmd /c 'mklink /H C:\\Users\\Mamoru\\.ideavimrc C:\\cygwin64\\home\\Mamoru\\dotf
 cmd /c 'mklink /H C:\\Users\\Mamoru\\.vrapperrc C:\\cygwin64\\home\\Mamoru\\dotfiles\\.vrapperrc'
 
 # backup utility
-ln -f -s ~/dotfiles/misc/backup.sh /bin/backup.sh
+ln -f -s /bin/backup.sh ~/dotfiles/misc/backup.sh
 
