@@ -1,0 +1,75 @@
+"
+" Key mapping for .vimrc.
+" Author  Mamoru Kaminaga
+" Since 2020
+"
+" Factorization because I want to use these key mappings for plugins of
+" Eclipse (.vrapperrc), Android Studio (.ideavimrc) and so on.
+"
+
+" ==================================================
+" nop
+" ==================================================
+
+" Original leader keys.
+nnoremap s <Nop>
+nnoremap t <Nop>
+
+" ==================================================
+" map
+" ==================================================
+
+" Stop highlighting.
+map <Esc><Esc> :noh<CR>
+
+" ==================================================
+" nnoremap
+" ==================================================
+
+" Tab motion
+nnoremap gn gt
+nnoremap gp gT
+
+" Show search result in the middle of the screen.
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+
+" Move vertical across lines.
+nnoremap j gj
+nnoremap k gk
+
+" Save and quit.
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+
+" Avoid an accident.
+nnoremap <C-z>  <Nop>
+
+" Move around argument list.
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+
+" Run ctags.
+nnoremap <silent> <F4> :!Ctags -R<CR>
+
+" Run compilers.
+nnoremap <F6> :!gcc -c %<CR>
+nnoremap <F7> :!cl /EHsc /c %<CR>
+
+" ==================================================
+" inoremap
+" ==================================================
+
+" Use motion commands as a vimmer!
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+" Easy key binding for Ctrl+X sub mode.
+inoremap <C-e> <C-x>
+

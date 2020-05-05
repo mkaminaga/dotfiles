@@ -1,0 +1,60 @@
+"
+"            .vrapperrc
+"            Author  Mamoru Kaminaga
+"            Since 2020
+"
+" For Vrapper, visit http://vrapper.sourceforge.net/home/
+"
+
+" ==================================================
+" Compatible with .vimrc.
+" ==================================================
+set smartcase
+set incsearch
+set hlsearch
+set number
+set nolist
+set scrolloff=3
+set wrapscan
+set spell
+set clipboard+=unnamed,autoselect
+
+" ==================================================
+" Key mapping.
+" ==================================================
+source ~/.vimrc.keymap
+
+" ==================================================
+" Android Studio only.
+" ==================================================
+
+" Surrounding (compatible with vim-surround)
+set surround
+
+nnoremap / :<C-u>action Find<CR>
+nnoremap <C-o> :<C-u>action Back<CR>
+nnoremap <C-i> :<C-u>action Forward<CR>
+nnoremap <C-S-o> <C-o>
+nnoremap <C-S-i> <C-i>
+
+" Coding.
+nnoremap <Space>c :<C-u>action GenerateConstructor<CR>
+nnoremap <Space>s :<C-u>action GenerateSetter<CR>
+nnoremap <Space>g :<C-u>action GenerateGetter<CR>
+nnoremap <SPACE>o :<C-u>action OverrideMethods<CR>
+" nnoremap <SPACE>d :CreateDelegateMethods<CR>
+" nnoremap <SPACE>p :PromoteLocalVariable<CR>
+
+" Formatting.
+nnoremap <SPACE>f :action ReformatCode<CR>
+vnoremap <SPACE>f :action ReformatCode<CR>
+" nnoremap <SPACE>i :action <CR>
+
+" Comment (gcc, cc : compatible with tomtom/tcomment_vim)
+nnoremap gcc <C-/>
+vnoremap gc <C-/>
+
+" Vim like.
+" nnoremap <C-]> :OpenEditor<CR>
+nnoremap ]] :<C-u>action MethodDown<CR>
+nnoremap [[ :<C-u>action MethodUp<CR>

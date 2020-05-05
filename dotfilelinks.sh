@@ -5,8 +5,18 @@ ln -f -s ~/dotfiles/.bashrc ~/.bashrc
 ln -f -s ~/dotfiles/.ctags ~/.ctags
 ln -f -s ~/dotfiles/.gvimrc ~/.gvimrc
 ln -f -s ~/dotfiles/.minttyrc ~/.minttyrc
-ln -f -s ~/dotfiles/.vimrc ~/.vimrc
 ln -f -s ~/dotfiles/.screenrc ~/.screenrc
 ln -f -s ~/dotfiles/.Xmodmap ~/.Xmodmap
 ln -f -s ~/dotfiles/.xinitrc ~/.xinitrc
 ln -f -s ~/dotfiles/.imwheelrc ~/.imwheelrc
+
+WINHOME=/cygdrive/c/Users/Mamoru
+
+# Vim
+ln -f -s ~/dotfiles/.vimrc ~/.vimrc
+ln -f -s ~/dotfiles/.vimrc.keymap ~/.vimrc.keymap
+ln -f -s dotfiles/.ideavimrc .ideavimrc
+# cmd /c 'mklink /H C:\\Users\\Mamoru\\.ideavimrc C:\\cygwin64\\home\\Mamoru\\dotfiles\\.ideavimrc'
+# cmd /c 'mklink /H C:\\Users\\Mamoru\\.vrapperrc C:\\cygwin64\\home\\Mamoru\\dotfiles\\.vrapperrc'
+cp ~/dotfiles/.ideavimrc ${WINHOME}/.ideavimrc
+cp ~/dotfiles/.vrapperrc ${WINHOME}/.vrapperrc

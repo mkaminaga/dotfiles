@@ -21,10 +21,6 @@ syntax on
 filetype on
 filetype plugin indent on
 
-" Free keys for mapping.
-nnoremap s <Nop>
-nnoremap t <Nop>
-
 let &t_AB="\e[48;5;%dm"
 let &t_AF="\e[38;5;%dm"
 let &t_SI .= "\e[<r"
@@ -217,67 +213,9 @@ augroup Binaly
 augroup END
 
 " ==================================================
-" Common key mapping.
+" Key mapping.
 " ==================================================
-
-" Stop highlighting of search result.
-map <Esc><Esc> :noh<CR>
-
-" Tab motion
-nnoremap gn gt
-nnoremap gp gT
-
-" ==================================================
-" Key mappings for normal mode.
-" ==================================================
-
-" Show search result in the middle of the screen.
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-
-" Move vertical across lines.
-nnoremap j gj
-nnoremap k gk
-
-" Easy mapping for save and quit.
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-
-"avoid dangerous mapping"
-nnoremap <C-z>  <Nop>
-
-" Tags shortcut
-nnoremap <silent> <F4> :!Ctags -R<CR>
-
-" Compilation shortcut.
-nnoremap <F6> :!gcc -c %<CR>
-nnoremap <F7> :!cl /EHsc /c %<CR>
-
-" Move among argument list.
-nnoremap [q :cprevious<CR>
-nnoremap ]q :cnext<CR>
-nnoremap [Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
-
-" ==================================================
-" Key mappings for visual mode.
-" ==================================================
-
-" ==================================================
-" Key mappings for insert mode.
-" ==================================================
-
-" Ignore arrow key inputs.
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-" Easy key binding for Ctrl+x sub mode.
-" Ignore default Ctrl+e mapping.
-inoremap <C-e> <C-x>
+source ~/.vimrc.keymap
 
 " ==================================================
 " Functions and commands.
@@ -325,6 +263,7 @@ autocmd BufRead *.plt set ft=tex
 autocmd BufRead README.* set ft=markdown
 autocmd BufRead readme.* set ft=markdown
 autocmd BufRead Readme.* set ft=markdown
+autocmd BufRead .vrapperrc set ft=vim
 
 autocmd FileType tex source ~/dotfiles/.vim/tex.vim
 autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/cpp.vim
