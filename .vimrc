@@ -248,7 +248,6 @@ function! s:MakeCompile()
 endfunction
 
 " Remove non Unicode characters.
-nnoremap <F4> :MakeCompile<CR>
 command! DeleteMultiByte call s:DeleteMultiByte()
 function! s:DeleteMultiByte()
   :%s/[^\x01-\x7E]//g

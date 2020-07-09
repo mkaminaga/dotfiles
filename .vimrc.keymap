@@ -7,6 +7,7 @@
 " I want to use these mappings commonly.
 "
 "  * Vim (.vimrc)
+"  * gvim (.gvimrc)
 "  * Vrapper, Eclipse (.vrapperrc)
 "  * IdeaVim, IntelJIDE (.ideavimrc)
 "
@@ -63,6 +64,9 @@ nnoremap <silent> <F4> :!Ctags -R<CR>
 " Run compilers.
 nnoremap <F6> :!gcc -c %<CR>
 nnoremap <F7> :!cl /EHsc /c %<CR>
+
+" Copy all
+nnoremap ya mpggVGy`p
 
 " ==================================================
 " inoremap
