@@ -97,6 +97,11 @@ set spell
 set spelllang=en_us,cjk
 setlocal spellfile=~/dotfiles/.vim/spell/en.utf-8.add
 
+" gVim specific.
+set wrap
+set formatoptions=q
+set guifont=MS_Gothic:h14
+
 " ==================================================
 " Plugins
 " ==================================================
