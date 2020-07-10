@@ -100,6 +100,7 @@ setlocal spellfile=~/dotfiles/.vim/spell/en.utf-8.add
 " ==================================================
 " Plugins
 " ==================================================
+colorscheme desert
 
 " ==================================================
 " augroups
@@ -120,7 +121,7 @@ augroup END
 " ==================================================
 " Key mapping.
 " ==================================================
-source .vimrc.keymap
+source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.keymap
 
 " ==================================================
 " Functions and commands.
