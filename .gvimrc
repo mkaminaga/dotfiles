@@ -97,10 +97,15 @@ set spell
 set spelllang=en_us,cjk
 setlocal spellfile=~/dotfiles/.vim/spell/en.utf-8.add
 
-" gVim specific.
+" Display style
 set wrap
 set formatoptions=q
 set guifont=MS_Gothic:h14
+
+" Temporary files
+set backupdir=C:/Users/Mamoru/.vim/tmp
+set directory=C:/Users/Mamoru/.vim/tmp
+set undodir=C:/Users/Mamoru/.vim/tmp
 
 " ==================================================
 " Plugins

@@ -58,6 +58,10 @@ nnoremap ]q :cnext<CR>
 nnoremap [Q :cfirst<CR>
 nnoremap ]Q :clast<CR>
 
+" Buffer motion
+nnoremap <C-p> :bprev<CR>
+nnoremap <C-n> :bnext<CR>
+
 " Run ctags.
 nnoremap <silent> <F4> :!Ctags -R<CR>
 
