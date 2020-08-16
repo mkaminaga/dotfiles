@@ -71,6 +71,7 @@ nnoremap <F7> :!cl /EHsc /c %<CR>
 
 " Copy all
 nnoremap yu mpggVGy`p
+nnoremap yx mpggVGx`p
 
 " ==================================================
 " inoremap

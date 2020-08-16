@@ -196,6 +196,9 @@ augroup ClangFormatSettings
   autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
 augroup END
 
+" Code formatter
+nnoremap <Space>f :ClangFormat<CR>
+
 " ==================================================
 " augroups
 " ==================================================
