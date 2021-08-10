@@ -95,12 +95,12 @@ set path=.
 " Spell check
 set spell
 set spelllang=en_us,cjk
-setlocal spellfile=~/dotfiles/.vim/spell/en.utf-8.add
+setlocal spellfile=C:\Users\Mamoru\.vim\spell\en.utf-8.add
 
 " Display style
 set wrap
 set formatoptions=q
-set guifont=MS_Gothic:h14
+set guifont=MS_Gothic:h10
 
 " Temporary files
 set backupdir=C:/Users/Mamoru/.vim/tmp
@@ -179,6 +179,7 @@ autocmd BufRead README.* set ft=markdown
 autocmd BufRead readme.* set ft=markdown
 autocmd BufRead Readme.* set ft=markdown
 autocmd BufRead .vrapperrc set ft=vim
+autocmd BufRead surfaces.txt set ft=dot
 
 " ==================================================
 " Settings that must be at end.

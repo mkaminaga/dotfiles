@@ -4,6 +4,11 @@ export DISPLAY=:0
 export HISTCONTROL=ignoredups
 export HISTSIZE=30000
 
+alias x='exit'
+alias e='vim ~/.bashrc'
+alias s='source ~/.bashrc'
+alias ev='vim ~/.vimrc'
+
 alias ls='ls --color=auto --show-control-chars'
 alias la='ls -la -l -h'
 alias sl='ls --color=auto --show-control-chars'
@@ -14,7 +19,15 @@ alias u2wo='nkf -w -Lw --overwrite'
 alias w2uo='nkf -u -Lu --overwrite'
 
 alias vim='vim -p'
+alias v='vim -p'
 alias vi='vim -p --noplugin -u ~/dotfiles/.vimrc_minimum'
+
+alias ga='git add'
+alias gb='git branch'
+alias gd='git diff'
+alias gl='git log'
+alias gm='git commit -m'
+alias gs='git status'
 
 alias tree='tree -C -L'
 

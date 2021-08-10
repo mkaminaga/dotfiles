@@ -33,4 +33,4 @@ ScrollbackLines=50000
 FontSmoothing=default
 RightClickAction=paste
 BackgroundColour=0,0,0
-Scrollbar=none
+Scrollbar=right
