@@ -153,8 +153,9 @@ SET PATH=!PATH!;C:\Users\%USERNAME%\AppData\Local\Programs\Python\Python39\Scrip
 REM ========================================
 REM Android
 REM ========================================
+SET ANDROID_NDK_VERSION=22.1.7171670
 SET ANDROID_HOME=C:\Users\%USERNAME%\AppData\Local\Android\Sdk
-SET ANDROID_NDK_HOME=C:\Users\%USERNAME%\AppData\Local\Android\Sdk\ndk-bundle
+SET ANDROID_NDK_HOME=C:\Users\%USERNAME%\AppData\Local\Android\Sdk\ndk\%ANDROID_NDK_VERSION%
 SET PATH=%PATH%;C:\android\platform-tools
 
 REM ========================================
