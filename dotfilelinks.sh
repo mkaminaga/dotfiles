@@ -21,10 +21,8 @@ ln -f -s ~/dotfiles/.imwheelrc ~/.imwheelrc
 
 # Vim
 ln -f -s ~/dotfiles/.vimrc ~/.vimrc
+ln -f -s ~/dotfiles/.vimrc.keymap ~/.vimrc.keymap
 cmd /c 'mklink /H C:\\Users\\Mamoru\\.vimrc.keymap C:\\cygwin64\\home\\Mamoru\\dotfiles\\.vimrc.keymap'
 cmd /c 'mklink /H C:\\Users\\Mamoru\\.ideavimrc C:\\cygwin64\\home\\Mamoru\\dotfiles\\.ideavimrc'
 cmd /c 'mklink /H C:\\Users\\Mamoru\\.vrapperrc C:\\cygwin64\\home\\Mamoru\\dotfiles\\.vrapperrc'
-
-# backup utility
-ln -f -s /bin/backup.sh ~/dotfiles/misc/backup.sh
 
