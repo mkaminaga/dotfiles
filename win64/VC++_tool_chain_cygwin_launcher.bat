@@ -2,6 +2,11 @@
 REM 2018/05/18 Cygwin launcher bat file for my PC
 REM Copyright (C) 2021 Mamoru Kaminaga
 REM
+REM Usage:
+REM  * Call this bat file from shortcut.
+REM   - 32bit: C:\Windows\System32\cmd.exe /c "<path of dotfiles>\win64\VC++_tool_chain_cygwin_launcher.bat" x86
+REM   - 64bit: C:\Windows\System32\cmd.exe /c "<path of dotfiles>\win64\VC++_tool_chain_cygwin_launcher.bat" x64
+REM
 REM Update 2021/08/11 Update:
 REM  * Visual Studio(2015->2019), Python, MediaPipe, Android
 REM  * Sort definitions
@@ -15,6 +20,7 @@ REM ========================================
 REM Common Constants.
 REM ========================================
 SET LIBRARIES=C:\projects\library
+SET PATH=%PATH%;C:\Windows\System32
 
 REM ========================================
 REM Argument check.
@@ -88,6 +94,25 @@ SET LIBPATH=!LIBPATH!;!VCINSTALLDIR!\Tools\MSVC\!VC_VERSION!lib\amd64
 SET LIBPATH=!LIBPATH!;!VCINSTALLDIR!\Tools\MSVC\!VC_VERSION!lib\store\amd64
 
 )
+
+REM ========================================
+REM Java
+REM ========================================
+SET JAVA_HOME=C:\Program Files\Android\Android Studio\jre
+
+IF %1 == x86 (
+
+REM 64bit only
+
+) ELSE (
+
+SET PATH=!PATH!;C:\Program Files\Android\Android Studio\jre\bin
+
+)
+
+REM Other JDK
+REM SET JAVA_HOME=C:\Program Files\AdoptOpenJDK\jdk-8.0.252.09-hotspot
+REM SET PATH=%PATH%;C:\Program Files\AdoptOpenJDK\jdk-8.0.252.09-hotspot\jre\bin"
 
 REM ========================================
 REM DxLib
@@ -173,6 +198,7 @@ REM ========================================
 SET PATH=%PATH%;C:\projects\library\sqlite-tools-win32-x86-3300100
 SET PATH=%PATH%;C:\Program Files (x86)\MeCab\bin
 SET PATH=%PATH%;C:\Program Files\LLVM\bin
+SET PATH=%PATH%;C:\projects\tools\apache-maven-3.8.2-bin\bin
 
 REM ========================================
 REM Library Path
