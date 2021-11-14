@@ -68,9 +68,6 @@ alias cpplint='cpplint.py'
 # WindowsとCygwinの対応
 ##################################################################
 
-# コマンドプロンプトの起動時オプション
-alias cmd='cmd /k ~/dotfiles/win64/CMD_INI.bat'
-
 # stop エクスプローラを停止
 alias balse='taskkill /im explorer.exe /f'
 

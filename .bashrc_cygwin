@@ -64,9 +64,6 @@ alias doxygen='DoxygenProjectNameOverRide'
 # cpplint (google cording style helper tool)
 alias cpplint='cpplint.py'
 
-# コマンドプロンプトの起動時オプション
-alias cmd='cmd /k `cygpath -u ~/dotfiles/win64/CMD_INI.bat`'
-
 # 開く
 alias c='cygstart'
 

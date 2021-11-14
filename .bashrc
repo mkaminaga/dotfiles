@@ -81,8 +81,6 @@ alias cl='cl /W4 /DUNICODE /D_UNICODE'
 
 alias cpplint='cpplint.py --filter=-build/include'
 
-alias cmd='cmd /k `cygpath -u ~/dotfiles/win64/CMD_INI.bat`'
-
 alias c='cygstart'
 
 alias balse='Balse'
