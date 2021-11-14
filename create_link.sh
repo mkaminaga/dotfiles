@@ -8,10 +8,10 @@
 #
 # Example:
 # 1) Cygwin on My PC
-# ./create_link.sh C:\\cygwin64\\home\\Mamoru my_pc cygwin
+# ./create_link.sh C:\\cygwin64\\home\\${USER} my_pc cygwin
 #
 # 2) Msys on My PC
-# ./create_link.sh C:\\msys64\\home\\Mamoru my_pc msys2
+# ./create_link.sh C:\\msys64\\home\\${USER} my_pc msys2
 #
 # 3) Cygwin on Laboratry
 # ./create_link.sh C:\\cygwin64\\home\\mkami lab_pc cygwin
@@ -32,24 +32,32 @@ CONST_MSYS2="msys2"
 #### Common ####
 function common_links_for_all_pc () {
   # Dotfiles (Common)
-  \cmd /c "mklink /H ${1}\\.ctags	  ${1}\\dotfiles\\.ctags"
-  \cmd /c "mklink /H ${1}\\.gvimrc	  ${1}\\dotfiles\\.gvimrc"
-  \cmd /c "mklink /H ${1}\\.minttyrc	  ${1}\\dotfiles\\.minttyrc"
-  \cmd /c "mklink /H ${1}\\.vimrc	  ${1}\\dotfiles\\.vimrc"
-  \cmd /c "mklink /D ${1}\\.my_vim	  ${1}\\dotfiles\\.my_vim"
+  \cmd /c "mklink /H ${1}\\.ctags      ${1}\\dotfiles\\.ctags"
+  \cmd /c "mklink /H ${1}\\.gvimrc     ${1}\\dotfiles\\.gvimrc"
+  \cmd /c "mklink /H ${1}\\.minttyrc   ${1}\\dotfiles\\.minttyrc"
+  \cmd /c "mklink /H ${1}\\.vimrc      ${1}\\dotfiles\\.vimrc"
+  \cmd /c "mklink /D ${1}\\.my_vim     ${1}\\dotfiles\\.my_vim"
+
+  # Vim (Symbolic links for windows)
+  cmd /c "mklink /H C:\\Users\\${USER}\\.vimrc.keymap C:\\cygwin64\\home\\${USER}\\dotfiles\\.vimrc.keymap"
+  cmd /c "mklink /H C:\\Users\\${USER}\\.ideavimrc C:\\cygwin64\\home\\${USER}\\dotfiles\\.ideavimrc"
+  cmd /c "mklink /H C:\\Users\\${USER}\\.vrapperrc C:\\cygwin64\\home\\${USER}\\dotfiles\\.vrapperrc"
+
+  # Unix type
+  ./dotfilelinks.sh
 }
 
 #### My PC ####
 ## Common links
 function common_links_for_mypc () {
   # Windows shortcuts
-  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\Mamoru\\Downloads"
-  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\Mamoru\\Desktop"
-  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\Mamoru\\Documents"
-  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\Mamoru\\Pictures"
-  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\Mamoru\\Videos"
-  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\Mamoru\\Music"
-  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\Mamoru\\AppData\\Local\\Temp"
+  \cmd /c "mklink /D ${1}\\Downloads C:\\Users\\${USER}\\Downloads"
+  \cmd /c "mklink /D ${1}\\Desktop   C:\\Users\\${USER}\\Desktop"
+  \cmd /c "mklink /D ${1}\\Documents C:\\Users\\${USER}\\Documents"
+  \cmd /c "mklink /D ${1}\\Pictures  C:\\Users\\${USER}\\Pictures"
+  \cmd /c "mklink /D ${1}\\Videos    C:\\Users\\${USER}\\Videos"
+  \cmd /c "mklink /D ${1}\\Music     C:\\Users\\${USER}\\Music"
+  \cmd /c "mklink /D ${1}\\Temp      C:\\Users\\${USER}\\AppData\\Local\\Temp"
 
   # programming
   \cmd /c "mklink /D ${1}\\projects C:\\projects"
@@ -58,14 +66,14 @@ function common_links_for_mypc () {
 # Cygwin links
 function cygwin_links_for_mypc () {
   # Dotfiles (Local)
-  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_cygwin"
+  \cmd /c "mklink /H ${1}\\.bashrc   ${1}\\dotfiles\\.bashrc_cygwin"
   \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_cygwin"
 }
 
 # MSYS2 links
 function msys2_links_for_mypc () {
   # Dotfiles (Local)
-  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_msys2"
+  \cmd /c "mklink /H ${1}\\.bashrc   ${1}\\dotfiles\\.bashrc_msys2"
   \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_msys2"
 }
 
@@ -85,14 +93,14 @@ function common_links_for_labpc () {
 # Cygwin for Lab PC
 function cygwin_links_for_labpc () {
   # Dotfiles (Local)
-  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_cygwin"
+  \cmd /c "mklink /H ${1}\\.bashrc       ${1}\\dotfiles\\.bashrc_cygwin"
   \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_cygwin"
 }
 
 # MSYS2 for Lab PC
 function msys2_links_for_labpc () {
   # Dotfiles (Local)
-  \cmd /c "mklink /H ${1}\\.bashrc	 ${1}\\dotfiles\\.bashrc_msys2"
+  \cmd /c "mklink /H ${1}\\.bashrc       ${1}\\dotfiles\\.bashrc_msys2"
   \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_msys2"
 }
 ########## Calls ##########
@@ -152,3 +160,4 @@ elif [ $2 == ${CONST_LABPC} ]; then
 
   fi
 fi
+

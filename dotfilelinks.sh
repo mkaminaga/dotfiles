@@ -19,10 +19,7 @@ ln -f -s ~/dotfiles/.Xmodmap ~/.Xmodmap
 ln -f -s ~/dotfiles/.xinitrc ~/.xinitrc
 ln -f -s ~/dotfiles/.imwheelrc ~/.imwheelrc
 
-# Vim
+# Vim (Symbolic links for UNIX)
 ln -f -s ~/dotfiles/.vimrc ~/.vimrc
 ln -f -s ~/dotfiles/.vimrc.keymap ~/.vimrc.keymap
-cmd /c 'mklink /H C:\\Users\\Mamoru\\.vimrc.keymap C:\\cygwin64\\home\\Mamoru\\dotfiles\\.vimrc.keymap'
-cmd /c 'mklink /H C:\\Users\\Mamoru\\.ideavimrc C:\\cygwin64\\home\\Mamoru\\dotfiles\\.ideavimrc'
-cmd /c 'mklink /H C:\\Users\\Mamoru\\.vrapperrc C:\\cygwin64\\home\\Mamoru\\dotfiles\\.vrapperrc'
 
