@@ -1,0 +1,69 @@
+# --------------------------------------
+# Terminal
+# --------------------------------------
+SAVE_DIR_NAME='/tmp/SaveDirName'
+if [ ! -e ${SAVE_DIR_NAME} ]; then
+  touch ${SAVE_DIR_NAME}
+fi
+
+function SetSaveDirName() {
+  cd $(cat ${SAVE_DIR_NAME})
+}
+
+function OpenNewTerminal() {
+  pwd > ${SAVE_DIR_NAME} && cygstart /cygdrive/c/cygwin64/bin/mintty -e /cygdrive/c/cygwin64/bin/bash.exe --login
+}
+
+# --------------------------------------
+# Explorer
+# --------------------------------------
+function RestartExplorer() {
+  taskkill /im explorer.exe /f
+  cygstart explorer
+}
+
+# --------------------------------------
+# Tortoise SVN
+# --------------------------------------
+function TortoiseSVN() {
+  if [ "$1" = "commit" ]; then
+    # commit
+    if [ "$3" = "" ]; then
+      echo "write log message!";
+    else
+      cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+        /command:$1 \
+        /path:`cygpath -w $2` \
+        /logmsg:"\"$3\"" \
+        /closeonend:1;
+    fi
+  else
+    # update
+    cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+      /command:$1\
+      /path:`cygpath -w $2` \
+      /closeonend:1;
+  fi
+}
+
+# --------------------------------------
+# Doxygen
+# --------------------------------------
+function RunDoxygen() {
+  if [ "${1}" = "" ]; then
+    echo "No project name is specified";
+    return;
+  fi
+
+  if [ "${2}" = "" ]; then
+    echo "output dir is not specified";
+    return;
+  fi
+
+  # Overwrite project name
+  (cat ~/dotfiles/Doxyfile ;\
+    echo "PROJECT_NAME=${1}";\
+    echo "HTML_OUTPUT=${2}/${1}") | doxygen -\
+    && cygstart ${2}/${1}/index.html;
+  }
+

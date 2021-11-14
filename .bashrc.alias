@@ -1,0 +1,55 @@
+# --------------------------------------
+# Terminal
+# --------------------------------------
+alias c='cygstart'
+alias e='vim ~/.bashrc'
+alias s='source ~/.bashrc'
+alias x='exit'
+alias new='OpenNewTerminal'
+
+# --------------------------------------
+# Editor
+# --------------------------------------
+alias v='vim -p'
+alias vim='vim -p'
+alias ve='vim ~/.vimrc'
+alias vi='vim -p --noplugin -u ~/dotfiles/.vimrc_minimum'
+
+# --------------------------------------
+# Commands
+# --------------------------------------
+alias la='ls -la -l -h'
+alias ls='ls --color=auto --show-control-chars'
+alias sl='ls --color=auto --show-control-chars'
+
+alias tree='tree -C -L'
+alias tsvn='TortoiseSVN'
+alias u2w='nkf -w -Lw'
+alias u2wo='nkf -w -Lw --overwrite'
+alias w2u='nkf -u -Lu'
+alias w2uo='nkf -u -Lu --overwrite'
+
+# --------------------------------------
+# Build tools
+# --------------------------------------
+alias cl='cl /W4 /DUNICODE /D_UNICODE'
+alias cpplint='cpplint.py --filter=-build/include'
+alias ps='ps -s -W'
+
+# --------------------------------------
+# Git
+# --------------------------------------
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit -m'
+alias gd='git diff'
+alias gl='git log'
+alias gp='git push'
+alias gs='git status'
+
+# --------------------------------------
+# Custom functions
+# --------------------------------------
+alias balse='RestartExplorer'
+alias doxygen='RunDoxygen'
+
