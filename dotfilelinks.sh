@@ -8,9 +8,16 @@
 #   mklink /H <Link> <Original>
 #
 
+# Shell
+ln -f -s ~/dotfiles/.bashrc ~/.bashrc
+ln -f -s ~/dotfiles/.bashrc.utils ~/.bashrc.utils
+ln -f -s ~/dotfiles/.bashrc.alias ~/.bashrc.alias
+
+# Profile
 ln -f -s ~/dotfiles/.bash_profile_cygwin ~/.bash_profile_cygwin
 ln -f -s ~/dotfiles/.bash_profile_msys2 ~/.bash_profile_msys2
-ln -f -s ~/dotfiles/.bashrc ~/.bashrc
+
+# Commands
 ln -f -s ~/dotfiles/.ctags ~/.ctags
 ln -f -s ~/dotfiles/.gvimrc ~/.gvimrc
 ln -f -s ~/dotfiles/.minttyrc ~/.minttyrc
