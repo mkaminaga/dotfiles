@@ -1,0 +1,92 @@
+" ==================================================
+" Hack quickfix argument list.
+" See also " https://github.com/nelstrom/vim-qargs
+" ==================================================
+function! QucikFixFileNames()
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']]=
+          \ bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
+
+" ==================================================
+" Build
+" ==================================================
+command! MakeCompile call MakeCompile()
+function! MakeCompile()
+  :bufdo w
+  :!make
+endfunction
+
+" ==================================================
+" Format
+" ==================================================
+function! DeleteMultiByteChars()
+  :%s/[^\x01-\x7E]//g
+endfunction
+
+function! ToSnakeCase()
+  let s:before=expand("<cword>")
+  " Initial to lower case, e.g, AbcDef -> abcDef
+  let s:after=substitute(s:before, '^[A-Z]', '\l\0', 'g')
+  execute ':%s/'.s:before.'/'.s:after.'/ge'
+  " Non initial to lower case, e.g, abcDef -> abc_def
+  let s:before=s:after
+  let s:after=substitute(s:before, '\([a-z]\)\([A-Z]\)', '\1_\l\2', 'g')
+  execute ':%s/'.s:before.'/'.s:after.'/ge'
+endfunction
+
+function! ToPascalCase()
+  let s:before=expand("<cword>")
+  " ex) abc_def_ghi -> AbcDefGhi
+  let s:after=substitute(s:before, '_\(.\)', '\u\1', 'g')
+  execute ':%s/'.s:before.'/'.s:after.'/ge'
+endfunction
+
+function! ToCamelCase()
+  let s:before=expand("<cword>")
+  " ex) abc_def_ghi -> AbcDefGhi
+  let s:after=substitute(s:before, '_\(.\)', '\u\1', 'g')
+  execute ':%s/'.s:before.'/'.s:after.'/ge'
+  " ex) AbcDefGhi -> abcDefGhi
+  let s:before=s:after
+  let s:after=substitute(s:before, '^', '\u\0', 'g')
+  execute ':%s/'.s:before.'/'.s:after.'/ge'
+endfunction
+
+" ==================================================
+" Doxygen
+" ==================================================
+inoremap @@F <Space><Space>//<CR>
+      \<Space>@file<Space><C-r>=expand("%")<CR><CR>
+      \@brief<Space><CR>
+      \@author<Space><CR>
+      \@date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
+      \Copyright <C-r>=strftime("%Y")<CR><Space><CR>
+
+inoremap @F @file<Space><C-r>=expand("%")<CR><Space>
+inoremap @f @fn<Space><CR>
+inoremap @b @brief<Space>
+inoremap @D @detail<Space>
+inoremap @a @author<Space>
+inoremap @d @date <C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><Space>
+
+inoremap @@f <Space><Space>//<CR>
+      \<Space>@brief<Space><br><CR>
+      \@param [in]<Space><CR>
+      \@param [out]<Space><CR>
+      \@param [in,out]<Space><CR>
+      \@retval<Space><CR>
+      \@return<Space><CR>
+
+inoremap @p @param<Space>
+inoremap @r @return<Space>
+inoremap @R @retval<Space>
+inoremap @S @sa<Space>
+inoremap @c @class<Space>
+inoremap @v @var<Space>
+inoremap @s @struct<Space>
+inoremap @e @enum<Space>
+
