@@ -1,7 +1,12 @@
 # --------------------------------------
+# Directory name
+# --------------------------------------
+TEMPLATE_DIR='~/dotfiles/template/'
+SAVE_DIR_NAME='/tmp/SaveDirName'
+
+# --------------------------------------
 # Terminal
 # --------------------------------------
-SAVE_DIR_NAME='/tmp/SaveDirName'
 if [ ! -e ${SAVE_DIR_NAME} ]; then
   touch ${SAVE_DIR_NAME}
 fi
@@ -51,19 +56,19 @@ function TortoiseSVN() {
 # --------------------------------------
 function RunDoxygen() {
   if [ "${1}" = "" ]; then
-    echo "No project name is specified";
+    echo "arg1: Project name is not specified";
     return;
   fi
 
   if [ "${2}" = "" ]; then
-    echo "output dir is not specified";
+    echo "arg2: output dir is not specified";
     return;
   fi
 
+  PROJECT=${1}
+  OUTDIR=${2}
+
   # Overwrite project name
-  (cat ~/dotfiles/Doxyfile ;\
-    echo "PROJECT_NAME=${1}";\
-    echo "HTML_OUTPUT=${2}/${1}") | doxygen -\
-    && cygstart ${2}/${1}/index.html;
-  }
+  (cat ${TEMPLATE_DIR}/Doxyfile ; echo "PROJECT_NAME=${PROJECT}"; echo "HTML_OUTPUT=${OUTDIR}/${PROJECT}") | doxygen - && cygstart ${OUTDIR}/${PROJECT}/index.html;
+}
 
