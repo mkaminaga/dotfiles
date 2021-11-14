@@ -256,7 +256,7 @@ endif
 if has("gui_running")
   autocmd FileType c,cpp,perl,html,ino,rc source C:\cygwin64\home\Mamoru\dotfiles\.vim\c.vim
   autocmd FileType cs source C:\cygwin64\home\Mamoru\dotfiles\.vim\cs.vim
-  autocmd FileType tex source C:\cygwin64\home\Mamoru\dotfiles\.vim\.vim\tex.vim
+  autocmd FileType tex source C:\cygwin64\home\Mamoru\dotfiles\.vim\tex.vim
 else
   autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/c.vim
   autocmd FileType cs source ~/dotfiles/.vim/cs.vim
