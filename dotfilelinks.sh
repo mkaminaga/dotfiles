@@ -29,4 +29,5 @@ ln -f -s ~/dotfiles/.imwheelrc ~/.imwheelrc
 ln -f -s ~/dotfiles/.vimrc ~/.vimrc
 ln -f -s ~/dotfiles/.vimrc.keymap ~/.vimrc.keymap
 ln -f -s ~/dotfiles/.vimrc.util ~/.vimrc.util
+ln -f -s ~/dotfiles/.vimrc.plugins ~/.vimrc.plugins
 
