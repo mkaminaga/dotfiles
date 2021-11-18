@@ -243,24 +243,24 @@ nnoremap \c :call ToCamelCase()<CR>
 if has("gui_running")
   source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.keymap
   source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.util
-  setlocal spellfile=C:\Users\Mamoru\.vim\spell\en.utf-8.add
+  setlocal spellfile=C:\cygwin64\home\Mamoru\.vim\spell\en.utf-8.add
 else
   source ~/.vimrc.keymap
   source ~/.vimrc.util
-  setlocal spellfile=~/dotfiles/.vim/spell/en.utf-8.add
+  setlocal spellfile=~/.vim/spell/en.utf-8.add
 endif
 
 " ==================================================
 " Filetype
 " ==================================================
 if has("gui_running")
-  autocmd FileType c,cpp,perl,html,ino,rc source C:\cygwin64\home\Mamoru\dotfiles\.vim\c.vim
-  autocmd FileType cs source C:\cygwin64\home\Mamoru\dotfiles\.vim\cs.vim
-  autocmd FileType tex source C:\cygwin64\home\Mamoru\dotfiles\.vim\tex.vim
+  autocmd FileType c,cpp,perl,html,ino,rc source C:\cygwin64\home\Mamoru\dotfiles\my_vim\c.vim
+  autocmd FileType cs source C:\cygwin64\home\Mamoru\dotfiles\my_vim\cs.vim
+  autocmd FileType tex source C:\cygwin64\home\Mamoru\dotfiles\my_vim\tex.vim
 else
-  autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/.vim/c.vim
-  autocmd FileType cs source ~/dotfiles/.vim/cs.vim
-  autocmd FileType tex source ~/dotfiles/.vim/tex.vim
+  autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/my_vim/c.vim
+  autocmd FileType cs source ~/dotfiles/my_vim/cs.vim
+  autocmd FileType tex source ~/dotfiles/my_vim/tex.vim
 endif
 
 " ==================================================
