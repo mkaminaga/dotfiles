@@ -44,9 +44,10 @@ if dein#load_state(s:dein_dir)
   call dein#add('rhysd/vim-clang-format')
   call dein#add('kana/vim-operator-user')
 
-  " Language specific.
+  " for Unity C#
   call dein#add('OmniSharp/omnisharp-vim', {'on_ft' : 'cs'})
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+  call dein#add('Shougo/neocomplete.vim')
 
   call dein#end()
   call dein#save_state()
@@ -101,58 +102,95 @@ map ss <Plug>(easymotion-s)
 let g:clang_format#code_style='google'
 let g:clang_format#style_options = {
       \ "Standard" : "C++11"}
+
 augroup ClangFormatSettings
   autocmd!
-  autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :ClangFormat<CR>
-  autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
+  autocmd FileType c,cpp,objc nnoremap <Leader>f :ClangFormat<CR>
+  autocmd FileType c,cpp,objc vnoremap <Leader>f :ClangFormat<CR>
 augroup END
 
-" Code formatter
-nnoremap <Space>f :ClangFormat<CR>
-
-" Language specific.
+" Unity C#
 " 'OmniSharp/omnisharp-vim'
+if (has('win32_unix'))
+  " http version
+  " - Works on Cygwin
+  " - Requires python 2 or 3, and, either vim-dispatch or vimproc.vim
+  let g:OmniSharp_server_stdio = 0
+  let g:OmniSharp_server_path = '/usr/local/bin/omnisharp.http-win-x64/OmniSharp.exe'
+
+  if !(has('python3') || has('python'))
+    echoerr 'Http version of OmniSharp requires python enabled'
+  endif
+else
+  " stdio version
+  " - Works on Unix, WSL, etc
+  " - No python is required
+  let g:OmniSharp_server_stdio = 1
+  let g:OmniSharp_server_path = '/usr/local/bin/omnisharp-win-x64/OmniSharp.exe'
+endif
+
+" Install manually
+if !filereadable(g:OmniSharp_server_path)
+  echoerr 'OmniSharp must be installed: '.expand(g:OmniSharp_server_path)
+endif
+
+" Set in WSL (default is 1 on cygwin)
+" TODO: Auto detect WSL
+"       OmniSharp の README によると、WSL 環境では以下のフラグをセットする
+"       Cygwin ユーザなのでセット不要だが、WSL ユーザになった際は対応する
+" let g:OmniSharp_translate_cygwin_wsl = 1
+
+" Common
+"let g:OmniSharp_loglevel = 'debug' " Set when chasing errors.
+let g:OmniSharp_timeout = 50
+let g:OmniSharp_highlight_groups = {
+      \ 'Comment': 'NonText',
+      \ 'XmlDocCommentName': 'Identifier',
+      \ 'XmlDocCommentText': 'NonText'
+      \}
+
 augroup OmnisharpSettings
   autocmd!
+  autocmd FileType cs nnoremap gd         :OmniSharpGotoDefinition<CR>
+  autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<CR>
+  autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<CR>
+  autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<CR>
+  autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<CR>
+  autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<CR>
+  autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<CR>
+  autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<CR>
+  autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<CR>
+  autocmd FileType cs nnoremap <leader>d  :OmniSharpDocumentation<CR>
+  autocmd FileType cs nnoremap <C-K>      :OmniSharpNavigateUp<CR>
+  autocmd FileType cs nnoremap <C-J>      :OmniSharpNavigateDown<CR>
+  autocmd FileType cs nnoremap <leader>rn :OmniSharpRename<CR>
+  autocmd FileType cs nnoremap <leader>cf :OmniSharpCodeFormat<CR>
+  autocmd FileType cs nnoremap <leader>rl :OmniSharpReloadSolution<CR>
+augroup END
 
-  if (has('win32_unix'))
-    " http version
-    " - Works on Cygwin
-    " - Requires python 2 or 3, and, either vim-dispatch or vimproc.vim
-    let g:OmniSharp_server_stdio = 0
-    let g:OmniSharp_server_path = '/usr/local/bin/omnisharp.http-win-x64/OmniSharp.exe'
+" 'Shougo/neocomplete.vim
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-    if !(has('python3') || has('python'))
-      echoerr 'Http version of OmniSharp requires python enabled'
-    endif
-  else
-    " stdio version
-    " - Works on Unix, WSL, etc
-    " - No python is required
-    let g:OmniSharp_server_stdio = 1
-    let g:OmniSharp_server_path = '/usr/local/bin/omnisharp-win-x64/OmniSharp.exe'
-  endif
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
-  " Install manually
-  if !filereadable(g:OmniSharp_server_path)
-    echoerr 'OmniSharp must be installed: '.expand(g:OmniSharp_server_path)
-  endif
-
-  " Set in WSL (default is 1 on cygwin)
-  " TODO: Auto detect WSL
-  "       OmniSharp の README によると、WSL 環境では以下のフラグをセットする
-  "       Cygwin ユーザなのでセット不要だが、WSL ユーザになった際は対応する
-  " let g:OmniSharp_translate_cygwin_wsl = 1
-
-  " Common
-  "let g:OmniSharp_loglevel = 'debug' " Set when chasing errors.
-  let g:OmniSharp_timeout = 50
-  let g:OmniSharp_highlight_groups = {
-        \ 'Comment': 'NonText',
-        \ 'XmlDocCommentName': 'Identifier',
-        \ 'XmlDocCommentText': 'NonText'
-        \}
-
+augroup NeocompleteSettings
+  autocmd!
   autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 augroup END
 
