@@ -44,6 +44,10 @@ if dein#load_state(s:dein_dir)
   call dein#add('rhysd/vim-clang-format')
   call dein#add('kana/vim-operator-user')
 
+  " Language specific.
+  call dein#add('OmniSharp/omnisharp-vim', {'on_ft' : 'cs'})
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+
   call dein#end()
   call dein#save_state()
 endif
@@ -88,7 +92,13 @@ map ss <Plug>(easymotion-s)
 "
 " Dependencies:
 " C/C++ http://releases.llvm.org/download.html
-let g:clang_format#code_style="google"
+"
+" TODO: error message when not exists
+"       手動で導入が必要、かつ、インストールの自動化が難しいツールについては、
+"       初期化時に未導入のエラーメッセージを出力する対応とする。
+" TODO: C/C++ only
+"
+let g:clang_format#code_style='google'
 let g:clang_format#style_options = {
       \ "Standard" : "C++11"}
 augroup ClangFormatSettings
@@ -99,4 +109,50 @@ augroup END
 
 " Code formatter
 nnoremap <Space>f :ClangFormat<CR>
+
+" Language specific.
+" 'OmniSharp/omnisharp-vim'
+augroup OmnisharpSettings
+  autocmd!
+
+  if (has('win32_unix'))
+    " http version
+    " - Works on Cygwin
+    " - Requires python 2 or 3, and, either vim-dispatch or vimproc.vim
+    let g:OmniSharp_server_stdio = 0
+    let g:OmniSharp_server_path = '/usr/local/bin/omnisharp.http-win-x64/OmniSharp.exe'
+
+    if !(has('python3') || has('python'))
+      echoerr 'Http version of OmniSharp requires python enabled'
+    endif
+  else
+    " stdio version
+    " - Works on Unix, WSL, etc
+    " - No python is required
+    let g:OmniSharp_server_stdio = 1
+    let g:OmniSharp_server_path = '/usr/local/bin/omnisharp-win-x64/OmniSharp.exe'
+  endif
+
+  " Install manually
+  if !filereadable(g:OmniSharp_server_path)
+    echoerr 'OmniSharp must be installed: '.expand(g:OmniSharp_server_path)
+  endif
+
+  " Set in WSL (default is 1 on cygwin)
+  " TODO: Auto detect WSL
+  "       OmniSharp の README によると、WSL 環境では以下のフラグをセットする
+  "       Cygwin ユーザなのでセット不要だが、WSL ユーザになった際は対応する
+  " let g:OmniSharp_translate_cygwin_wsl = 1
+
+  " Common
+  "let g:OmniSharp_loglevel = 'debug' " Set when chasing errors.
+  let g:OmniSharp_timeout = 50
+  let g:OmniSharp_highlight_groups = {
+        \ 'Comment': 'NonText',
+        \ 'XmlDocCommentName': 'Identifier',
+        \ 'XmlDocCommentText': 'NonText'
+        \}
+
+  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+augroup END
 

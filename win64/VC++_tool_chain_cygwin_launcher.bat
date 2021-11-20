@@ -206,6 +206,12 @@ REM ========================================
 SET LIB=%LIBPATH%;
 
 REM ========================================
+REM Misc.
+REM ========================================
+REM .NET Telemetry (OPT-OUT)
+SET DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+REM ========================================
 REM Terminal launched
 REM ========================================
 START C:\cygwin64\bin\mintty -e C:\cygwin64\bin\bash.exe --login
