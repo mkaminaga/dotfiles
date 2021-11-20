@@ -133,7 +133,7 @@ autocmd BufRead surfaces.txt set ft=dot
 " ==================================================
 " Plugins
 " ==================================================
-if has("gui_running")
+if has('gui_running')
   " None for gVim
 else
   source ~/.vimrc.plugins
@@ -157,7 +157,7 @@ nnoremap \c :call ToCamelCase()<CR>
 " ==================================================
 " External files
 " ==================================================
-if has("gui_running")
+if has('gui_running')
   source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.keymap
   source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.util
   setlocal spellfile=C:\cygwin64\home\Mamoru\.vim\spell\en.utf-8.add
@@ -170,7 +170,7 @@ endif
 " ==================================================
 " Filetype
 " ==================================================
-if has("gui_running")
+if has('gui_running')
   autocmd FileType c,cpp,perl,html,ino,rc source C:\cygwin64\home\Mamoru\dotfiles\my_vim\c.vim
   autocmd FileType cs source C:\cygwin64\home\Mamoru\dotfiles\my_vim\cs.vim
   autocmd FileType tex source C:\cygwin64\home\Mamoru\dotfiles\my_vim\tex.vim
@@ -183,7 +183,7 @@ endif
 " ==================================================
 " Graphics
 " ==================================================
-if has("gui_running")
+if has('gui_running')
   "silent! source C:\cygwin64\home\Mamoru\.vim\colors\molokai.vim
   colorscheme desert " TODO Unable to load external colorscheme from gVim
   set guifont=MS_Gothic:h10

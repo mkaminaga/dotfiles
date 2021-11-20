@@ -9,7 +9,11 @@
 " EasyMotion auto installation.
 " See also
 " https://qiita.com/kawaz/items/ee725f6214f91337b42b
-set nocompatible
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 let s:cache_home=empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir=s:cache_home . '/dein'
 let s:dein_repo_dir=s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -19,10 +23,11 @@ endif
 let &runtimepath=&runtimepath .",". s:dein_repo_dir
 
 " Add the dein installation directory into runtimepath.
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  " For dein itself.
+  call dein#add(s:dein_repo_dir)
 
   " For the improvement of visual.
   call dein#add('tomasr/molokai')
@@ -43,10 +48,14 @@ if dein#load_state('~/.cache/dein')
   call dein#save_state()
 endif
 
-" Installation check.
 if has('vim_starting') && dein#check_install()
+  let g:dein#auto_recache = 1
+
   call dein#install()
+  call map(dein#check_clean(), "delete(v:val, 'rf')")
 endif
+
+"End dein Scripts-------------------------
 
 " Motion plugin.
 " easymotion/vim-easymotion
@@ -90,3 +99,4 @@ augroup END
 
 " Code formatter
 nnoremap <Space>f :ClangFormat<CR>
+
