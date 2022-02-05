@@ -7,14 +7,16 @@ export HISTSIZE=30000
 #---------------------------------------
 # Custom setting
 #---------------------------------------
-source .bashrc.utils
-source .bashrc.alias
+export DOTFILES_ROOT="/cygdrive/c/cygwin64/home/Mamoru/dotfiles"
+export CUSTOM_ROOT="/cygdrive/c/kaminaga"
+source "${DOTFILES_ROOT}/.bashrc.utils"
+source "${DOTFILES_ROOT}/.bashrc.alias"
 
 shopt -s globstar
 SetSaveDirName
 
 #---------------------------------------
-# Terminal
+# Git
 #---------------------------------------
 # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 # https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
