@@ -2,8 +2,9 @@
 # Terminal
 # --------------------------------------
 alias c='cygstart'
-alias e='vim ~/.bashrc'
-alias s='source ~/.bashrc'
+alias e="vim -p ${DOTFILES_ROOT}/.bashrc ${DOTFILES_ROOT}/.bashrc.alias ${DOTFILES_ROOT}/.bashrc.utils"
+alias ev="vim -p ${DOTFILES_ROOT}/.vimrc.keymap ${DOTFILES_ROOT}/.vimrc.util ${DOTFILES_ROOT}/.vimrc"
+alias s="source ${DOTFILES_ROOT}/.bashrc"
 alias x='exit'
 alias new='OpenNewTerminal'
 
@@ -12,8 +13,7 @@ alias new='OpenNewTerminal'
 # --------------------------------------
 alias v='vim -p'
 alias vim='vim -p'
-alias ve='vim ~/.vimrc'
-alias vi='vim -p --noplugin -u ~/dotfiles/.vimrc_minimum'
+alias vi="vim -p --noplugin -u ${DOTFILES_ROOT}/.vimrc_minimum"
 
 # --------------------------------------
 # Commands
@@ -50,6 +50,7 @@ alias gs='git status'
 # --------------------------------------
 # Jump
 # --------------------------------------
+alias jd="cd ${DOTFILES_ROOT}"
 
 # --------------------------------------
 # Custom functions

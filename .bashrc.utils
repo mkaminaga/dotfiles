@@ -1,7 +1,7 @@
 # --------------------------------------
 # Directory name
 # --------------------------------------
-TEMPLATE_DIR='~/dotfiles/template/'
+TEMPLATE_DIR="${DOTFILES_ROOT}/template/"
 SAVE_DIR_NAME='/tmp/SaveDirName'
 
 # --------------------------------------
