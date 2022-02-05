@@ -5,8 +5,8 @@ alias c='cygstart'
 alias e="vim -p ${DOTFILES_ROOT}/.bashrc ${DOTFILES_ROOT}/.bashrc.alias ${DOTFILES_ROOT}/.bashrc.utils"
 alias ev="vim -p ${DOTFILES_ROOT}/.vimrc.keymap ${DOTFILES_ROOT}/.vimrc.util ${DOTFILES_ROOT}/.vimrc"
 alias s="source ${DOTFILES_ROOT}/.bashrc"
-alias x='exit'
-alias new='OpenNewTerminal'
+alias x="pwd > ${DIR_SAVE_FILE_PATH}; exit"
+alias new="pwd > ${DIR_SAVE_FILE_PATH}; cygstart /cygdrive/c/cygwin64/bin/mintty -e /cygdrive/c/cygwin64/bin/bash.exe --login"
 
 # --------------------------------------
 # Editor
@@ -51,10 +51,14 @@ alias gs='git status'
 # Jump
 # --------------------------------------
 alias jd="cd ${DOTFILES_ROOT}"
+alias jk="cd ${CUSTOM_ROOT}"
+alias jkp="cd ${CUSTOM_ROOT}/pic"
+alias jkd="cd ${CUSTOM_ROOT}/doc"
+alias jkt="cd ${CUSTOM_ROOT}/tmp"
 
 # --------------------------------------
-# Custom functions
+# Custom utilities
 # --------------------------------------
-alias balse='RestartExplorer'
+alias balse='taskkill /im explorer.exe /f; cygstart explorer'
 alias doxygen='RunDoxygen'
 

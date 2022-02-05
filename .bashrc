@@ -5,15 +5,27 @@ export HISTCONTROL=ignoredups
 export HISTSIZE=30000
 
 #---------------------------------------
-# Custom setting
+# Custom environmental variables
 #---------------------------------------
 export DOTFILES_ROOT="/cygdrive/c/cygwin64/home/Mamoru/dotfiles"
 export CUSTOM_ROOT="/cygdrive/c/kaminaga"
+export DIR_SAVE_FILE_PATH="${CUSTOM_ROOT}/dir_save.txt"
+
+#---------------------------------------
+# Terminal launch path
+#---------------------------------------
+if [[ ! -e "${DIR_SAVE_FILE_PATH}" ]]; then
+  echo ${CUSTOM_ROOT} > ${DIR_SAVE_FILE_PATH}
+fi
+cd $(cat ${DIR_SAVE_FILE_PATH})
+
+#---------------------------------------
+# Custom setting
+#---------------------------------------
 source "${DOTFILES_ROOT}/.bashrc.utils"
 source "${DOTFILES_ROOT}/.bashrc.alias"
 
 shopt -s globstar
-SetSaveDirName
 
 #---------------------------------------
 # Git

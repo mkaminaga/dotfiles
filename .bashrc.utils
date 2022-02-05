@@ -2,35 +2,11 @@
 # Directory name
 # --------------------------------------
 TEMPLATE_DIR="${DOTFILES_ROOT}/template/"
-SAVE_DIR_NAME='/tmp/SaveDirName'
-
-# --------------------------------------
-# Terminal
-# --------------------------------------
-if [ ! -e ${SAVE_DIR_NAME} ]; then
-  touch ${SAVE_DIR_NAME}
-fi
-
-function SetSaveDirName() {
-  cd $(cat ${SAVE_DIR_NAME})
-}
-
-function OpenNewTerminal() {
-  pwd > ${SAVE_DIR_NAME} && cygstart /cygdrive/c/cygwin64/bin/mintty -e /cygdrive/c/cygwin64/bin/bash.exe --login
-}
-
-# --------------------------------------
-# Explorer
-# --------------------------------------
-function RestartExplorer() {
-  taskkill /im explorer.exe /f
-  cygstart explorer
-}
 
 # --------------------------------------
 # Tortoise SVN
 # --------------------------------------
-function TortoiseSVN() {
+TortoiseSVN() {
   if [ "$1" = "commit" ]; then
     # commit
     if [ "$3" = "" ]; then
@@ -54,7 +30,7 @@ function TortoiseSVN() {
 # --------------------------------------
 # Doxygen
 # --------------------------------------
-function RunDoxygen() {
+RunDoxygen() {
   if [ "${1}" = "" ]; then
     echo "arg1: Project name is not specified";
     return;
