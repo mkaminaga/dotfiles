@@ -17,6 +17,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# User specific custom files
+.bash.myalias
+
 # =========================
 # Operating System Files
 # =========================

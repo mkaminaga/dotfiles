@@ -2,7 +2,7 @@
 # Terminal
 # --------------------------------------
 alias c='cygstart'
-alias e="vim -p ${DOTFILES_ROOT}/.bashrc ${DOTFILES_ROOT}/.bashrc.alias ${DOTFILES_ROOT}/.bashrc.utils"
+alias e="vim -p ${DOTFILES_ROOT}/.bashrc ${DOTFILES_ROOT}/.bashrc.alias ${DOTFILES_ROOT}/.bashrc.utils ${CUSTOM_ROOT}/.bashrc.myalias"
 alias ev="vim -p ${DOTFILES_ROOT}/.vimrc.keymap ${DOTFILES_ROOT}/.vimrc.util ${DOTFILES_ROOT}/.vimrc"
 alias s="source ${DOTFILES_ROOT}/.bashrc"
 alias x="pwd > ${DIR_SAVE_FILE_PATH}; exit"
@@ -62,3 +62,12 @@ alias jkt="cd ${CUSTOM_ROOT}/tmp"
 alias balse='taskkill /im explorer.exe /f; cygstart explorer'
 alias doxygen='RunDoxygen'
 
+# --------------------------------------
+# Custom
+# --------------------------------------
+if [[ -e ${CUSTOM_ROOT}/.bashrc.myalias ]]; then
+  source ${CUSTOM_ROOT}/.bashrc.myalias
+  echo "Info: ${CUSTOM_ROOT}/.bashrc.myalias is loaded"
+else
+  echo "Info: ${CUSTOM_ROOT}/.bashrc.myalias is not loaded"
+fi
