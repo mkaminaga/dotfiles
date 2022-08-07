@@ -3,22 +3,51 @@ dotfiles
 
 This is dotfiles for my environment.
 
-create_link.sh
+Scripts
 ----
-Create symbolic links for dotfiles.
-Optimized for Cygwin/MSYS.
-
-dotfilelinks.sh
-----
+* dotfilelinks.sh
 Create symbolic links for dotfiles.
 Optimized for UNIX.
 
-doc
+* create_link.sh
+Create symbolic links for dotfiles.
+Optimized for Cygwin/MSYS.
+
+Files
+----
+* .bash_profile
+Login entry script.
+
+* .bashrc
+Shell entry script.
+
+* .bashrc.alias
+Alias for .bashrc.
+
+* .bashrc.utils
+Functions for .bashrc.
+
+* .vimrc
+Vim settings.
+
+* .vimrc.keymap
+Vim keymap settings.
+
+* .vimrc.plugins
+Vim plugin settings.
+
+* .vimrc.util
+Vim function settings.
+
+* .vimrc_minimum
+Light vim setting.
+
+Doc
 ----
 * howto.txt
-Knowledge for PC settings.
+Note for machine settings that cannot be automated from script.
 
-tools
+Tools
 ----
 * android_tools
 Tools for android.
@@ -26,7 +55,7 @@ Tools for android.
 * bat
 Tools for windows.
 
-win64
+Windows specific
 ----
 * 32bit.lnk
 32bit build terminal.
