@@ -87,9 +87,9 @@ fi
 #---------------------------------------
 # Git
 #---------------------------------------
-# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-# https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-# Run : dotfiles/install_git_prompt_and_git_completion.sh
+# Run dotfiles/install_git_tools.sh install following scripts
+# - https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+# - https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 if [[ "${MACHINE}" == "MAC" ]]; then
   # None
   :

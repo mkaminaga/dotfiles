@@ -1,0 +1,13 @@
+TODO list
+====
+
+create_link.sh
+----
+* refactor
+- Use ${MACHINE} variable to judge CYGWIN/MSYS (+2022/08/07)
+- Rename file (+2022/08/07)
+
+install_git_tools.sh
+----
+* feature
+- Install git-prompt and git-completion tool for zsh (+2022/08/07)

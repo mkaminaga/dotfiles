@@ -76,7 +76,7 @@ alias jc="cd ${CUSTOM_ROOT}"
 New() {
   if [[ "${MACHINE}" == "CYGWIN" ]]; then
     pwd > ${DIR_SAVE_FILE_PATH};
-    explorer win64/VC++ToolChain_MY_PC_CYGWIN.bat
+    explorer.exe tools/windows/VC++ToolChain_MY_PC_CYGWIN.bat
     #c /cygdrive/c/cygwin64/bin/mintty -e /cygdrive/c/cygwin64/bin/bash.exe --login
   else
     echo "Error: New is only supported on cygwin"

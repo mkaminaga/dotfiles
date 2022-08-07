@@ -49,23 +49,11 @@ Note for machine settings that cannot be automated from script.
 
 Tools
 ----
-* android_tools
+* tools/android
 Tools for android.
 
-* bat
+* tools/windows
 Tools for windows.
-
-Windows specific
-----
-* 32bit.lnk
-32bit build terminal.
-
-* 64bit.lnk
-64 build terminal.
-
-* TERATERM.INI
-TERATERM terminal.
-
-* VC++_tool_chain_cygwin_launcher.bat
-Called from 32/64bit.lnk
+- TERATERM.INI
+- VC++_tool_chain_cygwin_launcher.bat
 
