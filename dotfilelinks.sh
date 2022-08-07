@@ -8,14 +8,26 @@
 #   mklink /H <Link> <Original>
 #
 
+# OS judgement
+export MACHINE=''
+uname_output="$(uname -s)"
+case "${uname_output}" in
+  Darwin*)
+    # Mac OS
+    ln -f -s ~/dotfiles/.bashrc ~/.zshrc
+    ;;
+  *)
+    ;;
+esac
+echo "MACHINE=${MACHINE}"
+
 # Shell
 ln -f -s ~/dotfiles/.bashrc ~/.bashrc
 ln -f -s ~/dotfiles/.bashrc.utils ~/.bashrc.utils
 ln -f -s ~/dotfiles/.bashrc.alias ~/.bashrc.alias
 
 # Profile
-ln -f -s ~/dotfiles/.bash_profile_cygwin ~/.bash_profile_cygwin
-ln -f -s ~/dotfiles/.bash_profile_msys2 ~/.bash_profile_msys2
+ln -f -s ~/dotfiles/.bash_profile ~/.bash_profile
 
 # Commands
 ln -f -s ~/dotfiles/.ctags ~/.ctags

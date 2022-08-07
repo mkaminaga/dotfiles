@@ -1,12 +1,26 @@
 # --------------------------------------
+# Open
+# --------------------------------------
+if [[ "${MACHINE}" == "MAC" ]]; then
+  alias c='open'
+elif [[ "${MACHINE}" == "CYGWIN" ]]; then
+  alias c='cygstart'
+elif [[ "${MACHINE}" == "WSL" ]]; then
+  alias c='explorer.exe'
+elif [[ "${MACHINE}" == "LINUX" ]]; then
+  alias c='xdg-open'
+else
+  alias c=''
+fi
+
+# --------------------------------------
 # Terminal
 # --------------------------------------
-alias c='cygstart'
 alias e="vim -p ${DOTFILES_ROOT}/.bashrc ${DOTFILES_ROOT}/.bashrc.alias ${DOTFILES_ROOT}/.bashrc.utils ${CUSTOM_ROOT}/.bashrc.myalias"
 alias ev="vim -p ${DOTFILES_ROOT}/.vimrc.keymap ${DOTFILES_ROOT}/.vimrc.util ${DOTFILES_ROOT}/.vimrc"
 alias s="source ${DOTFILES_ROOT}/.bashrc"
+alias exit="pwd > ${DIR_SAVE_FILE_PATH}; exit"
 alias x="pwd > ${DIR_SAVE_FILE_PATH}; exit"
-alias new="pwd > ${DIR_SAVE_FILE_PATH}; cygstart /cygdrive/c/cygwin64/bin/mintty -e /cygdrive/c/cygwin64/bin/bash.exe --login"
 
 # --------------------------------------
 # Editor
@@ -18,9 +32,19 @@ alias vi="vim -p --noplugin -u ${DOTFILES_ROOT}/.vimrc_minimum"
 # --------------------------------------
 # Commands
 # --------------------------------------
-alias la='ls -la -l -h'
-alias ls='ls --color=auto --show-control-chars'
-alias sl='ls --color=auto --show-control-chars'
+if [[ "${MACHINE}" == "MAC" ]]; then
+  alias la='ls -lGF'
+  alias ls='ls -GF'
+  alias ls='ls -GF'
+else
+  alias la='ls -la -l -h'
+  alias ls='ls --color=auto --show-control-chars'
+  alias sl='ls --color=auto --show-control-chars'
+fi
+
+if [[ "${MACHINE}" == "CYGWIN" ]]; then
+  alias ps='ps -s -W'
+fi
 
 alias tree='tree -C -L'
 alias tsvn='TortoiseSVN'
@@ -28,13 +52,6 @@ alias u2w='nkf -w -Lw'
 alias u2wo='nkf -w -Lw --overwrite'
 alias w2u='nkf -u -Lu'
 alias w2uo='nkf -u -Lu --overwrite'
-
-# --------------------------------------
-# Build tools
-# --------------------------------------
-alias cl='cl /W4 /DUNICODE /D_UNICODE'
-alias cpplint='cpplint.py --filter=-build/include'
-alias ps='ps -s -W'
 
 # --------------------------------------
 # Git
@@ -50,24 +67,41 @@ alias gs='git status'
 # --------------------------------------
 # Jump
 # --------------------------------------
-alias jd="cd ${DOTFILES_ROOT}"
-alias jk="cd ${CUSTOM_ROOT}"
-alias jkp="cd ${CUSTOM_ROOT}/pic"
-alias jkd="cd ${CUSTOM_ROOT}/doc"
-alias jkt="cd ${CUSTOM_ROOT}/tmp"
+alias jr="cd ${DOTFILES_ROOT}"
+alias jc="cd ${CUSTOM_ROOT}"
 
 # --------------------------------------
-# Custom utilities
+# Terminal initial directory
 # --------------------------------------
-alias balse='taskkill /im explorer.exe /f; cygstart explorer'
-alias doxygen='RunDoxygen'
+New() {
+  if [[ "${MACHINE}" == "CYGWIN" ]]; then
+    pwd > ${DIR_SAVE_FILE_PATH};
+    explorer win64/VC++ToolChain_MY_PC_CYGWIN.bat
+    #c /cygdrive/c/cygwin64/bin/mintty -e /cygdrive/c/cygwin64/bin/bash.exe --login
+  else
+    echo "Error: New is only supported on cygwin"
+  fi
+}
+alias new='New'
 
 # --------------------------------------
-# Custom
+# Programming tools
 # --------------------------------------
-if [[ -e ${CUSTOM_ROOT}/.bashrc.myalias ]]; then
-  source ${CUSTOM_ROOT}/.bashrc.myalias
-  echo "Info: ${CUSTOM_ROOT}/.bashrc.myalias is loaded"
-else
-  echo "Info: ${CUSTOM_ROOT}/.bashrc.myalias is not loaded"
+if [[ "${MACHINE}" == "CYGWIN" ]] || [[ "${MACHINE}" == "WSL" ]]; then
+  alias cl='cl.exe /W4 /DUNICODE /D_UNICODE'
 fi
+alias cpplint='cpplint.py --filter=-build/include'
+
+# --------------------------------------
+# Alias for .bashrc.utils
+# --------------------------------------
+alias doxygen='RunDoxygen'
+alias tsvn='TortoiseSVN'
+
+# --------------------------------------
+# Stop explorer.exe
+# --------------------------------------
+if [[ "${MACHINE}" == "CYGWIN" ]] || [[ "${MACHINE}" == "WSL" ]]; then
+  alias balse='taskkill.exe /im explorer.exe /f'
+fi
+

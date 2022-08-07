@@ -45,7 +45,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('kana/vim-operator-user')
 
   " for Unity C#
-  call dein#add('OmniSharp/omnisharp-vim', {'on_ft' : 'cs'})
+  " call dein#add('OmniSharp/omnisharp-vim', {'on_ft' : 'cs'})
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('Shougo/neocomplete.vim')
 
@@ -109,6 +109,7 @@ augroup ClangFormatSettings
   autocmd FileType c,cpp,objc vnoremap <Leader>f :ClangFormat<CR>
 augroup END
 
+if 0
 " Unity C#
 " 'OmniSharp/omnisharp-vim'
 if (has('win32_unix'))
@@ -167,6 +168,7 @@ augroup OmnisharpSettings
   autocmd FileType cs nnoremap <leader>cf :OmniSharpCodeFormat<CR>
   autocmd FileType cs nnoremap <leader>rl :OmniSharpReloadSolution<CR>
 augroup END
+endif
 
 " 'Shougo/neocomplete.vim
 let g:acp_enableAtStartup = 0
@@ -191,6 +193,6 @@ let g:neocomplete#sources#omni#input_patterns.cs = '[^.]\.\%(\u\{2,}\)\?'
 
 augroup NeocompleteSettings
   autocmd!
-  autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+  " autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 augroup END
 

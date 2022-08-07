@@ -7,23 +7,27 @@ TEMPLATE_DIR="${DOTFILES_ROOT}/template/"
 # Tortoise SVN
 # --------------------------------------
 TortoiseSVN() {
-  if [ "$1" = "commit" ]; then
-    # commit
-    if [ "$3" = "" ]; then
-      echo "write log message!";
+  if [[ "${MACHINE}" == "CYGWIN" ]]; then
+    if [ "$1" = "commit" ]; then
+      # commit
+      if [ "$3" = "" ]; then
+        echo "Error: log message must not be empty";
+      else
+        cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
+          /command:$1 \
+          /path:`cygpath -w $2` \
+          /logmsg:"\"$3\"" \
+          /closeonend:1;
+      fi
     else
+      # update
       cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
-        /command:$1 \
+        /command:$1\
         /path:`cygpath -w $2` \
-        /logmsg:"\"$3\"" \
         /closeonend:1;
     fi
   else
-    # update
-    cygstart /cygdrive/c/"Program Files"/TortoiseSVN/bin/TortoiseProc.exe\
-      /command:$1\
-      /path:`cygpath -w $2` \
-      /closeonend:1;
+    echo "Error: New is only supported on cygwin"
   fi
 }
 
@@ -32,19 +36,22 @@ TortoiseSVN() {
 # --------------------------------------
 RunDoxygen() {
   if [ "${1}" = "" ]; then
-    echo "arg1: Project name is not specified";
-    return;
+    echo "Error: project name is not specified"
+    echo "Usage : ${0} <project name> <output dir>"
+    return
   fi
 
   if [ "${2}" = "" ]; then
-    echo "arg2: output dir is not specified";
-    return;
+    echo "Error: output dir is not specified"
+    echo "Usage : ${0} <project name> <output dir>"
+    return
   fi
 
   PROJECT=${1}
   OUTDIR=${2}
 
   # Overwrite project name
-  (cat ${TEMPLATE_DIR}/Doxyfile ; echo "PROJECT_NAME=${PROJECT}"; echo "HTML_OUTPUT=${OUTDIR}/${PROJECT}") | doxygen - && cygstart ${OUTDIR}/${PROJECT}/index.html;
+  (cat ${TEMPLATE_DIR}/Doxyfile ; echo "PROJECT_NAME=${PROJECT}"; echo "HTML_OUTPUT=${OUTDIR}/${PROJECT}") | doxygen - && c ${OUTDIR}/${PROJECT}/index.html;
+  echo "Output: ${OUTDIR}/${PROJECT}/index.html"
 }
 

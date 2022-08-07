@@ -59,9 +59,10 @@ function common_links_for_pc1 () {
 
 # Cygwin links
 function cygwin_links_for_pc1 () {
-  # Dotfiles (Local)
-  \cmd /c "mklink /H ${1}\\.bashrc   ${1}\\dotfiles\\.bashrc_cygwin"
-  \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_cygwin"
+  if [[ "${MACHINE}" == "CYGWIN" ]]; then
+    \cmd /c "mklink /H ${1}\\.bashrc   ${1}\\dotfiles\\.bashrc_cygwin"
+    \cmd /c "mklink /H ${1}\\.bash_profile ${1}\\dotfiles\\.bash_profile_cygwin"
+  fi
 }
 
 # MSYS2 links
