@@ -75,6 +75,8 @@ source "${DOTFILES_ROOT}/.bashrc.utils"
 source "${DOTFILES_ROOT}/.bashrc.alias"
 if [[ ! -e "${CUSTOM_ROOT}/.bashrc.myalias" ]]; then
   echo "# Add your original alias here." >> ${CUSTOM_ROOT}/.bashrc.myalias
+else
+source "${CUSTOM_ROOT}/.bashrc.myalias"
 fi
 
 if [[ "${MACHINE}" == "MAC" ]]; then
