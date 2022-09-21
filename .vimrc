@@ -158,9 +158,17 @@ nnoremap \c :call ToCamelCase()<CR>
 " External files
 " ==================================================
 if has('gui_running')
-  source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.keymap
-  source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.util
-  setlocal spellfile=C:\cygwin64\home\Mamoru\.vim\spell\en.utf-8.add
+  if has('win32unix')
+    " cygwin
+    source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.keymap
+    source C:\cygwin64\home\Mamoru\dotfiles\.vimrc.util
+    setlocal spellfile=C:\cygwin64\home\Mamoru\.vim\spell\en.utf-8.add
+  else
+    " wsl
+    source \\wsl.localhost\Ubuntu\home\user\dotfiles\.vimrc.keymap
+    source \\wsl.localhost\Ubuntu\home\user\dotfiles\.vimrc.util
+    setlocal spellfile=\\wsl.localhost\Ubuntu\home\user\dotfiles\my_vim\.vim\spell\en.utf-8.add
+  endif
 else
   source ~/.vimrc.keymap
   source ~/.vimrc.util
@@ -171,9 +179,17 @@ endif
 " Filetype
 " ==================================================
 if has('gui_running')
-  autocmd FileType c,cpp,perl,html,ino,rc source C:\cygwin64\home\Mamoru\dotfiles\my_vim\c.vim
-  autocmd FileType cs source C:\cygwin64\home\Mamoru\dotfiles\my_vim\cs.vim
-  autocmd FileType tex source C:\cygwin64\home\Mamoru\dotfiles\my_vim\tex.vim
+  if has('win32unix')
+    " cygwin
+    autocmd FileType c,cpp,perl,html,ino,rc source C:\cygwin64\home\Mamoru\dotfiles\my_vim\c.vim
+    autocmd FileType cs source C:\cygwin64\home\Mamoru\dotfiles\my_vim\cs.vim
+    autocmd FileType tex source C:\cygwin64\home\Mamoru\dotfiles\my_vim\tex.vim
+  else
+    " wsl
+    autocmd FileType c,cpp,perl,html,ino,rc source \\wsl.localhost\Ubuntu\home\user\dotfiles\my_vim\c.vim
+    autocmd FileType cs source \\wsl.localhost\Ubuntu\home\user\dotfiles\my_vim\cs.vim
+    autocmd FileType tex source \\wsl.localhost\Ubuntu\home\user\dotfiles\my_vim\tex.vim
+  endif
 else
   autocmd FileType c,cpp,perl,html,ino,rc source ~/dotfiles/my_vim/c.vim
   autocmd FileType cs source ~/dotfiles/my_vim/cs.vim
